@@ -1,0 +1,24 @@
+.cs_hero.cs_style_1 {
+  &.cs_type_2 {
+    min-height: 100vh;
+    padding-top: 145px;
+    .cs_player_btn {
+      &:before,
+      &:after {
+        background-color: #fff;
+      }
+    }
+    .cs_video_open {
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+}
+@media (max-width: 575px) {
+  .cs_hero.cs_style_2 {
+    .cs_hero_shape_1 {
+      display: none !important;
+    }
+  }
+}

@@ -1,0 +1,81 @@
+.scroll-gallery {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+}
+
+/* scroll lock */
+body.scroll-lock {
+  overflow: hidden;
+}
+
+/* blurred glowing background */
+.gallery-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 190, 0, 0.25),
+      transparent 60%);
+  filter: blur(80px);
+  animation: glowMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove {
+  from { transform: scale(1); }
+  to { transform: scale(1.2); }
+}
+
+/* stage */
+.gallery-stage {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+}
+
+/* images */
+.gallery-img {
+  position: absolute;
+  width: 360px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 28px;
+  transition: 
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease;
+  box-shadow:
+    0 40px 120px rgba(0,0,0,0.6),
+    0 0 60px rgba(255, 190, 0, 0.35);
+  filter: brightness(0.9);
+}
+
+.gallery-img.active {
+  filter: brightness(1);
+  box-shadow:
+    0 60px 160px rgba(0,0,0,0.8),
+    0 0 120px rgba(255, 200, 0, 0.6);
+}
+.gallery-img {
+  position: absolute;
+  width: 360px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 28px;
+
+  transition: 
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s ease,
+    filter 0.6s ease;
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.45),
+    0 0 40px rgba(255, 190, 0, 0.25);
+
+  /* 👇 THIS IS KEY */
+  filter: brightness(0.85) blur(2.5px);
+  opacity: 0.75;
+}
