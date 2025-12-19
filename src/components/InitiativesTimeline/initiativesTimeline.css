@@ -1,0 +1,231 @@
+/* ================= SECTION ================= */
+.timeline-section {
+  padding: 120px 0;
+  background: #fafafa;
+}
+
+/* ================= HEADING ================= */
+.timeline-heading {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.timeline-heading span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #f5a623;
+  text-transform: uppercase;
+}
+
+.timeline-heading h2 {
+  font-size: 34px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ================= GRID ================= */
+.timeline-grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* ================= ITEM (ANIMATION BASE) ================= */
+.timeline-item {
+  opacity: 0;
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* LEFT COLUMN */
+.timeline-item:nth-child(odd) {
+  transform: translateX(-60px) scale(0.96);
+}
+
+/* RIGHT COLUMN */
+.timeline-item:nth-child(even) {
+  transform: translateX(60px) scale(0.96);
+}
+
+/* WHEN VISIBLE */
+.timeline-item.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* ================= CARD ================= */
+.timeline-card {
+  background: #ffffff;
+  padding: 22px 26px;
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+  display: flex;
+  gap: 18px;
+  height: 100%;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.timeline-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(245, 166, 35, 0.18);
+}
+
+/* LOGO */
+.timeline-card img {
+  height: 44px;
+  width: auto;
+}
+
+/* CONTENT */
+.timeline-content h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.timeline-content p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.timeline-content a {
+  font-size: 13px;
+  font-weight: 500;
+  color: #f5a623;
+  text-decoration: none;
+}
+
+.timeline-content a:hover {
+  text-decoration: underline;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .timeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    transform: translateY(40px);
+  }
+
+  .timeline-item.show {
+    transform: translateY(0);
+  }
+
+  .timeline-card {
+    flex-direction: column;
+  }
+
+  .timeline-card img {
+    height: 38px;
+  }
+}
+/* ================= GENERIC REVEAL ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= INFO SECTIONS ================= */
+.info-section {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.info-section.light {
+  background: #fafafa;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-heading span {
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #f5a623;
+  text-transform: uppercase;
+}
+
+.section-heading h2 {
+  font-size: 34px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+/* ================= INFO GRID ================= */
+.info-grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+/* ================= INFO CARD ================= */
+.info-card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 60px rgba(245, 166, 35, 0.18);
+}
+
+.info-card h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.info-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================= SECTION SPACING FIX ================= */
+.timeline-section {
+  padding: 140px 0;
+}
+
+/* spacing below each section heading */
+.section-heading {
+  margin-top: 120px;
+  margin-bottom: 60px;
+}
+
+/* first section heading should not push down */
+.timeline-section .timeline-heading {
+  margin-top: 0;
+}
+
+/* spacing between grid and next heading */
+.timeline-grid {
+  margin-bottom: 120px;
+}
+
+/* info grids spacing */
+.info-grid {
+  margin-bottom: 140px;
+}

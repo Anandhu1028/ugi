@@ -128,6 +128,41 @@ const CSR = () => {
   </div>
 </div>
 
+{/* ================= SEE ALL ACTIVITIES ================= */}
+<div className="csr-activities">
+  <div className="csr-activities-inner container reveal zoom">
+
+    <div className="csr-activities-content">
+      <span className="csr-tag">UGI</span>
+      <h2>See  Our Activities</h2>
+      <p>
+        Our responsibility doesn’t stop at individual initiatives. From health
+        drives to sustainability programs, UGI actively works toward long-term
+        social impact.
+      </p>
+
+      <a href="/csr-activities" className="csr-btn">
+        Explore Activities
+      </a>
+    </div>
+
+    <div className="csr-activities-images">
+      <img
+        src="/assets/img/csr/img-1.webp"
+        alt="CSR Activity 1"
+        className="img img-left"
+      />
+      <img
+        src="/assets/img/csr/img-2.webp"
+        alt="CSR Activity 2"
+        className="img img-right"
+      />
+    </div>
+
+  </div>
+</div>
+
+
 
     </section>
   );

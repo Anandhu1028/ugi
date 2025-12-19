@@ -38,7 +38,8 @@ const Header = () => {
             <div className="cs_top_header_left">
               <ul className="cs_top_nav d-flex flex-wrap align-items-center cs_fs_12 text-white m-0 p-0">
                 <li>
-                  <b className="fw-medium text-white">Address:</b> No:57, 5th Cross Road, Giri Nagar, Kochi, Kerala.
+                  <b className="fw-medium text-white">Address:</b> No:57, 5th
+                  Cross Road, Giri Nagar, Kochi, Kerala.
                 </li>
                 <li>
                   <a href="mailto:info@company.com">info@uginitiative.com</a>
@@ -48,9 +49,15 @@ const Header = () => {
 
             <div className="cs_top_header_right">
               <ul className="cs_top_nav d-flex flex-wrap align-items-center cs_fs_12 text-white m-0 p-0">
-                <li><a href="#">Help</a></li>
-                <li><a href="#">Support</a></li>
-                <li><Link to="/contact">Contact</Link></li>
+                <li>
+                  <a href="#">Help</a>
+                </li>
+                <li>
+                  <a href="#">Support</a>
+                </li>
+                <li>
+                  <Link to="/contact">Contact</Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -68,39 +75,45 @@ const Header = () => {
 
               <div className="cs_nav cs_primary_font fw-medium">
                 <ul className="cs_nav_list fw-medium text-uppercase">
-                  <li className=''>
+                  <li className="">
                     <Link to="/">Home</Link>
-                   
                   </li>
-
-                  <li><Link to="/about">About</Link></li>
 
                   <li className="menu-item-has-children">
-                    <a href="#">Pages</a>
+                    <Link to="/blog">About</Link>
                     <ul>
-                      <li><Link to="/project-details">Project Details</Link></li>
-                      <li><Link to="/services-details">Service Details</Link></li>
-                      <li><Link to="/team">Team</Link></li>
-                      <li><Link to="/team-details">Team Member</Link></li>
-                      <li><Link to="/pricing">Pricing Page</Link></li>
-                      <li><Link to="/shop">Our Store</Link></li>
-                      <li><Link to="/shop-product-details">Product Details</Link></li>
+                      <li>
+                        <Link to="/blog-grid">History</Link>
+                      </li>
+                      <li>
+                        <Link to="/blog-list-with-sidebar">Journey</Link>
+                      </li>
+                      <li>
+                        <Link to="/blog-details"> Chairman</Link>
+                      </li>
+                      <li>
+                        <Link to="/blog-details"> Member</Link>
+                      </li>
                     </ul>
                   </li>
-
-                  <li><Link to="/service">Services</Link></li>
-                  <li><Link to="/portfolio">Portfolio</Link></li>
-
-                  <li className="menu-item-has-children">
-                    <Link to="/blog">Blog</Link>
-                    <ul>
-                      <li><Link to="/blog-grid">Blog Grid</Link></li>
-                      <li><Link to="/blog-list-with-sidebar">Blog List With Sidebar</Link></li>
-                      <li><Link to="/blog-details">Blog Details</Link></li>
-                    </ul>
+                  <li>
+                    <Link to="/initiatives">Initiatives</Link>
                   </li>
-
-                  <li><Link to="/contact">Contact</Link></li>
+                  <li>
+                    <Link to="/career">Career</Link>
+                  </li>
+                  <li>
+                    <Link to="/gallery">Gallery</Link>
+                  </li>
+                  <li>
+                    <Link to="/events">Events</Link>
+                  </li>
+                  <li>
+                    <Link to="/csr">CSR</Link>
+                  </li>
+                  <li>
+                    <Link to="/contact">Contact</Link>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -112,7 +125,10 @@ const Header = () => {
                 <div className="cs_header_search_wrap position-relative">
                   <span className="cs_header_search_btn d-flex">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none">
-                      <path d="M24.7628 23.6399L18.3082 17.2884C19.9984 15.452 21.037 13.0234 21.037 10.3509C21.0362 4.63387 16.3273 0 10.5181 0C4.70891 0 0 4.63387 0 10.3509C0 16.0678 4.70891 20.7017 10.5181 20.7017C13.0281 20.7017 15.3301 19.8335 17.1384 18.3902L23.618 24.7667C23.9338 25.0777 24.4463 25.0777 24.7621 24.7667C25.0785 24.4557 25.0785 23.9509 24.7628 23.6399Z" fill="currentColor"/>
+                      <path
+                        d="M24.7628 23.6399L18.3082 17.2884C19.9984 15.452 21.037 13.0234 21.037 10.3509C21.0362 4.63387 16.3273 0 10.5181 0C4.70891 0 0 4.63387 0 10.3509C0 16.0678 4.70891 20.7017 10.5181 20.7017C13.0281 20.7017 15.3301 19.8335 17.1384 18.3902L23.618 24.7667C23.9338 25.0777 24.4463 25.0777 24.7621 24.7667C25.0785 24.4557 25.0785 23.9509 24.7628 23.6399Z"
+                        fill="currentColor"
+                      />
                     </svg>
                   </span>
                 </div>
@@ -126,15 +142,11 @@ const Header = () => {
                     <h3 className="text-white fw-normal cs_mb_6 cs_fs_13">
                       Need help? Call us:
                     </h3>
-                    <h3 className="text-white m-0 cs_fs_13">
-                      +971 4342 8008
-                    </h3>
+                    <h3 className="text-white m-0 cs_fs_13">+971 4342 8008</h3>
                   </div>
                 </div>
-
               </div>
             </div>
-
           </div>
         </div>
       </div>

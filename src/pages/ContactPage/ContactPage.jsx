@@ -5,7 +5,7 @@ import Contact from '../../components/Contact/Contact';
 import Hero from '../../components/home/Hero';
 
 
-const HomePage = () => {
+const ContactPage = () => {
   return (
     <>
       <Header />
@@ -16,4 +16,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default ContactPage;

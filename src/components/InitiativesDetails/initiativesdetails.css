@@ -1,0 +1,158 @@
+/* ================= WRAPPER ================= */
+.initiatives-wrapper {
+  background: #fff;
+}
+
+/* ================= HEADING ================= */
+.initiatives-heading {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.mini-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #f5a623;
+  text-transform: uppercase;
+}
+
+.initiatives-heading h2 {
+  font-size: 36px;
+  margin: 10px 0;
+  font-weight: 600;
+}
+
+.heading-line {
+  width: 60px;
+  height: 3px;
+  background: #f5a623;
+  margin: 0 auto;
+}
+
+/* ================= LEFT LIST ================= */
+.cs_service_list {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.list-title {
+  background: #f5a623;
+  color: #fff;
+  padding: 16px 22px;
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0;
+}
+
+.cs_service_list ul {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+}
+
+.cs_service_list ul li {
+  margin-bottom: 12px;
+}
+
+.cs_service_list ul li button {
+  width: 100%;
+  background: #f6f4ef;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 8px;
+  text-align: left;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  color: #f5a623;
+}
+
+.cs_service_list ul li button.active {
+  background: #111;
+  color: #fff;
+}
+
+.cs_service_list ul li button i {
+  transition: transform 0.3s ease;
+}
+
+.cs_service_list ul li button:hover i {
+  transform: translateX(6px);
+}
+
+/* ================= RIGHT CONTENT ================= */
+.initiative-content {
+  transition: all 0.35s ease;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* FLEX LAYOUT */
+.initiative-flex {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* TEXT */
+.initiative-text {
+  flex: 0 0 55%;
+}
+
+.initiative-text h3 {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.initiative-text h5 {
+  color: #f5a623;
+  margin-bottom: 18px;
+}
+
+/* BLOCKQUOTE */
+.initiative-quote {
+  background: #fff;
+  padding: 34px 36px;
+  border-radius: 10px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+  line-height: 1.9;
+  min-height: 240px;
+}
+
+/* IMAGE */
+.initiative-image {
+  flex: 0 0 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.initiative-image img {
+  width: 100%;
+  max-width: 420px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+  .initiative-flex {
+    flex-direction: column;
+  }
+
+  .initiative-text,
+  .initiative-image {
+    flex: 100%;
+  }
+}

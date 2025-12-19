@@ -1,0 +1,118 @@
+/* ================= GALLERY SECTION ================= */
+.gallery-section {
+  padding: 100px 0;
+  background: #ffffff;
+}
+
+/* ================= GRID ================= */
+.gallery-grid {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ================= ITEM ================= */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
+
+/* ================= MODAL BACKDROP ================= */
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: backdropFade 0.3s ease;
+}
+
+/* ================= MODAL IMAGE WRAPPER ================= */
+.modal-img-wrapper {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+
+  animation: rotateZoomIn 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+.modal-img-wrapper img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+}
+
+/* ================= SOFT GLOW ================= */
+.modal-img-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -28px;
+  border-radius: 24px;
+  filter: blur(32px);
+  z-index: -1;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes rotateZoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7) rotate(-8deg) translateY(40px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1.04) rotate(1.5deg) translateY(-6px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg) translateY(0);
+  }
+}
+
+@keyframes backdropFade {
+  from {
+    opacity: 0;
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+  }
+}
+
+/* ================= GLOBAL IMAGE RESET ================= */
+img {
+  border: 0;
+  max-width: 100%;
+  height: auto;
+}
