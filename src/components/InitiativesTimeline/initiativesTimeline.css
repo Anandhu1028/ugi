@@ -204,28 +204,3 @@
     grid-template-columns: 1fr;
   }
 }
-/* ================= SECTION SPACING FIX ================= */
-.timeline-section {
-  padding: 140px 0;
-}
-
-/* spacing below each section heading */
-.section-heading {
-  margin-top: 120px;
-  margin-bottom: 60px;
-}
-
-/* first section heading should not push down */
-.timeline-section .timeline-heading {
-  margin-top: 0;
-}
-
-/* spacing between grid and next heading */
-.timeline-grid {
-  margin-bottom: 120px;
-}
-
-/* info grids spacing */
-.info-grid {
-  margin-bottom: 140px;
-}

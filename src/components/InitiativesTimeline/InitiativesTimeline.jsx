@@ -45,8 +45,8 @@ const InitiativesTimeline = () => {
     const items = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
+      (entries) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("show");
             observer.unobserve(entry.target);
@@ -56,75 +56,68 @@ const InitiativesTimeline = () => {
       { threshold: 0.2 }
     );
 
-    items.forEach(el => observer.observe(el));
+    items.forEach((el) => observer.observe(el));
   }, []);
 
   return (
-    <section className="timeline-section">
-      {/* background blobs */}
-      <div className="timeline-bg">
-        <span className="blob blob-1"></span>
-        <span className="blob blob-2"></span>
-        <span className="blob blob-3"></span>
-      </div>
-
-      <div className="container">
-        {/* ================= OUR INITIATIVES ================= */}
-        <div className="timeline-heading reveal">
-          <span>Strong Pillars of Exceptional & Prosperous Industries</span>
-          <h2>Our Initiatives</h2>
+    <>
+      {/* ================= OUR INITIATIVES ================= */}
+      <section className="timeline-section">
+        <div className="timeline-bg">
+          <span className="blob blob-1"></span>
+          <span className="blob blob-2"></span>
+          <span className="blob blob-3"></span>
         </div>
 
-        <div className="timeline-grid">
-          {INITIATIVES.map((item, index) => (
-            <div key={index} className="timeline-item reveal">
-              <div className="timeline-card">
-                <img src={item.logo} alt={item.title} />
-                <div className="timeline-content">
-                  <h3>{item.title}</h3>
-                  <p>{item.desc}</p>
-                  <a href={item.link}>Visit Website</a>
+        <div className="container">
+          <div className="timeline-heading reveal">
+            <span>Strong Pillars of Exceptional & Prosperous Industries</span>
+            <h2>Our Initiatives</h2>
+          </div>
+
+          <div className="timeline-grid">
+            {INITIATIVES.map((item, index) => (
+              <div key={index} className="timeline-item reveal">
+                <div className="timeline-card">
+                  <img src={item.logo} alt={item.title} />
+                  <div className="timeline-content">
+                    <h3>{item.title}</h3>
+                    <p>{item.desc}</p>
+                    <a href={item.link}>Visit Website</a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-        {/* ================= UPCOMING PROJECTS ================= */}
         <div className="section-heading reveal">
           <span>Planning Beginnings For Our Blooming Initiatives</span>
           <h2>Upcoming Projects</h2>
         </div>
-
         <div className="info-grid">
           <div className="info-card reveal">
             <div className="info-logo">
               <img src="/assets/img/logos/scholium.webp" alt="Scholium" />
             </div>
-            <div className="info-content">
-              <h3>Scholium</h3>
-              <p>
-                Guidance initiated by UGI to provide scholastic assistance to
-                graduating and graduated students.
-              </p>
-            </div>
+            <h3>Scholium</h3>
+            <p>
+              Guidance initiated by UGI to provide scholastic assistance to a
+              lot of graduating and graduated students
+            </p>
           </div>
 
           <div className="info-card reveal">
             <div className="info-logo">
               <img src="/assets/img/logos/cafe-33.webp" alt="Cafe 33" />
             </div>
-            <div className="info-content">
-              <h3>Cafe 33</h3>
-              <p>
-                An upcoming cafe-restaurant initiative adding a new dimension
-                to the successful initiatives of UGI.
-              </p>
-            </div>
+            <h3>Cafe 33</h3>
+            <p>
+              An upcoming initiative of ours that introduces a cafe-restaurant
+              addition to the successful initiatives of UGI
+            </p>
           </div>
         </div>
 
-        {/* ================= PARTNERING VENTURES ================= */}
         <div className="section-heading reveal">
           <span>Roof of UGI</span>
           <h2>Our Partnering Ventures</h2>
@@ -133,33 +126,36 @@ const InitiativesTimeline = () => {
         <div className="info-grid">
           <div className="info-card reveal">
             <div className="info-logo">
-              <img src="/assets/img/logos/brillance.webp" alt="Brillanz Educational Group" />
+              <img
+                src="/assets/img/logos/brillance.webp"
+                alt="Brillanz Educational Group"
+              />
             </div>
-            <div className="info-content">
-              <h3>Brillanz Educational Group</h3>
-              <p>
-                An eminent name in UAE’s prestigious education sector and
-                official representative of many top Asian and European
-                universities.
-              </p>
-            </div>
+            <h3>Brillanz Educational Group</h3>
+            <p>
+              An eminent name in UAE’s prestigious education sector. Brillianz
+              is one of the authorized official representatives of many top
+              Asian and European Universities
+            </p>
           </div>
 
           <div className="info-card reveal">
             <div className="info-logo">
-              <img src="/assets/img/logos/inspire.webp" alt="Inspire University College" />
+              <img
+                src="/assets/img/logos/inspire.webp"
+                alt="Inspire University College"
+              />
             </div>
-            <div className="info-content">
-              <h3>Inspire University College</h3>
-              <p>
-                An online educational institution delivering innovative
-                academic procedures and world-class learning experiences.
-              </p>
-            </div>
+            <h3>Inspire University College</h3>
+            <p>
+              An Online educational institution aspiring to excel more than any
+              conventional classroom, by offering innovative academic procedures
+              and world-class learning experiences
+            </p>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
