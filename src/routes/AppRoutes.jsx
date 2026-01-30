@@ -7,6 +7,8 @@ import JobdetailsPage from "../pages/JobdetailsPage/JobdetailsPage";
 import InitiativesDetails from "../pages/InitiativesdetailsPage/InitiativesdetailsPage";
 import EventsPage from "../pages/EventsPage/EventsPage";
 import GalleryPage from "../pages/GalleryPage/GalleryPage";
+import EventsDetailedPage from "../pages/EventsDetailedPage/EventsDetailedPage";
+
 
 
 
@@ -24,6 +26,7 @@ const AppRoutes = () => {
          <Route path="/careers/:jobId" element={<JobdetailsPage />} />
          <Route path="/initiatives" element={<InitiativesDetails />} />
          <Route path="/events" element={<EventsPage />} />
+        <Route path="/events/:slug" element={<EventsDetailedPage />} />
          <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
     </BrowserRouter>

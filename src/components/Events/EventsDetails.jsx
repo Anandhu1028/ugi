@@ -1,240 +1,223 @@
-import { useEffect } from "react";
+import { useParams, Link, Navigate } from "react-router-dom";
+import { PREVIOUS_EVENTS } from "./Events";
+import "./EventDetails.css";
 
 const EventsDetails = () => {
-  useEffect(() => {
-    // Handle background-filled images (data-src → background-image)
-    const bgElements = document.querySelectorAll("[data-src]");
-    bgElements.forEach(el => {
-      el.style.backgroundImage = `url(${el.getAttribute("data-src")})`;
-    });
-  }, []);
+  const { slug } = useParams();
+  
+  // Find the event by slug
+  const event = PREVIOUS_EVENTS.find(e => e.slug === slug);
+
+  // If event not found, redirect to events page
+  if (!event) {
+    return <Navigate to="/events" replace />;
+  }
 
   return (
-    <section className="cs_pt_140 cs_pt_lg_80 cs_pb_140 cs_pb_lg_80">
-      <div className="container">
-        <div className="row">
-          {/* ================= MAIN CONTENT ================= */}
-          <div className="col-lg-8">
-            <div className="cs_post cs_style_1 bg-white shadow-sm cs_mb_30">
-              <img
-                src="/assets/img/post-details-1.jpeg"
-                alt="Event Details"
-              />
+    <>
+      {/* ================= PAGE HEADER ================= */}
+      <section 
+        className="event-detail-header"
+        style={{ backgroundImage: `url(${event.thumbnail})` }}
+      >
+        <div className="detail-header-overlay" />
+        
+        <div className="container">
+          <div className="detail-header-content">
+            {/* Breadcrumb */}
+            <nav className="detail-breadcrumb">
+              <Link to="/">Home</Link>
+              <span className="breadcrumb-sep">/</span>
+              <Link to="/events">Events</Link>
+              <span className="breadcrumb-sep">/</span>
+              <span>{event.title}</span>
+            </nav>
 
-              <div className="cs_pl_40 cs_pr_40 cs_pt_40 cs_pb_40 cs_pl_lg_25 cs_pr_lg_25 cs_pt_lg_25 cs_pb_lg_25">
-                <ul className="cs_post_meta d-flex flex-wrap cs_fs_12 p-0 cs_mb_20">
-                  <li>
-                    <span>
-                      <i className="fa-solid fa-user"></i> By{" "}
-                    </span>
-                    <a href="/">admin</a>
-                  </li>
-                  <li>
-                    <span>
-                      <i className="fa-solid fa-comment-dots"></i>
-                    </span>
-                    <a href="/">3 comments</a>
-                  </li>
-                </ul>
-
-                <h2 className="cs_post_title cs_lh_base cs_fs_26 cs_fs_lg_18 cs_mb_20">
-                  What services does your business provide?
-                </h2>
-
-                <div className="cs_post_subtitle">
-                  There are many variations of passages of Lorem Ipsum
-                  available, but the majority have suffered alteration in
-                  some form, by injected humour, or randomised words which
-                  don't look even slightly believable. If you are going to
-                  use a passage of Lorem Ipsum, you need to be sure there
-                  isn't anything embarrassing hidden in the middle of text.
-                  <br />
-                  <br />
-                  Suspendisse ultricies vestibulum vehicula. Proin laoreet
-                  porttitor lacus. Duis auctor vel ex eu elementum. Fusce
-                  eu volutpat felis. Proin sed eros tincidunt, sagittis
-                  sapien eu, porta diam.
-                </div>
-              </div>
+            {/* Category Badge */}
+            <div className="detail-category" style={{ background: event.color }}>
+              {event.category}
             </div>
 
-            {/* ================= TAGS & SOCIAL ================= */}
-            <div className="d-flex justify-content-between align-items-center bg-gray cs_pt_25 cs_pb_25 cs_pl_40 cs_pr_40 cs_pl_lg_25 cs_pr_lg_25 flex-wrap cs_row_gap_15 cs_column_gap_15 cs_mb_40">
-              <div className="cs_post_details-meta-tag">
-                <h4 className="cs_sidebar_widget_title">Tags</h4>
-                <div className="tagcloud">
-                  <a href="/" className="tag-cloud-link">Social Marketing</a>
-                  <a href="/" className="tag-cloud-link">Marketing</a>
-                  <a href="/" className="tag-cloud-link">Digital Market</a>
-                </div>
+            {/* Title */}
+            <h1>{event.title}</h1>
+
+            {/* Meta Info */}
+            <div className="detail-meta">
+              <div className="meta-item">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M16 3h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1M7 1v4M13 1v4M1 9h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>{event.details.eventDate}</span>
               </div>
 
-              <div className="cs_social_btns cs_color_2 d-flex flex-wrap cs_column_gap_15 cs_row_gap_15 cs_transition_5">
-                <a href="/" className="d-flex align-items-center justify-content-center cs_height_35 cs_width_35 rounded-circle">
-                  <i className="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="/" className="d-flex align-items-center justify-content-center cs_height_35 cs_width_35 rounded-circle">
-                  <i className="fa-brands fa-twitter"></i>
-                </a>
-                <a href="/" className="d-flex align-items-center justify-content-center cs_height_35 cs_width_35 rounded-circle">
-                  <i className="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="/" className="d-flex align-items-center justify-content-center cs_height_35 cs_width_35 rounded-circle">
-                  <i className="fa-brands fa-dribbble"></i>
-                </a>
-              </div>
-            </div>
-
-            {/* ================= COMMENTS ================= */}
-            <h2 className="cs_fs_26 cs_mb_40">2 Comments</h2>
-
-            <ol className="comment-list cs_pb_96 cs_pl_0">
-              <li className="comment">
-                <div className="comment-body">
-                  <div className="comment-author vcard">
-                    <img
-                      className="avatar"
-                      src="/assets/img/avatar_5.png"
-                      alt="Kristin Watson"
-                    />
-                    <a href="/" className="url">Kristin Watson</a>
-                  </div>
-                  <div className="reply">
-                    <a href="/" className="comment-reply-link">Reply</a>
-                  </div>
-                  <p>
-                    Mauris non dignissim purus, ac commodo diam. Donec sit
-                    amet lacinia nulla.
-                  </p>
-                </div>
-              </li>
-
-              <li className="comment">
-                <div className="comment-body">
-                  <div className="comment-author vcard">
-                    <img
-                      className="avatar"
-                      src="/assets/img/avatar_6.png"
-                      alt="Courtney Henry"
-                    />
-                    <a href="/" className="url">Courtney Henry</a>
-                  </div>
-                  <div className="reply">
-                    <a href="/" className="comment-reply-link">Reply</a>
-                  </div>
-                  <p>
-                    Mauris non dignissim purus, ac commodo diam. Donec sit
-                    amet lacinia nulla.
-                  </p>
-                </div>
-              </li>
-            </ol>
-
-            {/* ================= COMMENT FORM ================= */}
-            <h2 className="cs_fs_26 cs_mb_40">Leave a Comment</h2>
-
-            <form className="row">
-              <div className="col-lg-6">
-                <input
-                  className="form-control cs_fs_14 cs_rounded_5 border-0 cs_mb_35 bg-gray"
-                  type="text"
-                  placeholder="Your Name"
-                />
+              <div className="meta-item">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM10 1C6.5 1 3 3.5 3 8c0 5.25 7 11 7 11s7-5.75 7-11c0-4.5-3.5-7-7-7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>{event.details.eventPlace}</span>
               </div>
 
-              <div className="col-lg-6">
-                <input
-                  className="form-control cs_fs_14 cs_rounded_5 border-0 cs_mb_35 bg-gray"
-                  type="email"
-                  placeholder="Your Email"
-                />
-              </div>
-
-              <div className="col-lg-12">
-                <textarea
-                  className="form-control cs_fs_14 cs_rounded_5 border-0 cs_mb_40 bg-gray"
-                  placeholder="Message here ..."
-                  rows="7"
-                />
-              </div>
-
-              <div className="col-lg-12">
-                <button className="cs_btn cs_style_1 cs_fs_16 cs_rounded_5 cs_pl_30 cs_pr_30 cs_pt_10 cs_pb_10 overflow-hidden">
-                  <span>Submit Comment</span>
-                </button>
-              </div>
-            </form>
-          </div>
-
-          {/* ================= SIDEBAR ================= */}
-          <div className="col-lg-4">
-            <div className="cs_sidebar cs_mt_lg_80">
-              {/* Search */}
-              <div className="cs_sidebar_item widget_search">
-                <form className="cs_sidebar_search">
-                  <input type="text" placeholder="Search..." />
-                  <button className="cs_sidebar_search_btn">
-                    <i className="fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </form>
-              </div>
-
-              {/* Categories */}
-              <div className="cs_sidebar_item widget_categories">
-                <h4 className="cs_sidebar_widget_title">Categories</h4>
-                <ul>
-                  <li><a href="/">Corporate</a></li>
-                  <li><a href="/">Digital Solutions</a></li>
-                  <li><a href="/">Business & Finance</a></li>
-                  <li><a href="/">Web Designer</a></li>
-                  <li><a href="/">Social Marketing</a></li>
-                </ul>
-              </div>
-
-              {/* Recent Posts */}
-              <div className="cs_sidebar_item">
-                <h4 className="cs_sidebar_widget_title">Recent Posts</h4>
-                <ul className="cs_recent_posts">
-                  {[1, 2, 3].map(i => (
-                    <li key={i}>
-                      <div className="cs_recent_post">
-                        <a href="/" className="cs_recent_post-thumb">
-                          <div
-                            className="h-100 w-100 background-filled"
-                            data-src={`/assets/img/recent-post-${i}.jpeg`}
-                          />
-                        </a>
-                        <div className="cs_recent_post-info">
-                          <div className="cs_recent_post-date">
-                            <i className="fa-regular fa-calendar-days"></i> 15 Mar, 2023
-                          </div>
-                          <h3 className="cs_recent_post-title">
-                            <a href="/">What services does your business provide?</a>
-                          </h3>
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Tags */}
-              <div className="cs_sidebar_item widget_tag_cloud">
-                <h4 className="cs_sidebar_widget_title">Tags</h4>
-                <div className="tagcloud">
-                  <a href="/" className="tag-cloud-link">Social Marketing</a>
-                  <a href="/" className="tag-cloud-link">Marketing</a>
-                  <a href="/" className="tag-cloud-link">Digital Market</a>
-                  <a href="/" className="tag-cloud-link">Development</a>
-                  <a href="/" className="tag-cloud-link">Web Design</a>
-                  <a href="/" className="tag-cloud-link">Design</a>
-                </div>
+              <div className="meta-item">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M10 1a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM10 5v5l3 3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>By {event.details.eventBy}</span>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* ================= EVENT DETAILS ================= */}
+      <section className="event-detail-content">
+        <div className="container">
+          <div className="detail-layout">
+            
+            {/* LEFT CONTENT */}
+            <div className="detail-main">
+              
+              {/* Description */}
+              <div className="detail-section">
+                <h2 className="section-title">About The Event</h2>
+                
+                {event.longDescription.map((para, index) => (
+                  <p key={index} className="detail-paragraph">{para}</p>
+                ))}
+              </div>
+
+              {/* Gallery */}
+              <div className="detail-section">
+                <h2 className="section-title">Event Gallery</h2>
+                
+                <div className="detail-gallery">
+                  {event.gallery.map((img, index) => (
+                    <div 
+                      key={index} 
+                      className="gallery-image"
+                      style={{ backgroundImage: `url(${img})` }}
+                    >
+                      <div className="image-overlay">
+                        <div className="zoom-icon">
+                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                            <circle cx="11" cy="11" r="8" stroke="white" strokeWidth="2"/>
+                            <path d="M21 21l-4.35-4.35M11 8v6M8 11h6" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+            {/* RIGHT SIDEBAR */}
+            <aside className="detail-sidebar">
+              
+              {/* Event Info Card */}
+              <div className="sidebar-card">
+                <h3 className="card-title">Event Information</h3>
+                
+                <div className="info-list">
+                  <div className="info-item">
+                    <div className="info-icon" style={{ background: event.color }}>
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M16 3h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1M7 1v4M13 1v4M1 9h18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <div className="info-content">
+                      <span className="info-label">Date</span>
+                      <span className="info-value">{event.details.eventDate}</span>
+                    </div>
+                  </div>
+
+                  <div className="info-item">
+                    <div className="info-icon" style={{ background: event.color }}>
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM10 1C6.5 1 3 3.5 3 8c0 5.25 7 11 7 11s7-5.75 7-11c0-4.5-3.5-7-7-7z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <div className="info-content">
+                      <span className="info-label">Location</span>
+                      <span className="info-value">{event.details.eventPlace}</span>
+                    </div>
+                  </div>
+
+                  <div className="info-item">
+                    <div className="info-icon" style={{ background: event.color }}>
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M17 3H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM3 7l7 4 7-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </div>
+                    <div className="info-content">
+                      <span className="info-label">Organized By</span>
+                      <span className="info-value">{event.details.eventBy}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Chief Guests */}
+              {event.details.chiefGuests.length > 0 && (
+                <div className="sidebar-card">
+                  <h3 className="card-title">Chief Guests</h3>
+                  
+                  <ul className="guests-list">
+                    {event.details.chiefGuests.map((guest, index) => (
+                      <li key={index} className="guest-item">
+                        <span className="guest-icon">✦</span>
+                        <span className="guest-name">{guest}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Share Card */}
+              <div className="sidebar-card">
+                <h3 className="card-title">Share Event</h3>
+                
+                <div className="social-share">
+                  <a href="#" className="share-btn facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                  </a>
+                  
+                  <a href="#" className="share-btn twitter">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                  </a>
+                  
+                  <a href="#" className="share-btn linkedin">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                  </a>
+                  
+                  <a href="#" className="share-btn whatsapp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Back Button */}
+              <Link to="/events" className="back-btn">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M13 4l-6 6 6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+                <span>Back to Events</span>
+              </Link>
+
+            </aside>
+
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 

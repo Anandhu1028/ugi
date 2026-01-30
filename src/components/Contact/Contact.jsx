@@ -48,7 +48,7 @@ const Contact = () => {
             {/* CENTER ANIMATED VISUAL */}
             <div className="contact-visual center-visual">
               <img
-                src="/assets/img/contact.png"
+                src="/assets/img/contact  (2).png"
                 alt="Send us a message"
                 className="float-anim"
               />

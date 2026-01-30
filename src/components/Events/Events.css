@@ -134,9 +134,10 @@
   color: #777;
 }
 
-/* ================= GALLERY ================= */
+/* ================= GALLERY (UPDATED) ================= */
 .events-gallery {
-  padding: 130px 0;
+  margin-top: -323px;     /* ← added */
+  padding: 288px 0;       /* ← updated */
   background: #fafafa;
 }
 
@@ -186,4 +187,14 @@
   .cs_page_header h1 {
     font-size: 36px;
   }
+}
+/* ================= REMOVE PAGE HEADER DARK OVERLAY ================= */
+.cs_page_header::before,
+.cs_page_header::after {
+  content: none !important;
+}
+
+.cs_page_header {
+  background-color: transparent !important;
+  filter: none !important;
 }

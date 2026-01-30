@@ -1,57 +1,225 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Events.css";
 
-/* ================= DEMO DATA ================= */
-const PREVIOUS_EVENTS = [
-  {
-    title: "UGI Annual Meetup 2024",
-    date: "March 2024",
-    img: "/assets/img/events/event1.jpg",
-    desc: "An inspiring annual gathering bringing together educators, leaders, and innovators.",
+
+
+
+
+
+
+/* ================= EVENTS DATA ================= */
+export const PREVIOUS_EVENTS = [
+    {
+    slug: "brillianz-10th-anniversary",
+    title: "BRILLIANZ 10TH ANNIVERSARY",
+    date: "7 May 2022",
+    thumbnail: "/assets/img/events/ugi-website-events-10th-anniversary-02.webp",
+    shortDesc:
+      "A decade of shaping leaders through distance learning, celebrated with grandeur.",
+
+    longDescription: [
+      "For ten years, Brillianz Education has been creating outstanding leaders, and they continue to educate and motivate everyone who wants to pursue distance learning.",
+      "This prestigious institution’s ten-year anniversary was celebrated in opulent style, along with well-known figures who served as role models for contemporary society."
+    ],
+
+    details: {
+      eventName: "BRILLIANZ 10TH ANNIVERSARY",
+      eventDate: "7 May 2022",
+      eventPlace: "Crowne Plaza, Deira, Dubai",
+      eventBy: "Brillianz",
+      chiefGuests: [
+        "Mr. Kannur Sharif",
+        "Ms. Sarayu",
+        "Ms. Lakshmi Jayan",
+        "Mr. Yousuf Karakkad",
+        "Rijiya Riyas",
+        "Fasila Banu",
+        "Sagar"
+      ]
+    },
+
+    gallery: [
+      "/assets/img/events/ugi-website-events-10th-anniversary-02.webp",
+      "/assets/img/events/ugi-website-events-10th-anniversary-05.webp",
+      "/assets/img/events/ugi-website-events-10th-anniversary-15-scaled.webp",
+      "/assets/img/events/ugi-website-events-10th-anniversary-09-scaled.webp",
+      
+    ]
   },
+
   {
-    title: "Education Excellence Summit",
-    date: "January 2024",
-    img: "/assets/img/events/event2.jpg",
-    desc: "A platform discussing the future of education and global learning standards.",
+    slug: "brillianz-10th-convocation",
+    title: "BRILLIANZ 10TH CONVOCATION CEREMONY",
+    date: "14 September 2022",
+    thumbnail: "/assets/img/events/ugi-website-event-convocation.webp",
+    shortDesc:
+      "The 10th Convocation reflected the bright futures of students who excelled through hard work.",
+
+    longDescription:[
+      "The 10th Convocation celebrated the success of students who achieved excellence through dedication and hard work.",
+    ],
+
+    details: {
+      eventName: "10TH CONVOCATION CEREMONY",
+      eventDate: "14 September 2022",
+      eventPlace: "Atlantis, The Palm, Dubai",
+      eventBy: "Brillianz",
+      chiefGuests: [
+        "MJ5",
+        "Ranjini Haridas",
+        "Anwar Sadath",
+        "Sumi Aravind",
+        "Yousuf Karakkad",
+        "Harsha Chandran"
+      ]
+    },
+
+    gallery: [
+      "/assets/img/events/convocation-01.webp",
+      "/assets/img/events/convocation-02.webp",
+      "/assets/img/events/convocation-03.webp",
+      "/assets/img/events/convocation-04.webp"
+    ]
   },
+
   {
-    title: "Digital Innovation Talk",
-    date: "November 2023",
-    img: "/assets/img/events/event3.jpg",
-    desc: "Exploring emerging technologies and digital transformation strategies.",
+    slug: "ponnona-aghosham-2022",
+    title: "PONNONA AGHOSHAM 2022",
+    date: "3 September 2022",
+    thumbnail: "/assets/img/events/ugi-website-brillianz-onam-01.webp",
+    shortDesc:
+      "Onam celebration honoring Keralite culture with music, dance, and joy.",
+
+    longDescription: [
+      "Onam was celebrated jointly by Brillianz Education and Inspire University, connecting everyone to their cultural roots."
+    ],
+
+    details: {
+      eventName: "PONNONA AGHOSHAM 2022",
+      eventDate: "3 September 2022",
+      eventPlace:
+        "Shabab Al Ahli Club Indoor, Sheikh Maktoum Bin Mohamed Sports Hall",
+      eventBy: "Brillianz & Inspire",
+      chiefGuests: []
+    },
+
+    gallery: [
+      "/assets/img/events/onam-01.webp",
+      "/assets/img/events/onam-02.webp",
+      "/assets/img/events/onam-03.webp",
+      "/assets/img/events/onam-04.webp",
+      "/assets/img/events/onam-05.webp",
+      "/assets/img/events/onam-06.webp"
+    ]
   },
+
   {
-    title: "Student Guidance Workshop",
-    date: "September 2023",
-    img: "/assets/img/events/event4.jpg",
-    desc: "Focused guidance sessions empowering graduating students.",
+    slug: "aarpo-irro",
+    title: "AARPO IRRO",
+    date: "10 September 2022",
+    thumbnail: "/assets/img/events/ugi-website-onam-celebration-06.webp",
+    shortDesc:
+      "A vibrant Onam celebration in Alleppey with flowers, music, and tradition.",
+
+    longDescription: [
+      "To commemorate Onam in Alleppey, the UGI team celebrated with flowers, dance, and traditional joy."
+    ],
+
+    details: {
+      eventName: "AARPO IRRO",
+      eventDate: "10 September 2022",
+      eventPlace: "Alleppey",
+      eventBy: "UGI",
+      chiefGuests: ["Chairman", "HR Director"]
+    },
+
+    gallery: [
+      "/assets/img/events/aarpo-01.webp",
+      "/assets/img/events/aarpo-02.webp",
+      "/assets/img/events/aarpo-03.webp",
+      "/assets/img/events/aarpo-04.webp",
+      "/assets/img/events/aarpo-05.webp",
+      "/assets/img/events/aarpo-06.webp"
+    ]
   },
+
   {
-    title: "Startup Networking Day",
-    date: "July 2023",
-    img: "/assets/img/events/event5.jpg",
-    desc: "Connecting startups, mentors, and investors under one roof.",
+    slug: "ugi-staff-get-together",
+    title: "UGI STAFF GET TOGETHER",
+    date: "1 August 2022",
+    thumbnail: "/assets/img/events/ugi-website-staff-together-08.webp",
+    shortDesc:
+      "A relaxing staff gathering filled with bonding, laughter, and energy.",
+
+    longDescription: [
+      "The UGI staff gathering allowed the team to unwind and reconnect in an elegant environment."
+    ],
+
+    details: {
+      eventName: "UGI STAFF GET TOGETHER",
+      eventDate: "1 August 2022",
+      eventPlace: "Hotel Dunes, Cochin",
+      eventBy: "UGI",
+      chiefGuests: ["Chairman"]
+    },
+
+    gallery: [
+      "/assets/img/events/staff-01.webp",
+      "/assets/img/events/staff-02.webp",
+      "/assets/img/events/staff-03.webp",
+      "/assets/img/events/staff-04.webp",
+      "/assets/img/events/staff-05.webp",
+      "/assets/img/events/staff-06.webp"
+    ]
   },
+
   {
-    title: "Creative Minds Conference",
-    date: "May 2023",
-    img: "/assets/img/events/event6.jpg",
-    desc: "Celebrating creativity, innovation, and collaborative thinking.",
-  },
+    slug: "tecswan-convocation",
+    title: "TECSWAN CONVOCATION",
+    date: "6 March 2021",
+    thumbnail: "/assets/img/events/Untitled-3-02.webp",
+    shortDesc:
+      "Celebrating student success and excellence in IT education.",
+
+    longDescription: [
+      "The Tecswan Convocation honored students with certifications and awards."
+    ],
+
+    details: {
+      eventName: "TECSWAN CONVOCATION",
+      eventDate: "6 March 2021",
+      eventPlace: "Hotel Sidra Pristine, Kaloor, India",
+      eventBy: "Tecswan",
+      chiefGuests: ["Chairman", "HR Director"]
+    },
+
+    gallery: [
+      "/assets/img/events/tecswan-01.webp",
+      "/assets/img/events/tecswan-02.webp",
+      "/assets/img/events/tecswan-03.webp",
+      "/assets/img/events/tecswan-04.webp",
+      "/assets/img/events/tecswan-05.webp",
+      "/assets/img/events/tecswan-06.webp"
+    ]
+  }
 ];
 
-const EVENT_GALLERY = [
-  "/assets/img/events/gallery1.jpg",
-  "/assets/img/events/gallery2.jpg",
-  "/assets/img/events/gallery3.jpg",
-  "/assets/img/events/gallery4.jpg",
-  "/assets/img/events/gallery5.jpg",
-  "/assets/img/events/gallery6.jpg",
-  "/assets/img/events/gallery7.jpg",
-  "/assets/img/events/gallery8.jpg",
+/* ================= GLOBAL EVENT GALLERY ================= */
+const EVENT_GALLERY = PREVIOUS_EVENTS.flatMap(event => event.gallery);
+
+
+const eventgalleryImages = [
+   "/assets/img/events/ugi-website-events-10th-anniversary-02.webp",
+      "/assets/img/events/ugi-website-events-10th-anniversary-05.webp",
+      "/assets/img/events/ugi-website-events-10th-anniversary-15-scaled.webp",
+      "/assets/img/events/ugi-website-events-10th-anniversary-09-scaled.webp",
+      "/assets/img/events/ugi-website-events-10th-anniversary-14-scaled.webp",
+      "/assets/img/events/ugi-website-event-convocation-07.webp",
+      "/assets/img/events/ugi-website-onam-celebration-06.webp",
 ];
 
+/* ================= COMPONENT ================= */
 const Events = () => {
   useEffect(() => {
     const items = document.querySelectorAll(".reveal");
@@ -73,25 +241,17 @@ const Events = () => {
 
   return (
     <>
-      {/* ================= PAGE HEADER ================= */}
+      {/* PAGE HEADER */}
       <section
         className="cs_page_header"
-        style={{ backgroundImage: "url(/assets/img/page_header_1.jpeg)" }}
+        style={{ backgroundImage: "url(/assets/img/banner/event-banner.jpg)" }}
       >
         <div className="container">
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <a href="/">Home</a>
-              </li>
-              <li className="breadcrumb-item active">Events</li>
-            </ol>
-          </nav>
           <h1>Events</h1>
         </div>
       </section>
 
-      {/* ================= PREVIOUS EVENTS ================= */}
+      {/* EVENTS LIST */}
       <section className="events-section">
         <div className="container">
           <div className="section-heading reveal">
@@ -100,18 +260,23 @@ const Events = () => {
           </div>
 
           <div className="row">
-            {PREVIOUS_EVENTS.map((event, i) => (
-              <div key={i} className="col-lg-4 col-md-6">
+            {PREVIOUS_EVENTS.map(event => (
+              <div key={event.slug} className="col-lg-4 col-md-6">
                 <div className="event-card reveal">
                   <div
                     className="event-thumb"
-                    style={{ backgroundImage: `url(${event.img})` }}
+                    style={{
+                      backgroundImage: `url(${event.thumbnail})`
+                    }}
                   >
                     <div className="event-overlay">
-                      <p>{event.desc}</p>
-                      <a href="/event-details" className="event-btn">
+                      <p>{event.shortDesc}</p>
+                      <Link
+                        to={`/events/${event.slug}`}
+                        className="event-btn"
+                      >
                         View Details
-                      </a>
+                      </Link>
                     </div>
                   </div>
 
@@ -126,25 +291,25 @@ const Events = () => {
         </div>
       </section>
 
-      {/* ================= EVENT GALLERY ================= */}
-      <section className="events-gallery">
-        <div className="container">
-          <div className="section-heading reveal">
-            <span>Captured Moments</span>
-            <h2>Event Gallery</h2>
-          </div>
+      {/* EVENT GALLERY (RESTORED) */}
+      {/* EVENT GALLERY */}
+<section className="events-gallery">
+  <div className="container">
+    <div className="section-heading reveal">
+      <span>Captured Moments</span>
+      <h2>Event Gallery</h2>
+    </div>
 
-          <div className="gallery-grid">
-            {EVENT_GALLERY.map((img, i) => (
-              <div
-                key={i}
-                className="gallery-item reveal"
-                style={{ backgroundImage: `url(${img})` }}
-              />
-            ))}
-          </div>
+    <div className="gallery-grid">
+      {eventgalleryImages.map((img, index) => (
+        <div className="gallery-item" key={index}>
+          <img src={img} alt={`Event ${index + 1}`} loading="lazy" />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
+
     </>
   );
 };
