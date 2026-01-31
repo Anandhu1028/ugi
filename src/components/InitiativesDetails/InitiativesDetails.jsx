@@ -47,6 +47,16 @@ const INITIATIVES = {
     icon: "🏎️",
     gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
   },
+
+creative: {
+    label: "Creative Productions",
+    title: "CREATIVE PRODUCTIONS",
+    brands: "GAIA CREATIVE PRODUCTIONS",
+    desc: `Gaia Creative Productions is an event management company operating across the UAE and India. Our team combines creative thinking with careful planning to deliver well-executed event solutions for corporate and professional settings.`,
+    img: "/assets/img/initiatives/img-2.webp",
+    icon: "🎨",
+    gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+  },
 };
 
 const InitiativesDetails = () => {
@@ -65,8 +75,11 @@ const InitiativesDetails = () => {
   const data = INITIATIVES[activeKey];
 
   return (
+
+    
     <section className="initiatives-details-enhanced">
       <div className="container">
+        
         {/* HEADING */}
         <div className="details-heading">
           <span className="details-badge">UGI</span>

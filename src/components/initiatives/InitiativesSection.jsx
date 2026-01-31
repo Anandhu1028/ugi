@@ -44,6 +44,14 @@ const initiatives = [
     gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
     color: "#30cfd0"
   },
+   {
+    title: "Creative Productions",
+    description: "Gaia Creative Productions is an event management company operating across the UAE and India.",
+    logo: "/assets/img/initiatives/img-2.webp",
+    gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
+    color: "#30cfd0"
+  }
+
 ];
 
 const InitiativesSection = () => {

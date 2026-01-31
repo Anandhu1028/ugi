@@ -1,0 +1,54 @@
+{
+    "sourceFile": "src/routes/AppRoutes.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1769833669888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1769833675223,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <Routes>\r\n         \r\n        \r\n         <Route path=\"/\" element={<HomePage />} />\r\n-        \r\n+         <Route path=\"/a\" element={<GalleryPage />} />\r\n         <Route path=\"/contact\" element={<ContactPage />} />\r\n          <Route path=\"/csr\" element={<CsrPage />} />\r\n          <Route path=\"/career\" element={<CareerPage />} />\r\n          <Route path=\"/careers/:jobId\" element={<JobdetailsPage />} />\r\n"
+                },
+                {
+                    "date": 1769833680257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n       <Routes>\r\n         \r\n        \r\n         <Route path=\"/\" element={<HomePage />} />\r\n-         <Route path=\"/a\" element={<GalleryPage />} />\r\n+         <Route path=\"/about\" element={<GallPage />} />\r\n         <Route path=\"/contact\" element={<ContactPage />} />\r\n          <Route path=\"/csr\" element={<CsrPage />} />\r\n          <Route path=\"/career\" element={<CareerPage />} />\r\n          <Route path=\"/careers/:jobId\" element={<JobdetailsPage />} />\r\n"
+                },
+                {
+                    "date": 1769833688799,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,7 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import HomePage from \"../pages/Home/HomePage\";\r\n+\r\n import ContactPage from \"../pages/ContactPage/ContactPage\";\r\n import CsrPage from \"../pages/CsrPage/CsrPage\";\r\n import CareerPage from \"../pages/CareerPage/CareerPage\";\r\n import JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\n@@ -19,9 +20,9 @@\n       <Routes>\r\n         \r\n        \r\n         <Route path=\"/\" element={<HomePage />} />\r\n-         <Route path=\"/about\" element={<GallPage />} />\r\n+         <Route path=\"/about\" element={<AboutPage />} />\r\n         <Route path=\"/contact\" element={<ContactPage />} />\r\n          <Route path=\"/csr\" element={<CsrPage />} />\r\n          <Route path=\"/career\" element={<CareerPage />} />\r\n          <Route path=\"/careers/:jobId\" element={<JobdetailsPage />} />\r\n"
+                },
+                {
+                    "date": 1769833693936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import HomePage from \"../pages/Home/HomePage\";\r\n-\r\n+import \r\n import ContactPage from \"../pages/ContactPage/ContactPage\";\r\n import CsrPage from \"../pages/CsrPage/CsrPage\";\r\n import CareerPage from \"../pages/CareerPage/CareerPage\";\r\n import JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\n"
+                },
+                {
+                    "date": 1769833701339,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import HomePage from \"../pages/Home/HomePage\";\r\n-import \r\n+import AboutPage\r\n import ContactPage from \"../pages/ContactPage/ContactPage\";\r\n import CsrPage from \"../pages/CsrPage/CsrPage\";\r\n import CareerPage from \"../pages/CareerPage/CareerPage\";\r\n import JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\n"
+                },
+                {
+                    "date": 1769833708131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import HomePage from \"../pages/Home/HomePage\";\r\n-import AboutPage\r\n+import AboutPage from \".\"\r\n import ContactPage from \"../pages/ContactPage/ContactPage\";\r\n import CsrPage from \"../pages/CsrPage/CsrPage\";\r\n import CareerPage from \"../pages/CareerPage/CareerPage\";\r\n import JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\n"
+                },
+                {
+                    "date": 1769833713456,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import HomePage from \"../pages/Home/HomePage\";\r\n-import AboutPage from \".\"\r\n+import AboutPage from \"../pages/\"\r\n import ContactPage from \"../pages/ContactPage/ContactPage\";\r\n import CsrPage from \"../pages/CsrPage/CsrPage\";\r\n import CareerPage from \"../pages/CareerPage/CareerPage\";\r\n import JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\n"
+                },
+                {
+                    "date": 1769833719118,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import HomePage from \"../pages/Home/HomePage\";\r\n-import AboutPage from \"../pages/\"\r\n+import AboutPage from \"../pages/AboutPage\"\r\n import ContactPage from \"../pages/ContactPage/ContactPage\";\r\n import CsrPage from \"../pages/CsrPage/CsrPage\";\r\n import CareerPage from \"../pages/CareerPage/CareerPage\";\r\n import JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\n"
+                },
+                {
+                    "date": 1769833724720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\n import HomePage from \"../pages/Home/HomePage\";\r\n-import AboutPage from \"../pages/AboutPage\"\r\n+import AboutPage from \"../pages/AboutPage/AboutPage\":\r\n import ContactPage from \"../pages/ContactPage/ContactPage\";\r\n import CsrPage from \"../pages/CsrPage/CsrPage\";\r\n import CareerPage from \"../pages/CareerPage/CareerPage\";\r\n import JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\n"
+                }
+            ],
+            "date": 1769833669888,
+            "name": "Commit-0",
+            "content": "import { BrowserRouter, Routes, Route } from \"react-router-dom\";\r\nimport HomePage from \"../pages/Home/HomePage\";\r\nimport ContactPage from \"../pages/ContactPage/ContactPage\";\r\nimport CsrPage from \"../pages/CsrPage/CsrPage\";\r\nimport CareerPage from \"../pages/CareerPage/CareerPage\";\r\nimport JobdetailsPage from \"../pages/JobdetailsPage/JobdetailsPage\";\r\nimport InitiativesDetails from \"../pages/InitiativesdetailsPage/InitiativesdetailsPage\";\r\nimport EventsPage from \"../pages/EventsPage/EventsPage\";\r\nimport GalleryPage from \"../pages/GalleryPage/GalleryPage\";\r\nimport EventsDetailedPage from \"../pages/EventsDetailedPage/EventsDetailedPage\";\r\n\r\n\r\n\r\n\r\n\r\nconst AppRoutes = () => {\r\n  return (\r\n    <BrowserRouter>\r\n      <Routes>\r\n        \r\n       \r\n        <Route path=\"/\" element={<HomePage />} />\r\n        \r\n        <Route path=\"/contact\" element={<ContactPage />} />\r\n         <Route path=\"/csr\" element={<CsrPage />} />\r\n         <Route path=\"/career\" element={<CareerPage />} />\r\n         <Route path=\"/careers/:jobId\" element={<JobdetailsPage />} />\r\n         <Route path=\"/initiatives\" element={<InitiativesDetails />} />\r\n         <Route path=\"/events\" element={<EventsPage />} />\r\n        <Route path=\"/events/:slug\" element={<EventsDetailedPage />} />\r\n         <Route path=\"/gallery\" element={<GalleryPage />} />\r\n      </Routes>\r\n    </BrowserRouter>\r\n  );\r\n};\r\n\r\nexport default AppRoutes;\r\n"
+        }
+    ]
+}

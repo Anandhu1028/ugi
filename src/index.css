@@ -117,11 +117,7 @@ code {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse at center,
-    transparent 35%,
-    rgba(0, 0, 0, 0.92) 80%
-  );
+ background: radial-gradient(ellipse at center, #000000 35%, rgba(0, 0, 0, 0.92) 80%);
   z-index: 1;
 }
 
@@ -1428,4 +1424,77 @@ code {
 .contact-container {
   margin-top: -80px; /* pulls card slightly into banner */
   padding-bottom: 80px;
+}
+
+
+
+/* chairman re section */
+/* full screen slider */
+.cs_parallax_slider,
+.cs_parallax_slider .swiper-slide {
+  height: 100vh;
+}
+
+/* slide wrapper */
+.cs_hero_slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* background image */
+.cs_hero_bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+/* dark overlay */
+.cs_hero_overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 30, 0.6);
+  z-index: 2;
+}
+
+/* text layer */
+.cs_hero_content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 8%;
+  color: #fff;
+}
+
+.cs_hero_content h1 {
+  font-size: 60px;
+  line-height: 1.2;
+}
+
+/* social icons */
+.cs_social_btns {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cs_social_btns a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }

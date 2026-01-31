@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Gallery/Gallery.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1769841297797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1769841297797,
+            "name": "Commit-0",
+            "content": "/* ================= GALLERY SECTION ================= */\r\n.gallery-section {\r\n  padding: 100px 0;\r\n  background: #ffffff;\r\n}\r\n\r\n/* ================= GRID ================= */\r\n.gallery-grid {\r\n  max-width: 1200px;\r\n  margin: auto;\r\n  padding: 0 24px;\r\n\r\n  display: grid;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  gap: 24px;\r\n}\r\n\r\n/* ================= ITEM ================= */\r\n.gallery-item {\r\n  position: relative;\r\n  overflow: hidden;\r\n  border-radius: 14px;\r\n  cursor: pointer;\r\n}\r\n\r\n.gallery-item img {\r\n  width: 100%;\r\n  height: auto;\r\n  display: block;\r\n  object-fit: cover;\r\n  transition: transform 0.6s ease;\r\n}\r\n\r\n.gallery-item:hover img {\r\n  transform: scale(1.06);\r\n}\r\n\r\n/* ================= MODAL BACKDROP ================= */\r\n.gallery-modal {\r\n  position: fixed;\r\n  inset: 0;\r\n  z-index: 9999;\r\n\r\n  background: rgba(0, 0, 0, 0.7);\r\n  backdrop-filter: blur(12px);\r\n\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n\r\n  animation: backdropFade 0.3s ease;\r\n}\r\n\r\n/* ================= MODAL IMAGE WRAPPER ================= */\r\n.modal-img-wrapper {\r\n  position: relative;\r\n  max-width: 90vw;\r\n  max-height: 90vh;\r\n\r\n  animation: rotateZoomIn 0.55s cubic-bezier(0.22, 1, 0.36, 1);\r\n  transform-origin: center;\r\n  will-change: transform, opacity;\r\n}\r\n\r\n.modal-img-wrapper img {\r\n  max-width: 90vw;\r\n  max-height: 90vh;\r\n  width: auto;\r\n  height: auto;\r\n  object-fit: contain;\r\n  border-radius: 16px;\r\n}\r\n\r\n/* ================= SOFT GLOW ================= */\r\n.modal-img-wrapper::before {\r\n  content: \"\";\r\n  position: absolute;\r\n  inset: -28px;\r\n  border-radius: 24px;\r\n  filter: blur(32px);\r\n  z-index: -1;\r\n}\r\n\r\n/* ================= ANIMATIONS ================= */\r\n@keyframes rotateZoomIn {\r\n  0% {\r\n    opacity: 0;\r\n    transform: scale(0.7) rotate(-8deg) translateY(40px);\r\n  }\r\n\r\n  60% {\r\n    opacity: 1;\r\n    transform: scale(1.04) rotate(1.5deg) translateY(-6px);\r\n  }\r\n\r\n  100% {\r\n    opacity: 1;\r\n    transform: scale(1) rotate(0deg) translateY(0);\r\n  }\r\n}\r\n\r\n@keyframes backdropFade {\r\n  from {\r\n    opacity: 0;\r\n    backdrop-filter: blur(0px);\r\n  }\r\n  to {\r\n    opacity: 1;\r\n    backdrop-filter: blur(12px);\r\n  }\r\n}\r\n\r\n/* ================= GLOBAL IMAGE RESET ================= */\r\nimg {\r\n  border: 0;\r\n  max-width: 7%;\r\n  height: auto;\r\n}\r\n"
+        }
+    ]
+}

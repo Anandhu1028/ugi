@@ -1,0 +1,34 @@
+{
+    "sourceFile": "src/pages/Home/HomePage.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1769848466467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1769848473371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,15 +1,13 @@\n-import { useEffect } from \"react\";\r\n-import gsap from \"gsap\";\r\n-import { ScrollTrigger } from \"gsap/ScrollTrigger\";\r\n+import Header from '../../components/layouts/Header';\r\n+import Hero from '../../components/home/Hero';\r\n+import Footer from '../../components/layouts/Footer';\r\n+import ChairmanMessage from '../../components/ChairmanMessage/ChairmanMessage';\r\n+import ServicesSection from '../../components/ServicesSection/ServicesSection';\r\n+import Established from '../../components/Established/Established';\r\n+import ScrollGallery from '../../components/ScrollGallery/ScrollGallery';\r\n \r\n-gsap.registerPlugin(ScrollTrigger);\r\n-\r\n const HomePage = () => {\r\n-  useEffect(() => {\r\n-    ScrollTrigger.refresh();\r\n-  }, []);\r\n-\r\n   return (\r\n     <>\r\n       <Header />\r\n       <Hero />\r\n"
+                },
+                {
+                    "date": 1769848545642,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,24 @@\n-import Header from '../../components/layouts/Header';\r\n-import Hero from '../../components/home/Hero';\r\n-import Footer from '../../components/layouts/Footer';\r\n-import ChairmanMessage from '../../components/ChairmanMessage/ChairmanMessage';\r\n-import ServicesSection from '../../components/ServicesSection/ServicesSection';\r\n-import Established from '../../components/Established/Established';\r\n-import ScrollGallery from '../../components/ScrollGallery/ScrollGallery';\r\n+import { useEffect } from \"react\";\r\n+import gsap from \"gsap\";\r\n+import { ScrollTrigger } from \"gsap/ScrollTrigger\";\r\n \r\n+import Header from \"../../components/layouts/Header\";\r\n+import Hero from \"../../components/home/Hero\";\r\n+import ChairmanMessage from \"../../components/ChairmanMessage/ChairmanMessage\";\r\n+import ServicesSection from \"../../components/ServicesSection/ServicesSection\";\r\n+import Established from \"../../components/Established/Established\";\r\n+import ScrollGallery from \"../../components/ScrollGallery/ScrollGallery\";\r\n+import Footer from \"../../components/layouts/Footer\";\r\n+\r\n+gsap.registerPlugin(ScrollTrigger);\r\n+\r\n const HomePage = () => {\r\n+  useEffect(() => {\r\n+    // Critical when Hero has Swiper / images\r\n+    ScrollTrigger.refresh();\r\n+  }, []);\r\n+\r\n   return (\r\n     <>\r\n       <Header />\r\n       <Hero />\r\n"
+                },
+                {
+                    "date": 1769848792130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,14 @@\n gsap.registerPlugin(ScrollTrigger);\r\n \r\n const HomePage = () => {\r\n   useEffect(() => {\r\n-    // Critical when Hero has Swiper / images\r\n-    ScrollTrigger.refresh();\r\n+    // Let Swiper + images settle, then recalc scroll\r\n+    const t = setTimeout(() => {\r\n+      ScrollTrigger.refresh();\r\n+    }, 300);\r\n+\r\n+    return () => clearTimeout(t);\r\n   }, []);\r\n \r\n   return (\r\n     <>\r\n"
+                },
+                {
+                    "date": 1769848900763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,14 +13,10 @@\n gsap.registerPlugin(ScrollTrigger);\r\n \r\n const HomePage = () => {\r\n   useEffect(() => {\r\n-    // Let Swiper + images settle, then recalc scroll\r\n-    const t = setTimeout(() => {\r\n-      ScrollTrigger.refresh();\r\n-    }, 300);\r\n-\r\n-    return () => clearTimeout(t);\r\n+    // Critical when Hero has Swiper / images\r\n+    ScrollTrigger.refresh();\r\n   }, []);\r\n \r\n   return (\r\n     <>\r\n"
+                }
+            ],
+            "date": 1769848466467,
+            "name": "Commit-0",
+            "content": "import { useEffect } from \"react\";\r\nimport gsap from \"gsap\";\r\nimport { ScrollTrigger } from \"gsap/ScrollTrigger\";\r\n\r\ngsap.registerPlugin(ScrollTrigger);\r\n\r\nconst HomePage = () => {\r\n  useEffect(() => {\r\n    ScrollTrigger.refresh();\r\n  }, []);\r\n\r\n  return (\r\n    <>\r\n      <Header />\r\n      <Hero />\r\n      <ChairmanMessage />\r\n      <ServicesSection />\r\n      <Established />\r\n      <ScrollGallery />\r\n      <Footer />\r\n    </>\r\n  );\r\n};\r\n\r\nexport default HomePage;\r\n"
+        }
+    ]
+}

@@ -80,7 +80,7 @@ const Header = () => {
                   </li>
 
                   <li className="menu-item-has-children">
-                    <Link to="/blog">About</Link>
+                    <Link to="/about">About</Link>
                     <ul>
                       <li>
                         <Link to="/blog-grid">History</Link>

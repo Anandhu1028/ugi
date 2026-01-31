@@ -7,36 +7,46 @@ const data = [
     title: "WISHTREE | CYBERWOODZ",
     desc: "A collective group of experts focused on Intelligent Business Augmentation along with creative and results-driven solutions for your brand or business.",
     icon: "💻",
-    color: "#667eea"
+    color: "#ffa100"
   },
   {
     label: "EDUCATION",
     title: "TECSWAN | FOCUZ | SCHOLIUM | BRILLIANZ | INSPIRE",
     desc: "Our internationally recognized educational institutes aim to share knowledge and provide professional and cultural learning.",
     icon: "📚",
-    color: "#f093fb"
+    color: "#ffa100"
   },
   {
     label: "TOURISM",
     title: "RIVERWOODZ WATERLINES",
     desc: "Our houseboat tourism is known for overnight stays and serene backwater cruise experiences in Kerala.",
     icon: "🚢",
-    color: "#4facfe"
+    color: "#ffa100"
   },
   {
     label: "LUXURY GIFTING",
     title: "LE ORENDA",
     desc: "Premium gift hampers designed to create elegant experiences and lasting bonds for every occasion.",
     icon: "🎁",
-    color: "#fa709a"
+    color: "#ffa100"
   },
   {
     label: "AUTOMOTIVE",
     title: "MOTO FACTORY",
     desc: "Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.",
     icon: "🏎️",
-    color: "#fee140"
+    color: "#ffa100"
   },
+   {
+    label: "CREATIVE PRODUCTIONS",
+    title: "GAIA CREATIVE PRODUCTIONS",
+    desc: "Gaia Creative Productions is an event management company operating across the UAE and India. ",
+    icon: "🎨",
+    color: "#ffa100"
+  },
+
+ 
+  
 ];
 
 const Established = () => {

@@ -22,20 +22,26 @@ const INITIATIVES = [
   },
   {
     title: "Riverwoodz Water Lines",
-    desc: "Luxury houseboats offering delightful experiences in the natural charm of Alappuzha",
+    desc: "Luxury houseboats give a delightful experience in the natural charm of Alappuzha, with amazing packages for every occasion",
     logo: "/assets/img/logos/river.png",
     link: "#",
   },
   {
     title: "Le'Orenda",
-    desc: "Reinventing luxury gifting with innovative and premium product experiences",
+    desc: "An initiative in redesigning and reinventing luxury gifting for you, that is innovative to the core with a premium product range",
     logo: "/assets/img/logos/leornda.png",
     link: "#",
   },
   {
     title: "Moto Factory",
-    desc: "Automobile accessorizing and performance-enhancing solutions",
+    desc: " Moto Factory is a car dealing business that explores automobile accessorizing and performance-enhancing possibilities.",
     logo: "/assets/img/logos/moto.png",
+    link: "#",
+  },
+  {
+    title: "Gaia Creative Productions",
+    desc: "Gaia Creative Productions delivers seamless corporate events across the UAE and India with strong creative concepts and flawless execution",
+    logo: "/assets/img/logos/GAIA.png",
     link: "#",
   },
 ];
@@ -90,7 +96,7 @@ const InitiativesTimeline = () => {
             ))}
           </div>
         </div>
-        <div className="section-heading reveal">
+        <div className="section-heading reveal mt-10">
           <span>Planning Beginnings For Our Blooming Initiatives</span>
           <h2>Upcoming Projects</h2>
         </div>

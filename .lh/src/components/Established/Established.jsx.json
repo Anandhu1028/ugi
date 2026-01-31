@@ -3,11 +3,79 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 17,
             "patches": [
                 {
                     "date": 1769765157453,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1769841907324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,9 @@\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n+  \r\n ];\r\n \r\n const Established = () => {\r\n   const [activeIndex, setActiveIndex] = useState(0);\r\n"
+                },
+                {
+                    "date": 1769841927828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,9 @@\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n   \r\n+  \r\n ];\r\n \r\n const Established = () => {\r\n   const [activeIndex, setActiveIndex] = useState(0);\r\n"
+                },
+                {
+                    "date": 1769841942831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,10 +36,19 @@\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n+\r\n+  creative: {\r\n+    label: \"Creative Productions\",\r\n+    title: \"CREATIVE PRODUCTIONS\",\r\n+    brands: \"GAIA CREATIVE PRODUCTIONS\",\r\n+    desc: `Gaia Creative Productions is an event management company operating across the UAE and India. Our team combines creative thinking with careful planning to deliver well-executed event solutions for corporate and professional settings.`,\r\n+    img: \"/assets/img/initiatives/img-2.webp\",\r\n+    icon: \"🎨\",\r\n+    gradient: \"linear-gradient(135deg, #30cfd0 0%, #330867 100%)\"\r\n+  },\r\n   \r\n-  \r\n ];\r\n \r\n const Established = () => {\r\n   const [activeIndex, setActiveIndex] = useState(0);\r\n"
+                },
+                {
+                    "date": 1769841948016,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,8 +36,15 @@\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n+   {\r\n+    label: \"AUTOMOTIVE\",\r\n+    title: \"MOTO FACTORY\",\r\n+    desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n+    icon: \"🏎️\",\r\n+    color: \"#fee140\"\r\n+  },\r\n \r\n   creative: {\r\n     label: \"Creative Productions\",\r\n     title: \"CREATIVE PRODUCTIONS\",\r\n"
+                },
+                {
+                    "date": 1769841962036,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n    {\r\n-    label: \"AUTOMOTIVE\",\r\n+    label: \"CREATIVE PRODUCTIONS\",\r\n     title: \"MOTO FACTORY\",\r\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n"
+                },
+                {
+                    "date": 1769841970493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     color: \"#fee140\"\r\n   },\r\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n-    title: \"MOTO FACTORY\",\r\n+    title: \"CREATIVE PRODUCTIONS\",\r\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n"
+                },
+                {
+                    "date": 1769841980556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     color: \"#fee140\"\r\n   },\r\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n-    title: \"CREATIVE PRODUCTIONS\",\r\n+    title: \"GCREATIVE PRODUCTIONS\",\r\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n"
+                },
+                {
+                    "date": 1769841985599,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     color: \"#fee140\"\r\n   },\r\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n-    title: \"GCREATIVE PRODUCTIONS\",\r\n+    title: \"GAIACREATIVE PRODUCTIONS\",\r\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n"
+                },
+                {
+                    "date": 1769841998845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,10 +38,10 @@\n     color: \"#fee140\"\r\n   },\r\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n-    title: \"GAIACREATIVE PRODUCTIONS\",\r\n-    desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n+    title: \"GAIA CREATIVE PRODUCTIONS\",\r\n+    desc: \"Gaia Creative Productions is an event management company operating across the UAE and India. Our team combines creative thinking with careful planning to deliver well-executed event solutions for corporate and professional settings\",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n \r\n"
+                },
+                {
+                    "date": 1769842008972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n   },\r\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n     title: \"GAIA CREATIVE PRODUCTIONS\",\r\n-    desc: \"Gaia Creative Productions is an event management company operating across the UAE and India. Our team combines creative thinking with careful planning to deliver well-executed event solutions for corporate and professional settings\",\r\n+    desc: \"Gaia Creative Productions is an event management company operating across the UAE and India. \",\r\n     icon: \"🏎️\",\r\n     color: \"#fee140\"\r\n   },\r\n \r\n"
+                },
+                {
+                    "date": 1769842016495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n     title: \"GAIA CREATIVE PRODUCTIONS\",\r\n     desc: \"Gaia Creative Productions is an event management company operating across the UAE and India. \",\r\n-    icon: \"🏎️\",\r\n+    icon: \"🎨\",\r\n     color: \"#fee140\"\r\n   },\r\n \r\n   creative: {\r\n"
+                },
+                {
+                    "date": 1769842067174,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,20 +41,12 @@\n     label: \"CREATIVE PRODUCTIONS\",\r\n     title: \"GAIA CREATIVE PRODUCTIONS\",\r\n     desc: \"Gaia Creative Productions is an event management company operating across the UAE and India. \",\r\n     icon: \"🎨\",\r\n-    color: \"#fee140\"\r\n+    color: \"##ffa100\"\r\n   },\r\n \r\n-  creative: {\r\n-    label: \"Creative Productions\",\r\n-    title: \"CREATIVE PRODUCTIONS\",\r\n-    brands: \"GAIA CREATIVE PRODUCTIONS\",\r\n-    desc: `Gaia Creative Productions is an event management company operating across the UAE and India. Our team combines creative thinking with careful planning to deliver well-executed event solutions for corporate and professional settings.`,\r\n-    img: \"/assets/img/initiatives/img-2.webp\",\r\n-    icon: \"🎨\",\r\n-    gradient: \"linear-gradient(135deg, #30cfd0 0%, #330867 100%)\"\r\n-  },\r\n+ \r\n   \r\n ];\r\n \r\n const Established = () => {\r\n"
+                },
+                {
+                    "date": 1769842073097,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,16 +34,16 @@\n     label: \"AUTOMOTIVE\",\r\n     title: \"MOTO FACTORY\",\r\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n-    color: \"#fee140\"\r\n+    color: \"##ffa100\"\r\n   },\r\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n     title: \"GAIA CREATIVE PRODUCTIONS\",\r\n     desc: \"Gaia Creative Productions is an event management company operating across the UAE and India. \",\r\n     icon: \"🎨\",\r\n-    color: \"##ffa100\"\r\n+    color: \"#ffa100\"\r\n   },\r\n \r\n  \r\n   \r\n"
+                },
+                {
+                    "date": 1769842078673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,16 +27,16 @@\n     label: \"LUXURY GIFTING\",\r\n     title: \"LE ORENDA\",\r\n     desc: \"Premium gift hampers designed to create elegant experiences and lasting bonds for every occasion.\",\r\n     icon: \"🎁\",\r\n-    color: \"#fa709a\"\r\n+    color: \"#ffa100\"\r\n   },\r\n   {\r\n     label: \"AUTOMOTIVE\",\r\n     title: \"MOTO FACTORY\",\r\n     desc: \"Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.\",\r\n     icon: \"🏎️\",\r\n-    color: \"##ffa100\"\r\n+    color: \"#ffa100\"\r\n   },\r\n    {\r\n     label: \"CREATIVE PRODUCTIONS\",\r\n     title: \"GAIA CREATIVE PRODUCTIONS\",\r\n"
+                },
+                {
+                    "date": 1769842086243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,16 +13,16 @@\n     label: \"EDUCATION\",\r\n     title: \"TECSWAN | FOCUZ | SCHOLIUM | BRILLIANZ | INSPIRE\",\r\n     desc: \"Our internationally recognized educational institutes aim to share knowledge and provide professional and cultural learning.\",\r\n     icon: \"📚\",\r\n-    color: \"#f093fb\"\r\n+    color: \"#ffa100\"\r\n   },\r\n   {\r\n     label: \"TOURISM\",\r\n     title: \"RIVERWOODZ WATERLINES\",\r\n     desc: \"Our houseboat tourism is known for overnight stays and serene backwater cruise experiences in Kerala.\",\r\n     icon: \"🚢\",\r\n-    color: \"#4facfe\"\r\n+    color: \"#ffa100\"\r\n   },\r\n   {\r\n     label: \"LUXURY GIFTING\",\r\n     title: \"LE ORENDA\",\r\n"
+                },
+                {
+                    "date": 1769842094518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     label: \"IT INDUSTRY\",\r\n     title: \"WISHTREE | CYBERWOODZ\",\r\n     desc: \"A collective group of experts focused on Intelligent Business Augmentation along with creative and results-driven solutions for your brand or business.\",\r\n     icon: \"💻\",\r\n-    color: \"#667eea\"\r\n+    color: \"##ffa100#667eea\"\r\n   },\r\n   {\r\n     label: \"EDUCATION\",\r\n     title: \"TECSWAN | FOCUZ | SCHOLIUM | BRILLIANZ | INSPIRE\",\r\n"
+                },
+                {
+                    "date": 1769842101675,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,9 @@\n     label: \"IT INDUSTRY\",\r\n     title: \"WISHTREE | CYBERWOODZ\",\r\n     desc: \"A collective group of experts focused on Intelligent Business Augmentation along with creative and results-driven solutions for your brand or business.\",\r\n     icon: \"💻\",\r\n-    color: \"##ffa100#667eea\"\r\n+    color: \"###667eea\"\r\n   },\r\n   {\r\n     label: \"EDUCATION\",\r\n     title: \"TECSWAN | FOCUZ | SCHOLIUM | BRILLIANZ | INSPIRE\",\r\n"
                 }
             ],
             "date": 1769765157453,
