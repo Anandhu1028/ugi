@@ -76,10 +76,10 @@ export const PREVIOUS_EVENTS = [
     },
 
     gallery: [
-      "/assets/img/events/convocation-01.webp",
-      "/assets/img/events/convocation-02.webp",
-      "/assets/img/events/convocation-03.webp",
-      "/assets/img/events/convocation-04.webp"
+      "/assets/img/events/ugi-website-event-convocation-01.webp",
+      "/assets/img/events/ugi-website-event-convocation-15-scaled-1000x667.webp",
+      "/assets/img/events/ugi-website-event-convocation-07.webp",
+      "/assets/img/events/ugi-website-event-convocation-14-scaled-1000x667.webp"
     ]
   },
 
@@ -105,12 +105,12 @@ export const PREVIOUS_EVENTS = [
     },
 
     gallery: [
-      "/assets/img/events/onam-01.webp",
-      "/assets/img/events/onam-02.webp",
-      "/assets/img/events/onam-03.webp",
-      "/assets/img/events/onam-04.webp",
-      "/assets/img/events/onam-05.webp",
-      "/assets/img/events/onam-06.webp"
+      "/assets/img/events/ugi-website-brillianz-onam-01.webp",
+      "/assets/img/events/ugi-website-brillianz-onam-02-1000x667.webp",
+      "/assets/img/events/ugi-website-brillianz-onam-08-1000x667.webp",
+      "/assets/img/events/ugi-website-brillianz-onam-07-1000x667.webp",
+      "/assets/img/events/ugi-website-brillianz-onam-04-1000x667.webp",
+      "/assets/img/events/ugi-website-brillianz-onam-05-1000x667.webp"
     ]
   },
 
@@ -135,12 +135,12 @@ export const PREVIOUS_EVENTS = [
     },
 
     gallery: [
-      "/assets/img/events/aarpo-01.webp",
-      "/assets/img/events/aarpo-02.webp",
-      "/assets/img/events/aarpo-03.webp",
-      "/assets/img/events/aarpo-04.webp",
-      "/assets/img/events/aarpo-05.webp",
-      "/assets/img/events/aarpo-06.webp"
+      "/assets/img/events/ugi-website-onam-celebration-06.webp",
+      "/assets/img/events/ugi-website-onam-celebration-14-1000x667.webp",
+      "/assets/img/events/ugi-website-onam-celebration-05-1000x667.webp",
+      "/assets/img/events/ugi-website-onam-celebration-11-1000x667.webp",
+      "/assets/img/events/ugi-website-onam-celebration-07-1000x667.webp",
+      "/assets/img/events/ugi-website-onam-celebration-10.webp"
     ]
   },
 
@@ -165,12 +165,12 @@ export const PREVIOUS_EVENTS = [
     },
 
     gallery: [
-      "/assets/img/events/staff-01.webp",
-      "/assets/img/events/staff-02.webp",
-      "/assets/img/events/staff-03.webp",
-      "/assets/img/events/staff-04.webp",
-      "/assets/img/events/staff-05.webp",
-      "/assets/img/events/staff-06.webp"
+      "/assets/img/events/ugi-website-staff-together-01-1000x667.webp",
+      "/assets/img/events/ugi-website-staff-together-03-1000x667.webp",
+      "/assets/img/events/ugi-website-staff-together-04-1000x667.webp",
+      "/assets/img/events/ugi-website-staff-together-09-1000x667.webp",
+      "/assets/img/events/ugi-website-staff-together-08.webp",
+      "/assets/img/events/ugi-website-staff-together-07-1000x667.webp"
     ]
   },
 
@@ -195,12 +195,9 @@ export const PREVIOUS_EVENTS = [
     },
 
     gallery: [
-      "/assets/img/events/tecswan-01.webp",
-      "/assets/img/events/tecswan-02.webp",
-      "/assets/img/events/tecswan-03.webp",
-      "/assets/img/events/tecswan-04.webp",
-      "/assets/img/events/tecswan-05.webp",
-      "/assets/img/events/tecswan-06.webp"
+      "/assets/img/events/Untitled-3-01.webp",
+      "/assets/img/events/Untitled-3-02.webp",
+   
     ]
   }
 ];
@@ -239,15 +236,52 @@ const Events = () => {
     items.forEach(el => observer.observe(el));
   }, []);
 
+
+
+
+    /* ================= SCROLL REVEAL ================= */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".reveal").forEach(el =>
+      observer.observe(el)
+    );
+
+    return () => observer.disconnect();
+  }, []);
+  
+
   return (
     <>
-      {/* PAGE HEADER */}
-      <section
-        className="cs_page_header"
-        style={{ backgroundImage: "url(/assets/img/banner/event-banner.jpg)" }}
-      >
-        <div className="container">
-          <h1>Events</h1>
+       {/* ================= CAREER BANNER ================= */}
+      <section className="career-banner">
+        <div
+          className="career-banner-bg"
+          style={{
+            backgroundImage: `
+             
+              url(/assets/img/ugi-banner-events.jpg)
+            `,
+          }}
+        />
+
+        <div className="career-banner-inner reveal active">
+          <span className="career-badge">UGI - EVENTS</span>
+
+          <h3 className="career-title">
+           Laughter's to reminisce 
+          </h3>
+
+          <div className="career-banner-line" />
         </div>
       </section>
 

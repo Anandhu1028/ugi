@@ -79,22 +79,9 @@ const Header = () => {
                     <Link to="/">Home</Link>
                   </li>
 
-                  <li className="menu-item-has-children">
+                  <li className="">
                     <Link to="/about">About</Link>
-                    <ul>
-                      <li>
-                        <Link to="/blog-grid">History</Link>
-                      </li>
-                      <li>
-                        <Link to="/blog-list-with-sidebar">Journey</Link>
-                      </li>
-                      <li>
-                        <Link to="/blog-details"> Chairman</Link>
-                      </li>
-                      <li>
-                        <Link to="/blog-details"> Member</Link>
-                      </li>
-                    </ul>
+                    
                   </li>
                   <li>
                     <Link to="/initiatives">Initiatives</Link>

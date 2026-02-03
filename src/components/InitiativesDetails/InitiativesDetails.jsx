@@ -74,16 +74,40 @@ const InitiativesDetails = () => {
 
   const data = INITIATIVES[activeKey];
 
-  return (
+ return (
+  <>
+     {/* ================= CAREER BANNER ================= */}
+      <section className="career-banner">
+        <div
+          className="career-banner-bg"
+          style={{
+            backgroundImage: `
+             
+              url(/assets/img/ugi-banner-initiatives-1.jpg)
+            `,
+          }}
+        />
 
-    
-    <section className="initiatives-details-enhanced">
+        <div className="career-banner-inner reveal active">
+          <span className="career-badge">UGI - INITIATIVES</span>
+
+          <h3 className="career-title">
+            Our Roots That Connects Us      
+          </h3>
+
+          <div className="career-banner-line" />
+        </div>
+      </section>
+
+    {/* ================= INITIATIVES DETAILS  ================= */}
+    <section className="initiatives-details-enhanced cs_pt_135 cs_pb_140">
       <div className="container">
         
         {/* HEADING */}
         <div className="details-heading">
-          <span className="details-badge">UGI</span>
-          <h2>Diverse Range Of Fields<br />Under One Name</h2>
+          <h2>
+            Diverse Range Of Fields <br /> Under One Name
+          </h2>
           <div className="heading-accent" />
         </div>
 
@@ -96,7 +120,7 @@ const InitiativesDetails = () => {
             </div>
 
             <nav className="sidebar-nav">
-              {Object.keys(INITIATIVES).map(key => {
+              {Object.keys(INITIATIVES).map((key) => {
                 const item = INITIATIVES[key];
                 const isActive = key === activeKey;
 
@@ -105,13 +129,24 @@ const InitiativesDetails = () => {
                     key={key}
                     className={`nav-item ${isActive ? "active" : ""}`}
                     onClick={() => handleChange(key)}
-                    style={{ '--item-gradient': item.gradient }}
+                    style={{ "--item-gradient": item.gradient }}
                   >
                     <span className="nav-icon">{item.icon}</span>
                     <span className="nav-label">{item.label}</span>
                     <span className="nav-arrow">
-                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M7 4l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                      >
+                        <path
+                          d="M7 4l6 6-6 6"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </span>
                   </button>
@@ -121,8 +156,15 @@ const InitiativesDetails = () => {
           </aside>
 
           {/* RIGHT CONTENT */}
-          <div className={`details-content ${animate ? "fade-out" : "fade-in"}`}>
-            <div className="content-wrapper" style={{ '--accent-gradient': data.gradient }}>
+          <div
+            className={`details-content ${
+              animate ? "fade-out" : "fade-in"
+            }`}
+          >
+            <div
+              className="content-wrapper"
+              style={{ "--accent-gradient": data.gradient }}
+            >
               {/* Icon Header */}
               <div className="content-icon-wrapper">
                 <div className="icon-glow" />
@@ -134,8 +176,6 @@ const InitiativesDetails = () => {
                 <h3>{data.title}</h3>
                 <h4>{data.brands}</h4>
                 <p>{data.desc}</p>
-
-                {/* Decorative Line */}
                 <div className="content-line" />
               </div>
 
@@ -149,7 +189,9 @@ const InitiativesDetails = () => {
         </div>
       </div>
     </section>
-  );
+  </>
+);
+
 };
 
 export default InitiativesDetails;

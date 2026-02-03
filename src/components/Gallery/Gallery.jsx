@@ -5,33 +5,33 @@ import "./Gallery.css";
 
 
 const images = [
-  { src:"/assets/img/events/ugi-website-brillianz-onam-01.webp" },
-  { src:"/assets/img/events/ugi-website-brillianz-onam-02.webp" },
-  { src: "/assets/img/events/ugi-website-brillianz-onam-07.webp" },
-  { src: "/assets/img/events/ugi-website-brillianz-onam-08.webp" },
+  { src:"/assets/img/gallery/ugi-website-brillianz-onam-01.webp" },
+  { src: "/assets/img/gallery/ugi-website-brillianz-onam-02.webp" },
+  { src: "/assets/img/gallery/ugi-website-onam-celebration-05.webp" },
+  { src:"/assets/img/gallery/ugi-website-onam-celebration-06.webp" },
+  { src:"/assets/img/gallery/ugi-website-onam-celebration-07.webp" },
+  { src:"/assets/img/gallery/ugi-website-brillianz-onam-07.webp" },
+  { src: "/assets/img/gallery/ugi-website-brillianz-onam-08.webp" },
+  { src: "/assets/img/gallery/ugi-website-onam-celebration-10.webp" },
+  { src: "/assets/img/gallery/ugi-website-onam-celebration-11.webp" },
+  { src: "/assets/img/gallery/ugi-website-onam-celebration-14-1000x667.webp" },
 
-  { src: "/assets/img/events/ugi-website-convocation-03.webp" },
-  { src: "/assets/img/events/ugi-website-convocation-04.webp" },
-  { src: "/assets/img/events/ugi-website-convocation-07.webp" },
-  { src: "/assets/img/events/ugi-website-convocation-08.webp" },
+  { src: "/assets/img/gallery/ugi-website-event-convocation-01.webp" },
+  { src: "/assets/img/gallery/ugi-website-convocation-04.webp" },
+  { src: "/assets/img/gallery/ugi-website-convocation-08.webp" },
+  { src: "/assets/img/gallery/ugi-website-convocation-07.webp" },
+  { src: "/assets/img/gallery/ugi-website-event-convocation-07.webp" },
 
-  { src:"/assets/img/events/ugi-website-events-10th-anniversary-01.webp" },
-  { src:"/assets/img/events/ugi-website-events-10th-anniversary-02.webp" },
-  { src: "/assets/img/events/ugi-website-events-10th-anniversary-05.webp" },
-  { src: "/assets/img/events/ugi-website-events-10th-anniversary-09.webp" },
-  { src: "/assets/img/events/ugi-website-events-10th-anniversary-14.webp" },
-  { src: "/assets/img/events/ugi-website-events-10th-anniversary-15.webp" },
 
-  { src: "/assets/img/events/ugi-website-onam-celebration-05.webp" },
-  { src: "/assets/img/events/ugi-website-onam-celebration-06.webp" },
-  { src: "/assets/img/events/ugi-website-onam-celebration-07.webp" },
-  { src: "/assets/img/events/ugi-website-onam-celebration-10.webp" },
-  { src: "/assets/img/events/ugi-website-onam-celebration-11.webp" },
-  { src: "/assets/img/events/ugi-website-onam-celebration-14-1000x.webp" },
+  { src: "/assets/img/gallery/ugi-website-events-10th-anniversary-09-scaled.webp" },
+  { src: "/assets/img/gallery/ugi-website-events-10th-anniversary-14-scaled.webp" },
+  { src: "/assets/img/gallery/ugi-website-events-10th-anniversary-05.webp" },
+  { src: "/assets/img/gallery/ugi-website-events-10th-anniversary-15-scaled.webp" },
 
-  { src: "/assets/img/events/ugi-website-staff-together-01.webp" },
-  { src: "/assets/img/events/ugi-website-staff-together-08.webp" },
-  { src: "/assets/img/events/ugi-website-staff-together-09.webp" },
+  { src: "/assets/img/gallery/ugi-website-staff-together-01.webp" },
+  { src: "/assets/img/gallery/ugi-website-staff-together-09.webp" },
+  { src: "/assets/img/gallery/ugi-website-staff-together-08.webp" },
+  { src: "/assets/img/gallery/ugi-website-staff-together-09.webp" },
 ];
 
 
@@ -50,17 +50,29 @@ const Gallery = () => {
   return (
     <>
 
+ {/* ================= GALLERY BANNER ================= */}
+      <section className="career-banner">
+        <div
+          className="career-banner-bg"
+          style={{
+            backgroundImage: `
+             
+              url(/assets/img/ugi-banner-Gallery.jpg)
+            `,
+          }}
+        />
 
-    {/* PAGE HEADER */}
-      <section
-        className="cs_page_header"
-        style={{ backgroundImage: "url(/assets/img/banner/gallery.jpg)" }}
-      >
-        <div className="container">
-          <h1>Events</h1>
+        <div className="career-banner-inner reveal active">
+          <span className="career-badge">UGI - GALLERY</span>
+
+          <h3 className="career-title">
+           Our Journey In Moments    
+          </h3>
+
+          <div className="career-banner-line" />
         </div>
       </section>
-      {/* ================= GALLERY GRID ================= */}
+      {/* ================= GALLERY GRID  ================= */}
       <section className="gallery-section">
         <div className="gallery-grid">
           {images.map((item, index) => (

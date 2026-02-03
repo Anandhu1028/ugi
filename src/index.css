@@ -15,6 +15,16 @@ code {
 }
 
 
+
+
+/* ===============================
+  LOGO
+================================ */
+.cs_site_branding{
+  width: 80px;
+}
+
+
 /* ===============================
    STICKY HEADER BASE
 ================================ */
@@ -1039,14 +1049,14 @@ code {
 .contact-form-area button {
   margin-top: 10px;
   padding: 12px 36px;
-  border-radius: 20px;
+  border-radius: 11px;
   border: none;
   background: linear-gradient(
     135deg,
-    #f6cf7a,
-    #ffca58
+    #ffbf35,
+    #de9700
   );
-  color: #111;
+  color: #ffffff;
   font-size: 13px;
   letter-spacing: 1px;
   cursor: pointer;
@@ -1057,6 +1067,24 @@ code {
   transform: translateY(-2px);
   box-shadow: 0 14px 40px rgba(201,162,77,0.45);
 }
+.btn-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.btn-icon {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+/* Subtle motion on hover */
+.btn-shine:hover .btn-icon {
+  transform: translateX(4px) rotate(-5deg);
+}
+
 
 /* RIGHT */
 .contact-info-area {
@@ -1422,10 +1450,81 @@ code {
   opacity: 0.9;
 }
 .contact-container {
-  margin-top: -80px; /* pulls card slightly into banner */
+  margin-top: 153px; /* pulls card slightly into banner */
   padding-bottom: 80px;
 }
 
+/* ================= SHINING BUTTON ================= */
+
+.btn-shine {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 34px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    #c89b3c,
+    #f5d37a,
+    #c89b3c
+  );
+  border: none;
+  border-radius: 11px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow:
+    0 10px 25px rgba(200, 155, 60, 0.35),
+    inset 0 0 0 1px rgba(255,255,255,0.15);
+}
+
+/* Hover lift */
+.btn-shine:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 40px rgba(200, 155, 60, 0.45),
+    inset 0 0 0 1px rgba(255,255,255,0.25);
+}
+
+/* Shine sweep */
+.btn-shine .shine {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.6),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: left 0.6s ease;
+}
+
+.btn-shine:hover .shine {
+  left: 130%;
+}
+
+/* Active press */
+.btn-shine:active {
+  transform: translateY(0);
+  box-shadow:
+    0 10px 20px rgba(200, 155, 60, 0.3);
+}
+
+/* Accessibility */
+.btn-shine:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 3px rgba(245, 211, 122, 0.5),
+    0 18px 40px rgba(200, 155, 60, 0.45);
+}
 
 
 /* chairman re section */
@@ -1498,3 +1597,4 @@ code {
   justify-content: center;
   color: white;
 }
+/*-------------------------*/

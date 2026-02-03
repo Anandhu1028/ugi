@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import "./csr.css";
+import FlyingPosters from '../FlyingPosters'
+
 
 const CSR = () => {
   useEffect(() => {
@@ -22,6 +24,39 @@ const CSR = () => {
       elements.forEach(el => observer.unobserve(el));
     };
   }, []);
+
+
+   /* ================= SCROLL REVEAL ================= */
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    document.querySelectorAll(".reveal").forEach(el =>
+      observer.observe(el)
+    );
+
+    return () => observer.disconnect();
+  }, []);
+  
+  
+  
+const items = [
+   "/assets/img/gallery/ugi-website-brillianz-onam-01.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-09-scaled.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-14-scaled.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-15-scaled.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-02.webp",
+  "/assets/img/gallery/ugi-website-staff-together-08.webp",
+  "/assets/img/gallery/ugi-website-onam-celebration-06.webp",
+];
 
   const initiatives = [
     {
@@ -53,13 +88,28 @@ const CSR = () => {
   return (
     <section className="csr-section">
 
-      {/* ================= BANNER ================= */}
-      <div
-        className="csr-banner"
-        style={{ backgroundImage: "url('/assets/img/banner/csr.png')" }}
-      >
-        <div className="csr-banner-overlay" />
-      </div>
+     {/* ================= CAREER BANNER ================= */}
+      <section className="career-banner">
+        <div
+          className="career-banner-bg"
+          style={{
+            backgroundImage: `
+             
+              url(/assets/img/ugi-banner-Csr.jpg)
+            `,
+          }}
+        />
+
+        <div className="career-banner-inner reveal active">
+          <span className="career-badge">UGI - CORPORATE SOCIAL RESPONSIBILITY</span>
+
+          <h3 className="career-title">
+            A helping hand to our community         
+          </h3>
+
+          <div className="career-banner-line" />
+        </div>
+      </section>
 
       {/* ================= INTRO ================= */}
       <div className="csr-intro container">
@@ -92,6 +142,24 @@ const CSR = () => {
 
         </div>
       </div>
+
+      <div style={{ height: '600px', position: 'relative' }}>
+  <FlyingPosters items={items}
+  items={[ "/assets/img/gallery/ugi-website-brillianz-onam-01.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-09-scaled.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-14-scaled.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-15-scaled.webp",
+  "/assets/img/gallery/ugi-website-events-10th-anniversary-02.webp",
+  "/assets/img/gallery/ugi-website-staff-together-08.webp",
+  "/assets/img/gallery/ugi-website-onam-celebration-06.webp",]}
+  planeWidth={320}
+  planeHeight={320}
+  distortion={2.1}
+  scrollEase={0.05}
+  cameraFov={46}
+  cameraZ={20}
+/>
+</div>
 
       {/* ================= INITIATIVES ================= */}
       <div className="csr-initiatives">
@@ -134,7 +202,7 @@ const CSR = () => {
               social impact.
             </p>
 
-            <a href="/csr-activities" className="csr-btn">
+            <a href="#" className="csr-btn">
               <span>Explore Activities</span>
             </a>
           </div>

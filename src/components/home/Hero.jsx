@@ -8,19 +8,23 @@ import "swiper/css/effect-fade";
 
 const slides = [
   {
-    img: "/assets/img/hero1.jpeg",
-    title: <>One for All is a notion <br /> We uphold</>,
+    img: "/assets/img/ugi-banner-1.jpg",
+    title: <>One for All is a notion <br /> We Uphold</>,
   },
   {
-    img: "/assets/img/hero2.jpeg",
+    img: "/assets/img/ugi-banner4.jpg",
     title: <>Embedding Digital <br /> Solutions To Businesses</>,
   },
   {
-    img: "/assets/img/hero_slider_3.jpeg",
+    img: "/assets/img/ugi-banner-3.jpg",
     title: <>Quality Learning <br /> For Every Individual</>,
   },
   {
-    img: "/assets/img/hero_slider_4.jpeg",
+    img: "/assets/img/ugi-banner-5.jpg",
+    title: <>Experiance Mobility With  <br /> Power & ComfortFor </>,
+  },
+  {
+    img: "/assets/img/ugi-banner-6.jpg",
     title: <>Explore Serenity With <br /> Luxury Cruising</>,
   },
 ];
@@ -28,6 +32,20 @@ const slides = [
 const Hero = () => {
   return (
     <section className="cs_hero_1-wrap position-relative cs_hero_slider">
+      
+  {/* SOCIAL ICONS – FIXED LEFT */}
+  <div className="cs_hero_social">
+    <div className="cs_social_btns d-flex flex-column cs_row_gap_15">
+      <a href="https://x.com/ugi__group"><i className="fa-brands fa-x-twitter" /></a>
+      <a href="https://www.facebook.com/ugigroupofinitiatives"><i className="fa-brands fa-facebook-f" /></a>
+      <a href="https://in.pinterest.com/uginitiatives/"><i className="fa-brands fa-pinterest-p" /></a>
+      <a href="https://www.linkedin.com/uas/login"><i className="fa-brands fa-linkedin-in" /></a>
+      <a href="https://www.instagram.com/ugigroupofinitiatives/"><i className="fa-brands fa-instagram" /></a>
+      <a href="https://www.youtube.com/channel/UCOVJgk1yk41TsUpSQjzuNtA"><i className="fa-brands fa-youtube" /></a>
+      <a href="https://wa.me/9539014658"><i className="fa-brands fa-whatsapp" /></a>
+    </div>
+  </div>
+
       <Swiper
         modules={[Navigation, Autoplay, EffectFade]}
         effect="fade"
@@ -61,6 +79,14 @@ const Hero = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+
+      <div>
+        {/* nav buttons */}
+        <div>
+          <div className = "cs_swiper_button_prev"></div>
+        </div>
+      </div>
       
     </section>
   );

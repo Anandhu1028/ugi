@@ -8,7 +8,6 @@ const AboutPage = () => {
   return (
     <>
       <Header />
-      
        <About />
       <Footer />
     </>

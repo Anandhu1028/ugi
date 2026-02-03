@@ -1,23 +1,30 @@
 const Contact = () => {
   return (
     <section className="contact-section">
+      {/* ================= CONTACT BANNER ================= */}
+      <section className="career-banner">
+        <div
+          className="career-banner-bg"
+          style={{
+            backgroundImage: `
+             
+              url(/assets/img/ugi-banner-History-1.jpg)
+            `,
+          }}
+        />
 
-      {/* ================= BANNER ================= */}
-      <div
-        className="contact-banner"
-        style={{
-          backgroundImage: "url('/assets/img/banner/OIP.webp')",
-        }}
-      >
-        <div className="contact-banner-overlay" />
+        <div className="career-banner-inner reveal active">
+          <span className="career-badge">UGI - CONTACT US</span>
 
-        
-      </div>
+          <h3 className="career-title">Get in touch with us</h3>
+
+          <div className="career-banner-line" />
+        </div>
+      </section>
 
       {/* ================= MAIN CARD ================= */}
       <div className="contact-container">
         <div className="contact-card">
-
           {/* LEFT */}
           <div className="contact-form-area">
             <h2>Let’s talk</h2>
@@ -38,13 +45,18 @@ const Contact = () => {
 
               <textarea rows="4" placeholder="Tell us about your requirement" />
 
-              <button type="submit">Send Message</button>
+              <button type="submit" className="btn-shine">
+                <span className="btn-content">
+                  SEND MESSAGE
+                  <i className="fas fa-paper-plane btn-icon" />
+                </span>
+                <span className="shine" />
+              </button>
             </form>
           </div>
 
           {/* RIGHT */}
           <div className="contact-info-area">
-
             {/* CENTER ANIMATED VISUAL */}
             <div className="contact-visual center-visual">
               <img
@@ -56,25 +68,29 @@ const Contact = () => {
 
             {/* TWO COLUMN INFO */}
             <div className="contact-info-grid">
-
               {/* INDIA */}
               <div className="office-card">
                 <h4 className="office-title">India Office</h4>
 
                 <p>
-                  <strong>Address</strong><br />
-                  No:57, 5th Cross Road, Giri Nagar Housing Society,<br />
+                  <strong>Address</strong>
+                  <br />
+                  No:57, 5th Cross Road, Giri Nagar Housing Society,
+                  <br />
                   Kadavanthra, Kochi, Kerala 682020, India
                 </p>
 
                 <p>
-                  <strong>Phone</strong><br />
+                  <strong>Phone</strong>
+                  <br />
                   +91 95390 14658
                 </p>
 
                 <p>
-                  <strong>Email</strong><br />
-                  info@uginitiative.com<br />
+                  <strong>Email</strong>
+                  <br />
+                  info@uginitiative.com
+                  <br />
                   career.dxb@uginitiative.com
                 </p>
               </div>
@@ -84,22 +100,25 @@ const Contact = () => {
                 <h4 className="office-title">Dubai Office</h4>
 
                 <p>
-                  <strong>Address</strong><br />
+                  <strong>Address</strong>
+                  <br />
                   Karama, Dubai, United Arab Emirates
                 </p>
 
                 <p>
-                  <strong>Phone</strong><br />
+                  <strong>Phone</strong>
+                  <br />
                   +971 4342 8008
                 </p>
 
                 <p>
-                  <strong>Email</strong><br />
-                  info@uginitiative.com<br />
+                  <strong>Email</strong>
+                  <br />
+                  info@uginitiative.com
+                  <br />
                   career.dxb@uginitiative.com
                 </p>
               </div>
-
             </div>
 
             {/* SOCIALS */}
@@ -108,13 +127,11 @@ const Contact = () => {
               <i className="fab fa-instagram" />
               <i className="fab fa-facebook-f" />
             </div>
-
           </div>
 
           {/* Glow elements */}
           <span className="glow glow-gold" />
           <span className="glow glow-soft" />
-
         </div>
       </div>
 
@@ -135,7 +152,6 @@ const Contact = () => {
           />
         </div>
       </div>
-
     </section>
   );
 };

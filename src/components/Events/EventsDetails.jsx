@@ -122,7 +122,7 @@ const EventsDetails = () => {
                   <div className="info-item">
                     <div className="info-icon" style={{ background: event.color }}>
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M16 3h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1M7 1v4M13 1v4M1 9h18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M16 3h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h1M7 1v4M13 1v4M1 9h18" stroke="orange" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                     <div className="info-content">
@@ -134,7 +134,7 @@ const EventsDetails = () => {
                   <div className="info-item">
                     <div className="info-icon" style={{ background: event.color }}>
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M10 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM10 1C6.5 1 3 3.5 3 8c0 5.25 7 11 7 11s7-5.75 7-11c0-4.5-3.5-7-7-7z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M10 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM10 1C6.5 1 3 3.5 3 8c0 5.25 7 11 7 11s7-5.75 7-11c0-4.5-3.5-7-7-7z" stroke="orange" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                     <div className="info-content">
@@ -146,7 +146,7 @@ const EventsDetails = () => {
                   <div className="info-item">
                     <div className="info-icon" style={{ background: event.color }}>
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M17 3H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM3 7l7 4 7-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M17 3H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM3 7l7 4 7-4" stroke="orange" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                     <div className="info-content">

@@ -17,7 +17,7 @@ const Footer = () => {
               Have Any Question?
             </h3>
             <h2 className="text-white fw-medium m-0 cs_fs_22">
-              + 070 4531 9507
+              +971 4342 8008
             </h2>
           </div>
 
@@ -56,29 +56,7 @@ const Footer = () => {
                   </p>
                 </div>
 
-                <div className="cs_social_btns d-flex flex-wrap cs_column_gap_15 cs_row_gap_15">
-                  <a href="https://x.com/ugi__group" className="cs_height_35 cs_width_35 text-white rounded-circle d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-x-twitter" />
-                  </a>
-                  <a href="https://www.facebook.com/ugigroupofinitiatives" className="cs_height_35 cs_width_35 text-white rounded-circle d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-facebook-f" />
-                  </a>
-                  <a href="https://www.pinterest.com/" className="cs_height_35 cs_width_35 text-white rounded-circle d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-pinterest-p" />
-                  </a>
-                  <a href="https://www.linkedin.com/" className="cs_height_35 cs_width_35 text-white rounded-circle d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-linkedin-in" />
-                  </a>
-                  <a href="https://www.instagram.com/" className="cs_height_35 cs_width_35 text-white rounded-circle d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-instagram" />
-                  </a>
-                  <a href="https://www.youtube.com/" className="cs_height_35 cs_width_35 text-white rounded-circle d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-youtube" />
-                  </a>
-                  <a href="https://wa.me/8001234567" className="cs_height_35 cs_width_35 text-white rounded-circle d-flex align-items-center justify-content-center">
-                    <i className="fa-brands fa-whatsapp" />
-                  </a>
-                </div>
+               
               </div>
             </div>
 
@@ -89,12 +67,12 @@ const Footer = () => {
                   Quick Links
                 </h2>
                 <ul className="cs_menu_widget text-uppercase">
-                  <li><a href="#">Journey</a></li>
-                  <li><a href="#">History</a></li>
-                  <li><a href="#">CSR</a></li>
-                  <li><a href="#">Events</a></li>
-                  <li><a href="#">Careers</a></li>
-                  <li><a href="#">Initiatives</a></li>
+                  <li><a href="/about">Journey</a></li>
+                  <li><a href="/about">History</a></li>
+                  <li><a href="/csr">CSR</a></li>
+                  <li><a href="/events">Events</a></li>
+                  <li><a href="/career">Careers</a></li>
+                  <li><a href="/initiatives">Initiatives</a></li>
                 </ul>
               </div>
             </div>

@@ -78,22 +78,18 @@ const Career = () => {
                 rgba(0,0,0,0.9),
                 rgba(0,0,0,0.6)
               ),
-              url(/assets/img/banner/career-banner.webp)
+              url(/assets/img/ugi-banner-career.jpg)
             `,
           }}
         />
 
         <div className="career-banner-inner reveal active">
-          <span className="career-badge">CAREERS</span>
+          <span className="career-badge">UGI - CAREERS</span>
 
           <h1 className="career-title">
             Build Your Career <br /> With UGI
           </h1>
 
-          <p className="career-subtitle">
-            Join an ethical, people-first organization driving innovation
-            across regions and industries.
-          </p>
 
           <div className="career-banner-line" />
         </div>

@@ -1,0 +1,158 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* 🔥 REQUIRED */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+
+  isolation: isolate; /* prevents transform bleed */
+  background: #fff;
+}
+
+.scroll-stack-inner {
+  position: relative;
+  min-height: 200vh; /* 🔥 CREATES SCROLL SPACE */
+  padding: 19vh 5rem 30vh;
+}
+
+.scroll-stack-card {
+  position: relative;
+  height: 20rem;
+  width: 100%;
+  margin-bottom: 120px; /* controlled spacing */
+
+  padding: 3rem;
+  border-radius: 40px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+  transform-origin: top center;
+  will-change: transform, filter;
+
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 60vh; /* 🔥 lets last card unpin */
+}
+.scroll-stack-card {
+  position: relative;
+  height: 20rem;
+  width: 100%;
+  margin-bottom: 120px;
+  padding: 3rem;
+
+  border-radius: 40px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  color: #fff;
+
+  background: #000;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+
+  transform-origin: top center;
+  will-change: transform;
+}
+
+/* background image */
+.scroll-stack-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 60%;              /* 👈 actual width */
+  transform: translateX(-50%) scale(1.05);
+
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: 0;
+}
+
+
+/* dark overlay */
+.scroll-stack-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.75)
+  );
+
+  z-index: 1;
+}
+
+/* text layer */
+.scroll-stack-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+.scroll-stack-card h2,h3 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.scroll-stack-card h3,
+.scroll-stack-card p {
+  max-width: 800px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+/* Section 1 */
+.journey-intro {
+  position: relative;
+}
+
+.journey-description {
+  max-width: 480px;
+  opacity: 0.85;
+}
+
+/* Right image */
+.journey-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.journey-image {
+  max-width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+}
+
+/* Gap between intro & cards */
+.journey-gap {
+  height: 80px;
+}
+
+/* ScrollStack section */
+.journey-stack-section {
+  min-height: 100vh;
+  padding-bottom: 140px;
+}
