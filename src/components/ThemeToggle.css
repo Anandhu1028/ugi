@@ -1,0 +1,105 @@
+.services-modern-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.services-modern-header {
+    padding: 0 5%;
+    margin-bottom: 60px;
+}
+
+.services-modern-header .display-heading {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.services-scroll-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.services-scroll-track {
+    display: flex;
+    width: max-content;
+    padding: 0 5%;
+}
+
+.service-modern-card {
+    width: 380px;
+    height: 500px;
+    margin-right: 40px;
+    flex-shrink: 0;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-fast);
+    backdrop-filter: blur(10px);
+}
+
+.service-modern-card:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-10px);
+    background: rgba(212, 175, 55, 0.03);
+}
+
+.service-logo-wrap {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+/* .service-logo-wrap img {
+    max-width: 180px;
+    max-height: 100%;
+    filter: brightness(0) invert(1);
+} */
+
+.service-modern-card h3 {
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 15px;
+    font-family: var(--font-primary);
+}
+
+.service-modern-card p {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.premium-btn-small {
+    align-self: flex-start;
+    padding: 8px 24px;
+    border: 1px solid var(--accent-primary);
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 4px;
+    transition: var(--transition-fast);
+    margin-top: auto;
+}
+
+.premium-btn-small:hover {
+    background: var(--accent-primary);
+    color: #000;
+}
+
+@media (max-width: 992px) {
+    .service-modern-card {
+        width: 300px;
+        height: 420px;
+        padding: 30px;
+    }
+}

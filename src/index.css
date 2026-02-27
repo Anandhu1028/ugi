@@ -1,18 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Outfit:wght@200;300;400;500;600;700;800&display=swap');
 
+:root {
+  /* DARK MODERN THEME TOKENS */
+  --bg-primary: #050505;
+  --bg-secondary: #0a0a0b;
+  --bg-tertiary: #141415;
+  --bg-card: rgba(255, 255, 255, 0.03);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  
+  --accent-primary: #d4af37; /* Premium Gold */
+  --accent-glow: rgba(212, 175, 55, 0.4);
+  --accent-hover: #eccc5a;
+  
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-gold: rgba(212, 175, 55, 0.3);
+  
+  --font-primary: 'Outfit', sans-serif;
+  --font-display: 'Syncopate', sans-serif;
+  
+  --transition-fast: 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-slow: 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
 
-body {
+body, html {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  scroll-behavior: auto !important; /* Managed by Lenis */
+}
+
+/* Base Headings & Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: rgb(236, 236, 236);
+  margin-top: 0;
+}
+
+.display-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Disable existing white bg sections */
+.initiatives-section, .contact-section {
+  background-color:white !important;
+  color: rgb(109, 109, 109) !important;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
 
 
 

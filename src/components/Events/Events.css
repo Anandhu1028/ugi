@@ -1,200 +1,215 @@
-/* ================= PAGE HEADER ================= */
-.cs_page_header {
-  min-height: 420px;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  color: #fff;
+/* ================================================================
+   Events Page — Events.css  (uses theme.css variables)
+   ================================================================ */
+
+/* ── Events List Section ───────────────────────────────────── */
+.events-list-section {
+  padding: 120px 0 100px;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+  transition: background 0.4s ease;
 }
 
-.cs_page_header h1 {
-  font-size: 48px;
-  margin-top: 10px;
-}
-
-.breadcrumb {
-  background: none;
-  padding: 0;
-  margin: 0;
-}
-
-.breadcrumb a {
-  color: #fff;
-  text-decoration: none;
-}
-
-/* ================= SECTION HEADING ================= */
-.section-heading {
+.events-section-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 72px;
+}
+.events-section-header .section-eyebrow { margin-bottom: 12px; }
+.events-section-header .section-title   { margin-bottom: 20px; }
+.events-header-line {
+  width: 64px;
+  height: 3px;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+  margin: 0 auto;
 }
 
-.section-heading span {
-  font-size: 13px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #f5a623;
+/* ── Events Grid ───────────────────────────────────────────── */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
 }
 
-.section-heading h2 {
-  font-size: 36px;
-  font-weight: 600;
-  margin-top: 10px;
-}
-
-/* ================= PREVIOUS EVENTS ================= */
-.events-section {
-  padding: 130px 0;
-  background: #ffffff;
-}
-
+/* ── Event Card ────────────────────────────────────────────── */
 .event-card {
-  background: #fff;
-  border-radius: 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 18px 45px rgba(0,0,0,0.06);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  margin-bottom: 30px;
+  transition: var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
 }
 
 .event-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 30px 70px rgba(245,166,35,0.18);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-lg);
 }
 
+/* Thumbnail */
 .event-thumb {
-  height: 220px;
+  height: 240px;
   background-size: cover;
   background-position: center;
   position: relative;
   overflow: hidden;
 }
 
-/* ================= HOVER OVERLAY ================= */
-.event-overlay {
+.event-thumb::before {
+  content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0,0,0,0.55),
-    rgba(245,166,35,0.55)
-  );
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.5) 100%);
+  z-index: 1;
+}
+
+/* Hover overlay */
+.event-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,8,9,0.6) 0%, rgba(212,175,55,0.5) 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 18px;
   padding: 24px;
   text-align: center;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 2;
 }
 
-.event-card:hover .event-overlay {
+.event-card:hover .event-thumb-overlay {
   opacity: 1;
   transform: translateY(0);
 }
 
-.event-overlay p {
+.event-thumb-overlay p {
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.65;
   color: #fff;
-  margin-bottom: 18px;
+  max-width: 280px;
 }
 
-.event-btn {
-  padding: 10px 22px;
-  font-size: 13px;
-  font-weight: 500;
-  color: #000;
-  background: #f5a623;
+.event-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--accent-primary);
   border-radius: 30px;
-  text-decoration: none;
-  transition: background 0.3s ease, transform 0.3s ease;
+  color: #000;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition-fast);
 }
-
-.event-btn:hover {
-  background: #ffb733;
+.event-view-btn:hover {
+  background: var(--accent-hover);
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--accent-glow);
 }
+.event-view-btn svg { transition: transform 0.3s ease; }
+.event-view-btn:hover svg { transform: translateX(3px); }
 
-/* ================= EVENT INFO ================= */
+/* Card info */
 .event-info {
-  padding: 22px;
+  padding: 24px 26px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  border-top: 1px solid var(--border-light);
 }
 
 .event-info h3 {
+  font-family: var(--font-secondary);
   font-size: 18px;
-  margin-bottom: 6px;
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.35;
+  transition: color 0.3s ease;
+}
+.event-card:hover .event-info h3 { color: var(--accent-primary); }
+
+.event-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.event-date svg { color: var(--accent-primary); }
+
+/* ── Gallery Section ───────────────────────────────────────── */
+.events-gallery-section {
+  padding: 100px 0 120px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+  transition: background 0.4s ease;
 }
 
-.event-info p {
-  font-size: 14px;
-  color: #777;
-}
-
-/* ================= GALLERY (UPDATED) ================= */
-.events-gallery {
-  margin-top: -323px;     /* ← added */
-  padding: 288px 0;       /* ← updated */
-  background: #fafafa;
-}
-
-.gallery-grid {
+.events-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 18px;
 }
 
 .gallery-item {
+  position: relative;
   height: 220px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 16px;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  transition: var(--transition-smooth);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+  filter: grayscale(20%);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .gallery-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  transform: scale(1.04);
+  border-color: var(--border-gold);
+  box-shadow: var(--shadow-md);
+  z-index: 1;
 }
-
-/* ================= SCROLL ANIMATION ================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.7s cubic-bezier(0.22,1,0.36,1);
+.gallery-item:hover img {
+  transform: scale(1.08);
+  filter: grayscale(0%);
 }
+.gallery-item:hover .gallery-item-overlay { opacity: 1; }
 
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+  .events-gallery-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 992px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+@media (max-width: 768px) {
+  .events-list-section,
+  .events-gallery-section { padding: 80px 0; }
+  .events-grid { grid-template-columns: 1fr; }
+  .events-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .event-thumb { height: 200px; }
 }
-
-@media (max-width: 576px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .cs_page_header h1 {
-    font-size: 36px;
-  }
-}
-/* ================= REMOVE PAGE HEADER DARK OVERLAY ================= */
-.cs_page_header::before,
-.cs_page_header::after {
-  content: none !important;
-}
-
-.cs_page_header {
-  background-color: transparent !important;
-  filter: none !important;
+@media (max-width: 480px) {
+  .events-gallery-grid { grid-template-columns: 1fr; }
 }

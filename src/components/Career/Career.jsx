@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import "./career.css";
+import CinematicBanner from "../CinematicBanner";
 
 const JOBS = [
   {
@@ -32,7 +33,6 @@ const Career = () => {
   const [type, setType] = useState("all");
   const [location, setLocation] = useState("all");
 
-  /* ================= SCROLL REVEAL ================= */
   useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
@@ -52,7 +52,6 @@ const Career = () => {
     return () => observer.disconnect();
   }, []);
 
-  /* ================= FILTER LOGIC ================= */
   const filteredJobs = useMemo(() => {
     return JOBS.filter(job => {
       return (
@@ -67,35 +66,18 @@ const Career = () => {
   return (
     <section className="career-page">
 
-      {/* ================= CAREER BANNER ================= */}
-      <section className="career-banner">
-        <div
-          className="career-banner-bg"
-          style={{
-            backgroundImage: `
-              linear-gradient(
-                120deg,
-                rgba(0,0,0,0.9),
-                rgba(0,0,0,0.6)
-              ),
-              url(/assets/img/ugi-banner-career.jpg)
-            `,
-          }}
-        />
-
-        <div className="career-banner-inner reveal active">
-          <span className="career-badge">UGI - CAREERS</span>
-
-          <h1 className="career-title">
-            Build Your Career <br /> With UGI
-          </h1>
+      
 
 
-          <div className="career-banner-line" />
-        </div>
-      </section>
 
-      {/* ================= ETHICAL EMPLOYER ================= */}
+      <CinematicBanner
+        image="/assets/img/ugi-banner-career.jpg"
+        eyebrow="UGI — CAREERS"
+        title={<> Build Your Career  <br />With UGI </>}
+        sub="Moments that shaped us, memories that stay forever."
+        height="88vh"
+      />
+   {/* ================= ETHICAL EMPLOYER ================= */}
       <section className="career-intro reveal">
         <h2>Being an ethical employer</h2>
 
@@ -126,8 +108,6 @@ const Career = () => {
           your application!
         </p>
       </section>
-
-      {/* ================= OPEN POSITIONS ================= */}
       <section className="career-jobs">
         <div className="career-jobs-inner">
 
@@ -136,7 +116,6 @@ const Career = () => {
             <div className="accent-line" />
           </div>
 
-          {/* FILTER BAR */}
           <div className="career-filters reveal">
             <input
               type="text"
@@ -165,13 +144,9 @@ const Career = () => {
             </select>
           </div>
 
-          {/* JOB CARDS */}
           <div className="job-grid">
             {filteredJobs.map(job => (
-              <article
-                key={job.id}
-                className="job-card reveal"
-              >
+              <article key={job.id} className="job-card reveal">
                 <h4>{job.title}</h4>
 
                 <div className="job-tags">
@@ -180,8 +155,8 @@ const Career = () => {
                   <span>{job.location}</span>
                 </div>
 
-                <Link to={`/careers/${job.id}`} className="details-link">
-                  More Details →
+                <Link to={``} className="details-link">
+                  Apply Now →
                 </Link>
               </article>
             ))}

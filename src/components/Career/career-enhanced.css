@@ -1,0 +1,269 @@
+/* Career Page - GSAP Modern Dark Theme */
+
+.career-enhanced-wrapper {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+/* Cinematic Hero */
+.career-hero-modern {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: var(--bg-tertiary);
+}
+
+.career-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100vw;
+    height: 120vh;
+    filter: brightness(0.3) saturate(1.2);
+    z-index: 1;
+}
+
+.career-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 900px;
+    padding: 0 5%;
+}
+
+.career-hero-badge {
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.career-hero-title {
+    font-size: clamp(3rem, 5vw, 5rem);
+    text-transform: uppercase;
+    line-height: 1.1;
+    font-family: var(--font-secondary);
+}
+
+/* Intro Section */
+.career-intro-modern {
+    padding: 100px 0;
+    background: var(--bg-primary);
+    position: relative;
+    z-index: 5;
+}
+
+.intro-content-modern {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-content-modern h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--accent-primary);
+    font-family: var(--font-secondary);
+    margin-bottom: 40px;
+}
+
+.intro-content-modern p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.intro-content-modern .highlight {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 500;
+    margin-top: 40px;
+    font-family: var(--font-secondary);
+    background: linear-gradient(90deg, var(--accent-primary), #fff, var(--accent-primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Jobs Section */
+.career-jobs-modern {
+    padding: 80px 0 120px;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-light);
+}
+
+.jobs-header-modern {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.jobs-header-modern h3 {
+    font-size: clamp(2.5rem, 3.5vw, 3rem);
+    font-family: var(--font-secondary);
+    margin: 0;
+}
+
+.job-filters-modern {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.modern-input,
+.modern-select {
+    padding: 12px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--font-primary);
+    font-size: 14px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.modern-input:focus,
+.modern-select:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+.modern-select {
+    appearance: none;
+    padding-right: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    cursor: pointer;
+}
+
+.modern-select option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* Job Cards */
+.job-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.job-card-modern {
+    background: var(--bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 40px 30px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.job-card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent-gradient);
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s ease;
+}
+
+.job-card-modern:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.job-card-modern:hover::before {
+    transform: scaleY(1);
+}
+
+.job-card-modern h4 {
+    font-size: 22px;
+    font-family: var(--font-secondary);
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.job-tags-modern {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.job-tags-modern span {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: capitalize;
+}
+
+.modern-details-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: var(--font-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.modern-details-link span {
+    transition: transform 0.3s ease;
+}
+
+.job-card-modern:hover .modern-details-link span {
+    transform: translateX(5px);
+}
+
+.no-results-modern {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    background: var(--bg-card);
+    border: 1px dashed var(--border-light);
+    border-radius: 16px;
+    color: var(--text-secondary);
+    font-size: 18px;
+}
+
+@media (max-width: 768px) {
+    .jobs-header-modern {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .job-filters-modern {
+        width: 100%;
+    }
+
+    .modern-input,
+    .modern-select {
+        flex-grow: 1;
+        width: 100%;
+    }
+}

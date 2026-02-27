@@ -1,197 +1,261 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./initiativesdetails.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const INITIATIVES = {
   it: {
     label: "IT Industry",
-    title: "IT INDUSTRY",
-    brands: "WISHTREE | CYBERWOODZ",
-    desc: `A collective group of experts focused on Intelligent Business Augmentation along with creative and results-driven solutions for your brand or for your business with the help of Digital Marketing, Website Development etc.`,
+    title: "IT Industry",
+    brands: "Wishtree · Cyberwoodz",
+    desc: "A collective group of experts focused on Intelligent Business Augmentation along with creative and results-driven solutions for your brand or business — through Digital Marketing, Website Development, and more.",
     img: "/assets/img/initiatives/img-2.webp",
     icon: "💻",
-    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+    color: "#7c6fe0",
+    gradient: "linear-gradient(135deg,#667eea 0%,#764ba2 100%)",
   },
   education: {
     label: "Education",
-    title: "EDUCATION",
-    brands: "FOCUZ | SCHOLIUM | BRILLIANZ | INSPIRE",
-    desc: `Our internationally recognized educational institutes aim to share knowledge with society and provide its members with knowledge, including basic facts, job skills, and cultural norms and values.`,
+    title: "Education",
+    brands: "Focuz · Scholium · Brillianz · Inspire",
+    desc: "Our internationally recognized educational institutes aim to share knowledge with society and provide its members with knowledge, including basic facts, job skills, and cultural norms and values.",
     img: "/assets/img/initiatives/img-2.webp",
     icon: "📚",
-    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)"
+    color: "#e0507a",
+    gradient: "linear-gradient(135deg,#f093fb 0%,#f5576c 100%)",
   },
   tourism: {
     label: "Tourism",
-    title: "TOURISM",
-    brands: "RIVERWOODZ WATERLINES",
-    desc: `Our houseboat tourisms are highly known for their overnight tours and for making fast trips through backwaters. Offering an amazing stay and cruise experience in Kerala.`,
+    title: "Tourism",
+    brands: "Riverwoodz Waterlines",
+    desc: "Our houseboat tourism is highly known for overnight tours and fast trips through backwaters — offering an amazing stay and cruise experience in Kerala.",
     img: "/assets/img/initiatives/img-2.webp",
     icon: "🚢",
-    gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)"
+    color: "#4facfe",
+    gradient: "linear-gradient(135deg,#4facfe 0%,#00f2fe 100%)",
   },
   gifting: {
     label: "Luxury Gifting",
-    title: "LUXURY GIFTING",
-    brands: "LE ORENDA",
-    desc: `We have highly elegant, classy and good-quality gift hampers to create a unique experience for every occasion and build bonds with people who matter most.`,
+    title: "Luxury Gifting",
+    brands: "Le Orenda",
+    desc: "We have highly elegant, classy and good-quality gift hampers to create a unique experience for every occasion and build bonds with people who matter most.",
     img: "/assets/img/initiatives/img-2.webp",
     icon: "🎁",
-    gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)"
+    color: "#d4af37",
+    gradient: "linear-gradient(135deg,#fa709a 0%,#fee140 100%)",
   },
   automotive: {
     label: "Automotive",
-    title: "AUTOMOTIVE",
-    brands: "MOTO FACTORY",
-    desc: `Our automobile industry represents freedom and economic growth. We aim to offer comfort and convenience for a better travel experience.`,
+    title: "Automotive",
+    brands: "Moto Factory",
+    desc: "Our automobile industry represents freedom and economic growth. We aim to offer comfort and convenience for a better travel experience.",
     img: "/assets/img/initiatives/img-2.webp",
     icon: "🏎️",
-    gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+    color: "#30cfd0",
+    gradient: "linear-gradient(135deg,#30cfd0 0%,#330867 100%)",
   },
-
-creative: {
+  creative: {
     label: "Creative Productions",
-    title: "CREATIVE PRODUCTIONS",
-    brands: "GAIA CREATIVE PRODUCTIONS",
-    desc: `Gaia Creative Productions is an event management company operating across the UAE and India. Our team combines creative thinking with careful planning to deliver well-executed event solutions for corporate and professional settings.`,
+    title: "Creative Productions",
+    brands: "Gaia Creative Productions",
+    desc: "An event management company operating across the UAE and India. Our team combines creative thinking with careful planning to deliver well-executed event solutions for corporate and professional settings.",
     img: "/assets/img/initiatives/img-2.webp",
     icon: "🎨",
-    gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)"
+    color: "#ff8c42",
+    gradient: "linear-gradient(135deg,#ff8c42 0%,#ff3cac 100%)",
   },
 };
 
+/* ─────────────────────────────────────────────────────────────
+   Cinematic Banner — matches About hero style exactly
+───────────────────────────────────────────────────────────── */
+const InitiativesBanner = () => {
+  const bannerRef = useRef(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Parallax scroll on bg image (same as About hero)
+      gsap.to(".init-hero-bg", {
+        yPercent: 30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: bannerRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      // Content stagger entry
+      gsap.from(".init-hero-content > *", {
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.18,
+        ease: "power3.out",
+        delay: 0.3,
+      });
+
+      // Corner accents fade in
+      gsap.from(".init-hero-corner", {
+        scale: 0,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+        delay: 0.9,
+      });
+    }, bannerRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section className="init-hero" ref={bannerRef}>
+      {/* Parallax bg */}
+      <img
+        className="init-hero-bg"
+        src="/assets/img/ugi-banner-initiatives-1.jpg"
+        alt=""
+        aria-hidden="true"
+      />
+
+      {/* Layered overlays — bottom vignette fades into page bg */}
+      <div className="init-hero-overlay" />
+      <div className="init-hero-vignette" />
+
+      {/* Decorative corner brackets */}
+      <div className="init-hero-corner init-hero-corner--tl" />
+      <div className="init-hero-corner init-hero-corner--br" />
+
+      {/* Centered content */}
+      <div className="container">
+        <div className="init-hero-content">
+          <span className="init-hero-badge">UGI — Initiatives</span>
+
+          <h1 className="init-hero-title">
+            Our Roots That<br />Connect Us
+          </h1>
+
+          <p className="init-hero-sub">
+            A diverse family of industries united under one vision.
+          </p>
+
+          {/* Gold ornamental divider */}
+          <div className="init-hero-ornament">
+            <span className="init-ornament-line" />
+            <span className="init-ornament-diamond">◆</span>
+            <span className="init-ornament-line" />
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll hint */}
+      <div className="init-hero-scroll-hint">
+        <span className="init-scroll-line" />
+        <span className="init-scroll-label">Scroll</span>
+      </div>
+    </section>
+  );
+};
+
+/* ─────────────────────────────────────────────────────────────
+   Main Page
+───────────────────────────────────────────────────────────── */
 const InitiativesDetails = () => {
   const [activeKey, setActiveKey] = useState("it");
-  const [animate, setAnimate] = useState(false);
+  const [animating, setAnimating] = useState(false);
 
-  const handleChange = key => {
-    if (key === activeKey) return;
-    setAnimate(true);
+  const handleChange = (key) => {
+    if (key === activeKey || animating) return;
+    setAnimating(true);
     setTimeout(() => {
       setActiveKey(key);
-      setAnimate(false);
-    }, 300);
+      setAnimating(false);
+    }, 280);
   };
 
   const data = INITIATIVES[activeKey];
 
- return (
-  <>
-     {/* ================= CAREER BANNER ================= */}
-      <section className="career-banner">
-        <div
-          className="career-banner-bg"
-          style={{
-            backgroundImage: `
-             
-              url(/assets/img/ugi-banner-initiatives-1.jpg)
-            `,
-          }}
-        />
+  return (
+    <>
+      <InitiativesBanner />
 
-        <div className="career-banner-inner reveal active">
-          <span className="career-badge">UGI - INITIATIVES</span>
+      <section className="initiatives-details-section">
+        <div className="container">
 
-          <h3 className="career-title">
-            Our Roots That Connects Us      
-          </h3>
+          {/* Heading */}
+          <div className="idd-heading">
+            <span className="section-eyebrow">Diverse Industries</span>
+            <h2 className="section-title">
+              Diverse Range of Fields<br />Under One Name
+            </h2>
+            <div className="idd-heading-line" />
+          </div>
 
-          <div className="career-banner-line" />
-        </div>
-      </section>
+          <div className="idd-layout">
 
-    {/* ================= INITIATIVES DETAILS  ================= */}
-    <section className="initiatives-details-enhanced cs_pt_135 cs_pb_140">
-      <div className="container">
-        
-        {/* HEADING */}
-        <div className="details-heading">
-          <h2>
-            Diverse Range Of Fields <br /> Under One Name
-          </h2>
-          <div className="heading-accent" />
-        </div>
-
-        <div className="details-layout">
-          {/* LEFT SIDEBAR */}
-          <aside className="details-sidebar">
-            <div className="sidebar-header">
-              <h3>All Initiatives</h3>
-              <div className="header-line" />
-            </div>
-
-            <nav className="sidebar-nav">
-              {Object.keys(INITIATIVES).map((key) => {
-                const item = INITIATIVES[key];
-                const isActive = key === activeKey;
-
-                return (
-                  <button
-                    key={key}
-                    className={`nav-item ${isActive ? "active" : ""}`}
-                    onClick={() => handleChange(key)}
-                    style={{ "--item-gradient": item.gradient }}
-                  >
-                    <span className="nav-icon">{item.icon}</span>
-                    <span className="nav-label">{item.label}</span>
-                    <span className="nav-arrow">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                      >
-                        <path
-                          d="M7 4l6 6-6 6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
+            {/* Sidebar */}
+            <aside className="idd-sidebar">
+              <div className="idd-sidebar-header">
+                <h3>All Initiatives</h3>
+                <div className="idd-sidebar-divider" />
+              </div>
+              <nav className="idd-nav" aria-label="Initiative categories">
+                {Object.keys(INITIATIVES).map((key) => {
+                  const item = INITIATIVES[key];
+                  const isActive = key === activeKey;
+                  return (
+                    <button
+                      key={key}
+                      className={`idd-nav-item${isActive ? " active" : ""}`}
+                      onClick={() => handleChange(key)}
+                      style={{ "--item-gradient": item.gradient, "--item-color": item.color }}
+                      aria-selected={isActive}
+                    >
+                      <span className="idd-nav-icon">{item.icon}</span>
+                      <span className="idd-nav-label">{item.label}</span>
+                      <svg className="idd-nav-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                        <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                    </span>
-                  </button>
-                );
-              })}
-            </nav>
-          </aside>
+                    </button>
+                  );
+                })}
+              </nav>
+            </aside>
 
-          {/* RIGHT CONTENT */}
-          <div
-            className={`details-content ${
-              animate ? "fade-out" : "fade-in"
-            }`}
-          >
+            {/* Content Panel */}
             <div
-              className="content-wrapper"
-              style={{ "--accent-gradient": data.gradient }}
+              className={`idd-panel${animating ? " is-out" : " is-in"}`}
+              style={{ "--panel-gradient": data.gradient, "--panel-color": data.color }}
             >
-              {/* Icon Header */}
-              <div className="content-icon-wrapper">
-                <div className="icon-glow" />
-                <span className="content-icon">{data.icon}</span>
+              <div className="idd-panel-bar" />
+
+              <div className="idd-icon-wrap">
+                <div className="idd-icon-glow" />
+                <span className="idd-icon">{data.icon}</span>
               </div>
 
-              {/* Text Content */}
-              <div className="content-text">
-                <h3>{data.title}</h3>
-                <h4>{data.brands}</h4>
-                <p>{data.desc}</p>
-                <div className="content-line" />
+              <div className="idd-text">
+                <h3 className="idd-title">{data.title}</h3>
+                <h4 className="idd-brands">{data.brands}</h4>
+                <p className="idd-desc">{data.desc}</p>
+                <div className="idd-divider" />
               </div>
 
-              {/* Image */}
-              <div className="content-image">
-                <div className="image-border" />
+              <div className="idd-image">
                 <img src={data.img} alt={data.title} />
+                <div className="idd-image-overlay" />
               </div>
             </div>
+
           </div>
         </div>
-      </div>
-    </section>
-  </>
-);
-
+      </section>
+    </>
+  );
 };
 
 export default InitiativesDetails;

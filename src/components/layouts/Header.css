@@ -1,0 +1,92 @@
+.modern-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 999;
+    transition: all var(--transition-slow);
+}
+
+.modern-header.scrolled {
+    padding: 15px 0;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modern-logo img {
+    height: 45px;
+    width: auto;
+    transition: var(--transition-fast);
+}
+
+.modern-nav-list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.modern-nav-list a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition-fast);
+    opacity: 0.8;
+    position: relative;
+}
+
+.modern-nav-list a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: var(--accent-primary);
+    transition: var(--transition-fast);
+}
+
+.modern-nav-list a:hover {
+    opacity: 1;
+    color: var(--accent-primary);
+}
+
+.modern-nav-list a:hover::after {
+    width: 100%;
+}
+
+.modern-btn-contact {
+    padding: 10px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition-fast);
+    border-radius: 4px;
+}
+
+.modern-btn-contact:hover {
+    background: #fff;
+    color: #000;
+}
+
+@media (max-width: 992px) {
+    .modern-nav {
+        display: none;
+    }
+}

@@ -1,154 +1,139 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./established-enhanced.css";
 
 const data = [
   {
-    label: "IT INDUSTRY",
-    title: "WISHTREE | CYBERWOODZ",
+    label: "IT Industry",
+    title: "Wishtree · Cyberwoodz",
     desc: "A collective group of experts focused on Intelligent Business Augmentation along with creative and results-driven solutions for your brand or business.",
     icon: "💻",
-    color: "#ffa100"
   },
   {
-    label: "EDUCATION",
-    title: "TECSWAN | FOCUZ | SCHOLIUM | BRILLIANZ | INSPIRE",
+    label: "Education",
+    title: "Tecswan · Focuz · Scholium · Brillianz · Inspire",
     desc: "Our internationally recognized educational institutes aim to share knowledge and provide professional and cultural learning.",
     icon: "📚",
-    color: "#ffa100"
   },
   {
-    label: "TOURISM",
-    title: "RIVERWOODZ WATERLINES",
+    label: "Tourism",
+    title: "Riverwoodz Waterlines",
     desc: "Our houseboat tourism is known for overnight stays and serene backwater cruise experiences in Kerala.",
     icon: "🚢",
-    color: "#ffa100"
   },
   {
-    label: "LUXURY GIFTING",
-    title: "LE ORENDA",
+    label: "Luxury Gifting",
+    title: "Le Orenda",
     desc: "Premium gift hampers designed to create elegant experiences and lasting bonds for every occasion.",
     icon: "🎁",
-    color: "#ffa100"
   },
   {
-    label: "AUTOMOTIVE",
-    title: "MOTO FACTORY",
+    label: "Automotive",
+    title: "Moto Factory",
     desc: "Our automobile industry represents freedom and economic growth, offering comfort and convenience for better travel.",
     icon: "🏎️",
-    color: "#ffa100"
   },
-   {
-    label: "CREATIVE PRODUCTIONS",
-    title: "GAIA CREATIVE PRODUCTIONS",
-    desc: "Gaia Creative Productions is an event management company operating across the UAE and India. ",
+  {
+    label: "Creative Productions",
+    title: "Gaia Creative Productions",
+    desc: "An event management company operating across the UAE and India — crafting unforgettable experiences.",
     icon: "🎨",
-    color: "#ffa100"
   },
-
- 
-  
 ];
 
 const Established = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [animKey, setAnimKey] = useState(0);
-  const [scrollY, setScrollY] = useState(0);
+  const [animKey, setAnimKey]         = useState(0);
+  const [scrollY, setScrollY]         = useState(0);
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect();
-        const offset = window.innerHeight - rect.top;
-        setScrollY(offset * 0.3);
-      }
+    const onScroll = () => {
+      if (!sectionRef.current) return;
+      const rect   = sectionRef.current.getBoundingClientRect();
+      const offset = window.innerHeight - rect.top;
+      setScrollY(offset * 0.3);
     };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleClick = (index) => {
-    setActiveIndex(index);
+  const handleClick = (i) => {
+    setActiveIndex(i);
     setAnimKey((k) => k + 1);
   };
 
   return (
-    <section className="established-section-enhanced" ref={sectionRef}>
-      {/* Animated Background */}
-      <div className="established-bg">
-        <div className="bg-orb orb-1" style={{ transform: `translateY(${scrollY * 0.5}px)` }} />
-        <div className="bg-orb orb-2" style={{ transform: `translateY(${-scrollY * 0.3}px)` }} />
-        <div className="bg-orb orb-3" style={{ transform: `translateY(${scrollY * 0.4}px)` }} />
+    <section className="established-section" ref={sectionRef}>
+      {/* Animated background orbs */}
+      <div className="est-bg" aria-hidden="true">
+        <div className="est-orb est-orb--1" style={{ transform: `translateY(${scrollY * 0.5}px)` }} />
+        <div className="est-orb est-orb--2" style={{ transform: `translateY(${-scrollY * 0.3}px)` }} />
+        <div className="est-orb est-orb--3" style={{ transform: `translateY(${scrollY * 0.4}px)` }} />
       </div>
 
       <div className="container">
         {/* Heading */}
-        <div className="established-heading-enhanced">
-          <span className="established-badge">We Are Established As</span>
-          <h2>Diverse Range Of Fields<br />Under One Name</h2>
-          <div className="heading-underline" />
+        <div className="est-heading">
+          <span className="section-eyebrow">We Are Established As</span>
+          <h2 className="section-title">
+            Diverse Range of Fields<br />Under One Name
+          </h2>
+          <div className="est-heading-line" />
         </div>
 
         {/* Layout */}
-        <div className="established-layout-enhanced">
-          {/* LEFT LIST */}
-          <div className="established-list-enhanced">
-            {data.map((item, index) => (
-              <div
+        <div className="est-layout">
+
+          {/* LEFT — clickable list */}
+          <nav className="est-list" aria-label="Industry sectors">
+            {data.map((item, i) => (
+              <button
                 key={item.label}
-                className={`list-item-enhanced ${index === activeIndex ? "active" : ""}`}
-                onClick={() => handleClick(index)}
-                style={{ 
-                  transitionDelay: `${index * 0.05}s`,
-                  '--item-color': item.color
-                }}
+                className={`est-list-item${i === activeIndex ? " active" : ""}`}
+                onClick={() => handleClick(i)}
+                style={{ animationDelay: `${i * 0.07}s` }}
+                aria-selected={i === activeIndex}
               >
-                <span className="item-icon">{item.icon}</span>
-                <span className="item-label">{item.label}</span>
-                <span className="item-arrow">→</span>
-              </div>
+                <span className="eli-icon">{item.icon}</span>
+                <span className="eli-label">{item.label}</span>
+                <span className="eli-arrow" aria-hidden="true">→</span>
+              </button>
             ))}
-          </div>
+          </nav>
 
-          {/* CONTENT */}
-          <div className="established-content-enhanced">
-            <div 
-              key={animKey} 
-              className="content-card"
-              style={{ '--accent-color': data[activeIndex].color }}
-            >
-              <div className="content-header">
-                <span className="content-icon">{data[activeIndex].icon}</span>
-                <div className="content-glow" />
+          {/* RIGHT — content card */}
+          <div className="est-content" key={animKey}>
+            <div className="est-card">
+              {/* Top accent bar */}
+              <div className="est-card-bar" />
+
+              <div className="est-card-header">
+                <span className="est-card-icon">{data[activeIndex].icon}</span>
+                <div className="est-card-glow" />
               </div>
-              
-              <h3 className="content-title">
-                {data[activeIndex].title}
-              </h3>
-              
-              <p className="content-desc">
-                {data[activeIndex].desc}
-              </p>
 
-              <div className="content-footer">
-                <div className="footer-line" />
-                <span className="footer-tag">{data[activeIndex].label}</span>
+              <h3 className="est-card-title">{data[activeIndex].title}</h3>
+              <p className="est-card-desc">{data[activeIndex].desc}</p>
+
+              <div className="est-card-footer">
+                <div className="est-card-footer-line" />
+                <span className="est-card-tag">{data[activeIndex].label}</span>
               </div>
             </div>
+
+            {/* Index indicator dots */}
+            <div className="est-dots">
+              {data.map((_, i) => (
+                <button
+                  key={i}
+                  className={`est-dot${i === activeIndex ? " active" : ""}`}
+                  onClick={() => handleClick(i)}
+                  aria-label={`Go to ${data[i].label}`}
+                />
+              ))}
+            </div>
           </div>
 
-          {/* DECORATIVE ELEMENT */}
-          <div className="established-decoration">
-            <div className="deco-circle" style={{ transform: `translateY(${scrollY * 0.2}px)` }}>
-              <div className="circle-inner" />
-            </div>
-            <div className="deco-lines">
-              <span style={{ transform: `translateX(${scrollY * 0.15}px)` }} />
-              <span style={{ transform: `translateX(${-scrollY * 0.1}px)` }} />
-              <span style={{ transform: `translateX(${scrollY * 0.12}px)` }} />
-            </div>
-          </div>
         </div>
       </div>
     </section>

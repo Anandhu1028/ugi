@@ -1,5 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./initiativesTimeline.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const INITIATIVES = [
   {
@@ -34,14 +38,14 @@ const INITIATIVES = [
   },
   {
     title: "Moto Factory",
-    desc: " Moto Factory is a car dealing business that explores automobile accessorizing and performance-enhancing possibilities.",
+    desc: "Moto Factory is a car dealing business that explores automobile accessorizing and performance-enhancing possibilities.",
     logo: "/assets/img/logos/moto.png",
     link: "#",
   },
   {
     title: "Gaia Creative Productions",
     desc: "Gaia Creative Productions delivers seamless corporate events across the UAE and India with strong creative concepts and flawless execution",
-    logo: "/assets/img/logos/GAIA.png",
+    logo: "/assets/img/logos/GAIA LOGO FINAL-01.png",
     link: "https://gaiacreativeproductions.com/",
   },
 ];
@@ -65,7 +69,7 @@ const PARTNERS = [
   {
     title: "Brillanz Educational Group",
     desc: "An eminent name in UAE’s prestigious education sector and an authorized representative of top Asian and European universities",
-    logo: "/assets/img/logos/brillance.webp",
+    logo: "/assets/img/logos/brillance.png",
     link: "#",
   },
   {
@@ -76,113 +80,173 @@ const PARTNERS = [
   },
 ];
 
-
 const InitiativesTimeline = () => {
+  const containerRef = useRef(null);
+
   useEffect(() => {
-    const items = document.querySelectorAll(".reveal");
+    let ctx = gsap.context(() => {
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
+      // Stagger Reveals for main initiatives
+      gsap.from(".main-timeline-heading > *", {
+        y: 50,
+        opacity: 0,
+        duration: 1.2,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".main-timeline-heading",
+          start: "top 85%",
+        }
+      });
 
-    items.forEach((el) => observer.observe(el));
+      gsap.from(".timeline-wrapper", {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".timeline-grid",
+          start: "top 85%",
+        }
+      });
+
+      // Upcoming Projects Reveal
+      gsap.from(".upcoming-heading > *", {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".upcoming-heading",
+          start: "top 85%",
+        }
+      });
+
+      gsap.from(".upcoming-grid .info-wrapper", {
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".upcoming-grid",
+          start: "top 85%",
+        }
+      });
+
+      // Partners Reveal
+      gsap.from(".partners-heading > *", {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".partners-heading",
+          start: "top 85%",
+        }
+      });
+
+      gsap.from(".partners-grid .info-wrapper", {
+        y: 60,
+        opacity: 0,
+        duration: 0.9,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: ".partners-grid",
+          start: "top 85%",
+        }
+      });
+
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    <>
-      {/* ================= OUR INITIATIVES ================= */}
-      <section className="timeline-section">
-        <div className="timeline-bg">
-          <span className="blob blob-1"></span>
-          <span className="blob blob-2"></span>
-          <span className="blob blob-3"></span>
+    <div ref={containerRef} className="timeline-enhanced-wrapper">
+      <div className="timeline-bg-glow"></div>
+
+      <div className="container">
+        {/* Main Initiatives */}
+        <div className="section-heading main-timeline-heading">
+          <span>Our Initiatives</span>
+          <h2>STRONG PILLARS OF EXCEPTIONAL INDUSTIRES</h2>
         </div>
 
-        <div className="container">
-          <div className="timeline-heading reveal">
-            <span>Strong Pillars of Exceptional & Prosperous Industries</span>
-            <h2>Our Initiatives</h2>
-          </div>
-
-          <div className="timeline-grid">
-            {INITIATIVES.map((item, index) => (
-              <div key={index} className="timeline-item reveal">
-                <div className="timeline-card">
-                  <img src={item.logo} alt={item.title} />
-                  <div className="timeline-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.desc}</p>
-                    <a href={item.link}>Visit Website</a>
-                  </div>
+        <div className="timeline-grid">
+          {INITIATIVES.map((item, index) => (
+            <div key={index} className="timeline-wrapper">
+              <div className="info-card-modern">
+                <div >
+                  <img src={item.logo}  />
                 </div>
+                <div className="timeline-content-modern">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+                 <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                  Visit Website <span>→</span>
+                </a>
               </div>
-            ))}
-          </div>
-        </div>
-        <div className="section-heading reveal mt-10">
-          <span>Planning Beginnings For Our Blooming Initiatives</span>
-          <h2>Upcoming Projects</h2>
-        </div>
-       <div className="info-grid">
-          {UPCOMING_PROJECTS.map((item, index) => (
-            <div key={index} className="info-card reveal">
-              <div className="info-logo">
-                <img src={item.logo} alt={item.title} />
-              </div>
-
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-
-              <a
-                href={item.link}
-                className="visit-link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Visit Website
-              </a>
             </div>
           ))}
         </div>
 
+        {/* Upcoming Projects */}
+        <div className="section-heading upcoming-heading mt-10">
+          <span>Upcoming Projects</span>
+          <h2>PLANNING BEGINNINGS FOR OUR BLOOMING INTITIATIVES</h2>
 
-        <div className="section-heading reveal">
-          <span>Roof of UGI</span>
-          <h2>Our Partnering Ventures</h2>
         </div>
 
-        <div className="info-grid">
-  {PARTNERS.map((item, index) => (
-    <div key={index} className="info-card reveal">
-      <div className="info-logo">
-        <img src={item.logo} alt={item.title} />
+       <div className="timeline-grid">
+          {UPCOMING_PROJECTS.map((item, index) => (
+            <div key={index} className="timeline-wrapper">
+              <div className="info-card-modern">
+                <div >
+                  <img src={item.logo}  />
+                </div>
+                <div className="timeline-content-modern">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+                 <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                  Visit Website <span>→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Partners */}
+        <div className="section-heading partners-heading mt-10">
+          <span>Roof of UGI</span>
+                    <h2>OUR  PARTNERING  VENTURES</h2>
+
+        </div>
+
+       <div className="timeline-grid">
+          {PARTNERS.map((item, index) => (
+            <div key={index} className="timeline-wrapper">
+              <div className="info-card-modern">
+                <div >
+                  <img src={item.logo}  />
+                </div>
+                <div className="timeline-content-modern">
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                </div>
+                 <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                  Visit Website <span>→</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <h3>{item.title}</h3>
-      <p>{item.desc}</p>
-
-      <a
-        href={item.link}
-        className="visit-link"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Visit Website
-      </a>
     </div>
-  ))}
-</div>
-
-      </section>
-    </>
   );
 };
 

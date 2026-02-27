@@ -42,7 +42,7 @@ const ScrollGallery = () => {
       e.preventDefault();
       scrollAcc.current += e.deltaY;
 
-      
+
 
       // Update progress for animations
       const newProgress = Math.min(Math.max(active / (images.length - 1), 0), 1);
@@ -72,25 +72,25 @@ const ScrollGallery = () => {
     <section ref={sectionRef} className="scroll-gallery-enhanced">
       {/* Enhanced Background */}
       <div className="gallery-bg-enhanced">
-        <div 
-          className="bg-gradient gradient-1" 
+        <div
+          className="bg-gradient gradient-1"
           style={{ transform: `translate(${progress * 100}px, ${progress * 80}px) scale(${1 + progress * 0.3})` }}
         />
-        <div 
-          className="bg-gradient gradient-2" 
+        <div
+          className="bg-gradient gradient-2"
           style={{ transform: `translate(${-progress * 120}px, ${progress * 60}px) scale(${1 + progress * 0.2})` }}
         />
-        <div 
-          className="bg-gradient gradient-3" 
+        <div
+          className="bg-gradient gradient-3"
           style={{ transform: `translate(${progress * 80}px, ${-progress * 100}px) scale(${1 + progress * 0.25})` }}
         />
-        
+
         {/* Particle Effect */}
         <div className="particles">
           {[...Array(20)].map((_, i) => (
-            <div 
-              key={i} 
-              className="particle" 
+            <div
+              key={i}
+              className="particle"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -109,10 +109,10 @@ const ScrollGallery = () => {
           <span className="counter-divider">/</span>
           <span className="counter-total">{String(images.length).padStart(2, '0')}</span>
         </div>
-        
+
         <div className="info-progress">
-          <div 
-            className="progress-bar" 
+          <div
+            className="progress-bar"
             style={{ width: `${((active + 1) / images.length) * 100}%` }}
           />
         </div>
@@ -145,7 +145,7 @@ const ScrollGallery = () => {
               <div className="card-shine" />
               <div className="card-border" />
               <img src={src} alt={`Project ${i + 1}`} />
-              
+
               {isActive && (
                 <div className="card-label">
                   <span>Project {i + 1}</span>

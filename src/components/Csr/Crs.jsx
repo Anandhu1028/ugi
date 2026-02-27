@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import "./csr.css";
 import FlyingPosters from '../FlyingPosters'
+import CinematicBanner from "../CinematicBanner";
 
 
 const CSR = () => {
@@ -88,29 +89,15 @@ const items = [
   return (
     <section className="csr-section">
 
-     {/* ================= CAREER BANNER ================= */}
-      <section className="career-banner">
-        <div
-          className="career-banner-bg"
-          style={{
-            backgroundImage: `
-             
-              url(/assets/img/ugi-banner-Csr.jpg)
-            `,
-          }}
-        />
+    
 
-        <div className="career-banner-inner reveal active">
-          <span className="career-badge">UGI - CORPORATE SOCIAL RESPONSIBILITY</span>
-
-          <h3 className="career-title">
-            A helping hand to our community         
-          </h3>
-
-          <div className="career-banner-line" />
-        </div>
-      </section>
-
+ <CinematicBanner
+        image="/assets/img/ugi-banner-Csr.jpg"
+        eyebrow="UGI - CORPORATE SOCIAL RESPONSIBILITY"
+        title={<>  A helping hand to our <br /> community  </>}
+        sub="Moments that shaped us, memories that stay forever."
+        height="88vh"
+      />
       {/* ================= INTRO ================= */}
       <div className="csr-intro container">
         <div className="csr-intro-grid">
@@ -143,7 +130,7 @@ const items = [
         </div>
       </div>
 
-      <div style={{ height: '600px', position: 'relative' }}>
+      {/* <div style={{ height: '600px', position: 'relative' }}>
   <FlyingPosters items={items}
   items={[ "/assets/img/gallery/ugi-website-brillianz-onam-01.webp",
   "/assets/img/gallery/ugi-website-events-10th-anniversary-09-scaled.webp",
@@ -159,7 +146,7 @@ const items = [
   cameraFov={46}
   cameraZ={20}
 />
-</div>
+</div> */}
 
       {/* ================= INITIATIVES ================= */}
       <div className="csr-initiatives">

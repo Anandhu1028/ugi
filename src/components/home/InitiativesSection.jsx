@@ -4,168 +4,147 @@ import "./initiatives-enhanced.css";
 const initiatives = [
   {
     title: "Focuz Academy",
-    description: "An educational venture in Kochi, Kerala. Aiming to provide distance education from Secondary to Ph.D.",
+    description:
+      "An educational venture in Kochi, Kerala — aiming to provide distance education from Secondary to Ph.D.",
     logo: "/assets/img/logos/focuz.png",
-    gradient: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-    color: "#667eea"
+    color: "#7c6fe0",
   },
   {
     title: "Wishtree Infosolution",
-    description: "A group of experts focused on Digital Marketing, Website Design & Development, E-commerce, Web & Mobile Applications.",
+    description:
+      "A group of experts focused on Digital Marketing, Website Design & Development, E-commerce, and Mobile Applications.",
     logo: "/assets/img/logos/wishtree-01.webp",
-    gradient: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-    color: "#f093fb"
+    color: "#e0507a",
   },
   {
     title: "Cyberwoodz",
-    description: "Experts that take care of all your businesses to go digital with digital marketing, web & app design, and development.",
+    description:
+      "Experts that take care of all your businesses going digital — digital marketing, web & app design, and development.",
     logo: "/assets/img/logos/cyberwoodz.png",
-    gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-    color: "#4facfe"
+    color: "#4facfe",
   },
   {
     title: "Riverwoodz Water Lines",
-    description: "Luxury houseboats delivering delightful experiences in the natural charm of Alappuzha.",
+    description:
+      "Luxury houseboats delivering delightful experiences in the natural charm of Alappuzha.",
     logo: "/assets/img/logos/river.png",
-    gradient: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-    color: "#43e97b"
+    color: "#3abf7a",
   },
   {
-    title: "Le'Orenda",
-    description: "Redesigning and reinventing luxury gifting with innovative and premium product ranges.",
+    title: "Le Orenda",
+    description:
+      "Redesigning and reinventing luxury gifting with innovative and premium product ranges.",
     logo: "/assets/img/logos/leornda.png",
-    gradient: "linear-gradient(135deg, #fa709a 0%, #fee140 100%)",
-    color: "#fa709a"
+    color: "#d4af37",
   },
   {
     title: "Moto Factory",
-    description: "A car dealing business exploring automobile accessorizing and performance-enhancing possibilities.",
+    description:
+      "A car dealing business exploring automobile accessorising and performance-enhancing possibilities.",
     logo: "/assets/img/logos/moto.png",
-    gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
-    color: "#30cfd0"
+    color: "#30cfd0",
   },
-   {
-    title: "Creative Productions",
-    description: "Gaia Creative Productions is an event management company operating across the UAE and India.",
+  {
+    title: "Gaia Creative Productions",
+    description:
+      "An event management company operating across the UAE and India, crafting memorable experiences.",
     logo: "/assets/img/initiatives/img-2.webp",
-    gradient: "linear-gradient(135deg, #30cfd0 0%, #330867 100%)",
-    color: "#30cfd0"
-  }
-
+    color: "#ff8c42",
+  },
 ];
 
 const InitiativesSection = () => {
-  const sectionRef = useRef(null);
-  const [visibleCards, setVisibleCards] = useState([]);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRef     = useRef(null);
+  const [visible, setVisible]   = useState([]);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const onScroll = () => {
       if (!sectionRef.current) return;
-
       const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      
-      // Calculate scroll progress through section
-      const progress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
-      setScrollProgress(progress);
-
-      // Determine visible cards
-      const cardsToShow = Math.floor(progress * (initiatives.length + 2));
-      setVisibleCards(Array.from({ length: cardsToShow }, (_, i) => i));
+      const p    = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+      setProgress(p);
+      const count = Math.floor(p * (initiatives.length + 3));
+      setVisible(Array.from({ length: count }, (_, i) => i));
     };
-
-    window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Initial check
-    
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <section ref={sectionRef} className="initiatives-section-enhanced">
-      {/* Parallax Background Elements */}
-      <div className="initiatives-bg">
-        <div 
-          className="bg-gradient-orb orb-purple" 
-          style={{ transform: `translateY(${scrollProgress * 150}px) scale(${1 + scrollProgress * 0.2})` }}
+    <section ref={sectionRef} className="initiatives-section">
+      {/* Parallax orbs */}
+      <div className="init-bg" aria-hidden="true">
+        <div
+          className="init-orb init-orb--1"
+          style={{ transform: `translateY(${progress * 130}px) scale(${1 + progress * 0.15})` }}
         />
-        <div 
-          className="bg-gradient-orb orb-blue" 
-          style={{ transform: `translateY(${-scrollProgress * 120}px) scale(${1 + scrollProgress * 0.15})` }}
+        <div
+          className="init-orb init-orb--2"
+          style={{ transform: `translateY(${-progress * 110}px) scale(${1 + progress * 0.1})` }}
         />
-        <div 
-          className="bg-gradient-orb orb-pink" 
-          style={{ transform: `translateY(${scrollProgress * 100}px) scale(${1 + scrollProgress * 0.1})` }}
+        <div
+          className="init-orb init-orb--3"
+          style={{ transform: `translateY(${progress * 90}px)` }}
         />
       </div>
 
       <div className="container">
         {/* Heading */}
-        <div className="initiatives-heading-enhanced">
-          <div className="heading-badge">
-            <span className="badge-dot"></span>
-            Strong Pillars of Exceptional & Prosperous Industries
+        <div className="init-heading">
+          <div className="init-badge">
+            <span className="init-badge-dot" />
+            Strong Pillars of Exceptional &amp; Prosperous Industries
           </div>
-          <h2>
-            <span className="heading-icon">✦</span>
-            Our Initiatives
+          <h2 className="section-title">
+            <span className="init-star">✦</span> Our Initiatives
           </h2>
-          <p className="heading-subtitle">
+          <p className="init-subtitle">
             Empowering businesses and communities through innovation and excellence
           </p>
         </div>
 
         {/* Grid */}
-        <div className="initiatives-grid-enhanced">
-          {initiatives.map((item, index) => {
-            const isVisible = visibleCards.includes(index);
-            const delay = index * 0.1;
+        <div className="init-grid">
+          {initiatives.map((item, i) => (
+            <article
+              key={i}
+              className={`init-card${visible.includes(i) ? " is-visible" : ""}`}
+              style={{
+                "--card-color":  item.color,
+                "--anim-delay":  `${i * 0.08}s`,
+              }}
+            >
+              <div className="init-card-glow" />
 
-            return (
-              <div
-                key={index}
-                className={`initiative-card-enhanced ${isVisible ? "is-visible" : ""}`}
-                style={{
-                  "--card-gradient": item.gradient,
-                  "--card-color": item.color,
-                  "--animation-delay": `${delay}s`,
-                }}
-              >
-                {/* Card Glow Effect */}
-                <div className="card-glow" />
-                
-                {/* Card Content */}
-                <div className="card-inner">
-                  <div className="card-logo-wrapper">
-                    <div className="logo-bg" />
-                    <img src={item.logo} alt={item.title} className="card-logo" />
-                  </div>
-
-                  <div className="card-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
-
-                  {/* Hover Overlay */}
-                  <div className="card-overlay">
-                    <div className="overlay-gradient" />
-                  </div>
+              <div className="init-card-inner">
+                <div className="init-logo-wrap">
+                  <div className="init-logo-bg" />
+                  <img
+                    src={item.logo}
+                    alt={item.title}
+                    className="init-logo"
+                    loading="lazy"
+                  />
                 </div>
 
-                {/* Corner Accent */}
-                <div className="card-corner" />
+                <div className="init-card-body">
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+
+                <div className="init-card-accent" />
               </div>
-            );
-          })}
+
+              {/* Hover corner */}
+              <div className="init-corner" aria-hidden="true" />
+            </article>
+          ))}
         </div>
 
-        {/* Decorative Element */}
-        <div className="initiatives-decoration">
-          <div 
-            className="deco-line" 
-            style={{ transform: `scaleX(${scrollProgress})` }}
-          />
-        </div>
+        {/* Bottom decoration */}
+        <div className="init-deco-line" style={{ transform: `scaleX(${progress})` }} />
       </div>
     </section>
   );

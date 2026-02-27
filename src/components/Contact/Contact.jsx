@@ -1,26 +1,57 @@
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
+import CinematicBanner from "../CinematicBanner";
+
+
 const Contact = () => {
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    const form = e.target;
+
+    emailjs
+      .send(
+        "service_1ynplud", // replace
+        "template_h2dtnel", // replace
+        {
+          from_name: form.name.value,
+          from_email: form.email.value,
+          phone: form.phone.value,
+          company: form.company.value,
+          message: form.message.value,
+        },
+        "cR-PfpkkMVlN2udLc" // replace
+      )
+      .then(() => {
+        setStatus("success");
+        setLoading(false);
+        form.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+        setStatus("error");
+        setLoading(false);
+      });
+  };
+
   return (
     <section className="contact-section">
       {/* ================= CONTACT BANNER ================= */}
-      <section className="career-banner">
-        <div
-          className="career-banner-bg"
-          style={{
-            backgroundImage: `
-             
-              url(/assets/img/ugi-banner-History-1.jpg)
-            `,
-          }}
-        />
+      
 
-        <div className="career-banner-inner reveal active">
-          <span className="career-badge">UGI - CONTACT US</span>
-
-          <h3 className="career-title">Get in touch with us</h3>
-
-          <div className="career-banner-line" />
-        </div>
-      </section>
+      
+      <CinematicBanner
+        image="/assets/img/ugi-banner-History-1.jpg"
+        eyebrow="UGI - CONTACT US"
+        title={<> Get in touch  <br />with us </>}
+        sub="Moments that shaped us, memories that stay forever."
+        height="88vh"
+      />
 
       {/* ================= MAIN CARD ================= */}
       <div className="contact-container">
@@ -32,32 +63,66 @@ const Contact = () => {
               Share your requirements and our team will reach out shortly.
             </p>
 
-            <form>
+            <form onSubmit={sendEmail}>
               <div className="field-row">
-                <input type="text" placeholder="Your Name" />
-                <input type="email" placeholder="Email Address" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  required
+                />
               </div>
 
               <div className="field-row">
-                <input type="text" placeholder="Mobile Number" />
-                <input type="text" placeholder="Company" />
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder="Mobile Number"
+                />
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Company"
+                />
               </div>
 
-              <textarea rows="4" placeholder="Tell us about your requirement" />
+              <textarea
+                rows="4"
+                name="message"
+                placeholder="Tell us about your requirement"
+                required
+              />
 
-              <button type="submit" className="btn-shine">
+              <button type="submit" className="btn-shine" disabled={loading}>
                 <span className="btn-content">
-                  SEND MESSAGE
+                  {loading ? "Sending..." : "SEND MESSAGE"}
                   <i className="fas fa-paper-plane btn-icon" />
                 </span>
                 <span className="shine" />
               </button>
+
+              {status === "success" && (
+                <p style={{ color: "green", marginTop: "15px" }}>
+                  Message sent successfully!
+                </p>
+              )}
+
+              {status === "error" && (
+                <p style={{ color: "red", marginTop: "15px" }}>
+                  Failed to send message. Please try again.
+                </p>
+              )}
             </form>
           </div>
 
           {/* RIGHT */}
           <div className="contact-info-area">
-            {/* CENTER ANIMATED VISUAL */}
             <div className="contact-visual center-visual">
               <img
                 src="/assets/img/contact  (2).png"
@@ -66,12 +131,9 @@ const Contact = () => {
               />
             </div>
 
-            {/* TWO COLUMN INFO */}
             <div className="contact-info-grid">
-              {/* INDIA */}
               <div className="office-card">
                 <h4 className="office-title">India Office</h4>
-
                 <p>
                   <strong>Address</strong>
                   <br />
@@ -79,13 +141,11 @@ const Contact = () => {
                   <br />
                   Kadavanthra, Kochi, Kerala 682020, India
                 </p>
-
                 <p>
                   <strong>Phone</strong>
                   <br />
                   +91 95390 14658
                 </p>
-
                 <p>
                   <strong>Email</strong>
                   <br />
@@ -95,22 +155,18 @@ const Contact = () => {
                 </p>
               </div>
 
-              {/* DUBAI */}
               <div className="office-card">
                 <h4 className="office-title">Dubai Office</h4>
-
                 <p>
                   <strong>Address</strong>
                   <br />
                   Karama, Dubai, United Arab Emirates
                 </p>
-
                 <p>
                   <strong>Phone</strong>
                   <br />
                   +971 4342 8008
                 </p>
-
                 <p>
                   <strong>Email</strong>
                   <br />
@@ -121,7 +177,6 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* SOCIALS */}
             <div className="socials center-socials">
               <i className="fab fa-linkedin-in" />
               <i className="fab fa-instagram" />
@@ -129,7 +184,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Glow elements */}
           <span className="glow glow-gold" />
           <span className="glow glow-soft" />
         </div>

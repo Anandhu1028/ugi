@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Gallery.css";
+import CinematicBanner from "../CinematicBanner";
 
 
 
@@ -51,27 +52,18 @@ const Gallery = () => {
     <>
 
  {/* ================= GALLERY BANNER ================= */}
-      <section className="career-banner">
-        <div
-          className="career-banner-bg"
-          style={{
-            backgroundImage: `
-             
-              url(/assets/img/ugi-banner-Gallery.jpg)
-            `,
-          }}
-        />
+       {/* ── Banner ─────────────────────────────────────────── */}
+      <CinematicBanner
+        image="/assets/img/ugi-banner-events.jpg"
+        eyebrow="UGI — Gallery"
+        title={<> Our Journey   <br />In Moments </>}
+        sub="Moments that shaped us, memories that stay forever."
+        height="88vh"
+      />
 
-        <div className="career-banner-inner reveal active">
-          <span className="career-badge">UGI - GALLERY</span>
 
-          <h3 className="career-title">
-           Our Journey In Moments    
-          </h3>
+        
 
-          <div className="career-banner-line" />
-        </div>
-      </section>
       {/* ================= GALLERY GRID  ================= */}
       <section className="gallery-section">
         <div className="gallery-grid">

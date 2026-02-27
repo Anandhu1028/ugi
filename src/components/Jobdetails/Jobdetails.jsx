@@ -15,24 +15,13 @@ const JOBS = {
     posted: "14/10/2023",
     closing: "31/10/2023",
     roles: [
-      "Develop and deliver Python training courses that meet the needs of the target audience",
-      "Create and maintain training materials such as lesson plans and presentations",
-      "Provide demo sessions to potential students",
-      "Help students in practical execution of Python learning concepts",
-      "Monitor student learning and provide continuous feedback",
-      "Work with training team to implement programs",
-      "Stay updated on latest Python developments",
+      "Develop and deliver Python training courses",
+      "Create training materials",
+      "Provide demo sessions",
     ],
     requirements: [
-      "Qualification: Master’s degree in Computer Science or related field",
-      "1+ years experience in Python programming",
-      "1+ years teaching or training experience preferred",
-      "Expertise in Python, Django, Flask, Django Rest",
-      "Database experience in MySQL / SQL",
-      "Experience in CRM projects",
-      "Strong communication and presentation skills",
-      "Ability to work independently and in a team",
-      "Passion for Python and teaching",
+      "1+ years Python experience",
+      "Teaching experience preferred",
     ],
   },
 
@@ -45,22 +34,8 @@ const JOBS = {
     website: "https://tecswan.com/",
     posted: "14/10/2023",
     closing: "31/10/2023",
-    roles: [
-      "Handling doubt sessions of students",
-      "Delivering demo sessions to students",
-      "Helping learners in practical execution of UI/UX and web development concepts",
-      "Strong convincing skills and ability to work on multiple assignments",
-      "Provide online and offline training on Frontend, Backend and Full Stack Development",
-      "Willingness to learn and implement new web development courses",
-    ],
-    requirements: [
-      "Qualification: BTech / MCA or related field",
-      "Full Time employment candidate preferred",
-      "Experience with Mobile App Development Training is a plus",
-      "Preference for candidates with technical course background",
-      "Strong convincing skills",
-      "Clear knowledge in web development languages",
-    ],
+    roles: ["Handling doubt sessions", "Delivering demo sessions"],
+    requirements: ["Strong web development knowledge"],
   },
 
   "digital-marketing-faculty": {
@@ -72,32 +47,26 @@ const JOBS = {
     website: "https://tecswan.com/",
     posted: "14/10/2023",
     closing: "31/10/2023",
-    roles: [
-      "Providing in-class training on Digital Marketing concepts",
-      "Handling doubt or query sessions of students",
-      "Delivering demo sessions to students",
-      "Helping learners in practical execution of digital marketing concepts",
-      "Assigning projects for hands-on experience",
-      "Planning and preparing digital marketing courses",
-      "Improving teaching methodology for better student satisfaction",
-      "Staying updated on latest Digital Marketing concepts",
-    ],
-    requirements: [
-      "Qualification: Masters / Bachelors Degree",
-      "Certified in Digital Marketing",
-      "Expertise in SEO, Google Ads, Social Media Marketing",
-      "Full Time employment candidate preferred",
-      "Clear knowledge of all digital marketing strategies",
-      "Strong convincing skills and multitasking ability",
-    ],
+    roles: ["Providing Digital Marketing training"],
+    requirements: ["SEO, Google Ads, SMM"],
   },
 };
 
 const Jobdetails = () => {
   const { jobId } = useParams();
   const job = JOBS[jobId];
+
   const [showShare, setShowShare] = useState(false);
   const [agreed, setAgreed] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const [form, setForm] = useState({
+    full_name: "",
+    email: "",
+    phone: "",
+    cover_letter: "",
+    resume: null,
+  });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -112,47 +81,60 @@ const Jobdetails = () => {
     );
   }
 
+  // handle input changes
+  const handleChange = (e) => {
+    const { name, value, files } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [name]: files ? files[0] : value,
+    }));
+  };
+
+  // submit to backend (SendGrid)
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!agreed) {
+      alert("Please accept the policy");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("job_title", job.title);
+    formData.append("full_name", form.full_name);
+    formData.append("email", form.email);
+    formData.append("phone", form.phone);
+    formData.append("cover_letter", form.cover_letter);
+    formData.append("resume", form.resume);
+
+    
+  };
+
   return (
     <section className="job-details-page">
-
-      {/* ================= BANNER ================= */}
+      {/* BANNER */}
       <section className="job-banner">
         <h1>{job.title}</h1>
       </section>
 
-      {/* ================= CONTENT ================= */}
       <section className="job-details-container">
-
-        {/* LEFT SIDE */}
+        {/* LEFT */}
         <div className="job-info">
-
           <h2>{job.title}</h2>
 
           <ul className="job-meta">
-            <li><strong>Job Category:</strong> {job.category}</li>
-            <li><strong>Job Type:</strong> {job.type}</li>
-            <li><strong>Job Location:</strong> {job.location}</li>
+            <li><strong>Category:</strong> {job.category}</li>
+            <li><strong>Type:</strong> {job.type}</li>
+            <li><strong>Location:</strong> {job.location}</li>
           </ul>
 
-          {/* COMPANY BOX */}
           <div className="company-box">
-            <img
-              src={COMPANY_LOGO}
-              alt="Tecswan Logo"
-              className="company-logo"
-            />
-
-            <div className="company-info">
-              <p><strong>Company name:</strong></p>
+            <img src={COMPANY_LOGO} alt="Company Logo" />
+            <div>
               <p>{job.company}</p>
-
-              <p><strong>Website:</strong></p>
               <a href={job.website} target="_blank" rel="noreferrer">
                 {job.website}
               </a>
-
-              <p><strong>Posted on:</strong> {job.posted}</p>
-              <p><strong>Closing on:</strong> {job.closing}</p>
             </div>
           </div>
 
@@ -169,100 +151,64 @@ const Jobdetails = () => {
               <li key={i}>{item}</li>
             ))}
           </ul>
-
-          {/* SHARE */}
-          <div className="share-box">
-  <button
-    type="button"
-    onClick={() => setShowShare(!showShare)}
-  >
-    Share
-  </button>
-
-  {showShare && (
-    <div className="share-icons">
-      <a
-        href="https://www.facebook.com/ugigroupofinitiatives"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Facebook"
-        className="d-flex align-items-center justify-content-center cs_height_35 cs_width_35 text-white rounded-circle"
-      >
-        <i className="fa-brands fa-facebook-f" />
-      </a>
-
-      <a
-        href="https://www.linkedin.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="LinkedIn"
-        className="d-flex align-items-center justify-content-center cs_height_35 cs_width_35 text-white rounded-circle"
-      >
-        <i className="fa-brands fa-linkedin-in" />
-      </a>
-
-      <a
-        href="https://twitter.com/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Twitter"
-        className="d-flex align-items-center justify-content-center cs_height_35 cs_width_35 text-white rounded-circle"
-      >
-        <i className="fa-brands fa-x-twitter" />
-      </a>
-    </div>
-  )}
-</div>
-
         </div>
 
-        {/* RIGHT SIDE – WHITE FORM */}
-        <form className="apply-form">
-  <h3>Apply for this position</h3>
+        {/* RIGHT – APPLY FORM */}
+        <form
+      className="apply-form"
+      action="https://formsubmit.co/anandhuugi25@gmail.com"
+      method="POST"
+    >
+      {/* REQUIRED CONFIG */}
+      <input type="hidden" name="_captcha" value="false" />
+      <input
+        type="hidden"
+        name="_subject"
+        value={`New Job Application – ${job.title}`}
+      />
+      <input type="hidden" name="_template" value="table" />
 
-  <div className="form-group">
-    <label>Full Name *</label>
-    <input type="text" placeholder="Enter your full name" required />
-  </div>
+      {/* JOB INFO */}
+      <input type="hidden" name="job_title" value={job.title} />
 
-  <div className="form-group">
-    <label>Email *</label>
-    <input type="email" placeholder="Enter your email address" required />
-  </div>
+      <h3>Apply for this position</h3>
 
-  <div className="form-group">
-    <label>Phone *</label>
-    <input type="tel" placeholder="Enter your phone number" required />
-  </div>
+      <input
+        type="text"
+        name="full_name"
+        placeholder="Full Name"
+        required
+      />
 
-  <div className="form-group">
-    <label>Cover Letter *</label>
-    <textarea rows="4" placeholder="Write a short cover letter" required />
-  </div>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+      />
 
-  <div className="form-group file-group">
-    <label>Upload CV / Resume *</label>
-    <input type="file" accept=".pdf,.doc,.docx" required />
-    <small>Allowed types: .pdf, .doc, .docx</small>
-  </div>
-<div className="policy-row">
-  <input
-    type="checkbox"
-    checked={agreed}
-    onChange={e => setAgreed(e.target.checked)}
-  />
-  <label>
-    By using this form you agree to our policy. <span>*</span>
-  </label>
-</div>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone"
+        required
+      />
 
+      <textarea
+        name="cover_letter"
+        placeholder="Cover Letter"
+        required
+      />
 
+      <div className="policy-row">
+        <input type="checkbox" required />
+        <label>I agree to the policy</label>
+      </div>
 
-  <button type="submit" disabled={!agreed}>
-    Submit Application
-  </button>
-</form>
-
+      <button type="submit">
+        Submit Application
+      </button>
+    </form>
 
       </section>
     </section>

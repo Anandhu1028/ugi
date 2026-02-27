@@ -1,0 +1,80 @@
+/* ============================================================
+   Parallax Scroll Transition Additions
+   Add these rules to the bottom of About-enhanced.css
+   ============================================================ */
+
+/* Allow the founder section scale-back to not clip */
+.about-modern-section {
+  overflow: visible;   /* override the original overflow: hidden */
+}
+
+/* Re-clip only the hero (which needs it for parallax bg) */
+.about-hero {
+  overflow: hidden;
+}
+
+/* Re-clip the banner too */
+.about-banner {
+  overflow: hidden;
+}
+
+/* The founder wrapper needs perspective for a deeper 3-D feel */
+.story-modern {
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 5;
+}
+
+/* Transition bridge — dark gradient zone that covers the gap
+   between the receding founder section and the rising timeline */
+.story-modern::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 220px;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg-primary) 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Timeline wrapper z-index ensures it layers on top as it rises */
+div[ref="timelineRef"],
+.timeline-rise-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+/* Parallax canvas stays fixed within its section */
+.tl-canvas-parallax {
+  will-change: transform;
+}
+
+/* Founder image parallax — make sure inner doesn't clip */
+.founder-image {
+  overflow: visible;
+}
+
+/* Subtle depth shadow on founder section as it scales back */
+.story-modern {
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+}
+
+/* Extra cinematic depth: story cards get a subtle 3d tilt feel */
+.founder-intro-grid {
+  perspective: 1200px;
+}
+
+/* Scale-back visual: darken the founder section edges slightly
+   when it starts receding (add this class via GSAP if desired) */
+.founder-receding::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 10;
+  border-radius: 12px;
+  transition: opacity 0.3s;
+}
