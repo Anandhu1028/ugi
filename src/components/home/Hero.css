@@ -197,7 +197,7 @@
 
 /* Title */
 .hero-title {
-  font-family: var(--font-secondary);
+    font-family: var(--f-display);
   font-size: clamp(2.8rem, 6vw, 5.8rem);
   line-height: 1.08;
   color: #ffffff;

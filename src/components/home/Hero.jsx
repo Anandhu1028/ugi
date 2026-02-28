@@ -136,23 +136,9 @@ const Hero = () => {
 
           <h1 className="hero-title" key={`title-${current}`}>{slide.title}</h1>
 
-          <div className="hero-divider">
-            <span className="hd-line" />
-            <span className="hd-gem">◆</span>
-            <span className="hd-line hd-line--r" />
-          </div>
+         
 
-          <div className="hero-cta-row">
-            <Link to="/about" className="hero-btn hero-btn--fill">
-              <span>Discover More</span>
-              <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                <path d="M2.5 7.5h10M9 3.5l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </Link>
-            <Link to="/initiatives" className="hero-btn hero-btn--outline">
-              Our Initiatives
-            </Link>
-          </div>
+          
         </div>
       </div>
 
@@ -169,12 +155,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll hint */}
-      <div className="hero-scroll-hint">
-        <div className="hero-mouse">
-          <div className="hero-wheel" />
-        </div>
-        <span>Scroll</span>
-      </div>
+     
     </section>
   );
 };
