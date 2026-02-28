@@ -83,7 +83,6 @@
   height: auto;
   display: block;
   object-fit: cover;
-  filter: grayscale(70%) contrast(1.1);
   transition: filter 0.8s ease, transform 0.8s ease;
   transform-origin: center bottom;
 }

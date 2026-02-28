@@ -32,6 +32,74 @@
   --r-lg:         14px;
 }
 
+.about-modern-section {
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  overflow-x: hidden;
+}
+
+/* All cinematic sections */
+.about-hero,
+.about-banner,
+.history-modern,
+.grow-modern,
+.founder-parallax-wrapper,
+.timeline-parallax-wrapper {
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+}
+/* ===== SPLIT BANNER STRUCTURE ===== */
+
+.about-banner {
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.history-modern {
+  position: relative;
+  z-index: 5;
+  transform: scale(1.15);
+  opacity: 0;
+}
+
+.about-banner-split {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.about-banner-left {
+  left: 0;
+}
+
+.about-banner-right {
+  right: 0;
+}
+
+.about-banner-split img {
+  width: 200%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-banner-left img {
+  object-position: left center;
+}
+
+.about-banner-right img {
+  object-position: right center;
+}
+
+/* Next section initially hidden & scaled */
+.history-modern {
+  transform: scale(0.85);
+  opacity: 0;
+}
+
 /* ── Reset ───────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; }
 

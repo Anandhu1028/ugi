@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./initiativesTimeline.css";
+import "../About/About-enhanced.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -86,17 +87,25 @@ const InitiativesTimeline = () => {
   useEffect(() => {
     let ctx = gsap.context(() => {
 
-      // Stagger Reveals for main initiatives
-      gsap.from(".main-timeline-heading > *", {
-        y: 50,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.2,
-        ease: "power3.out",
+      // Banner Animations
+      gsap.to(".about-banner-bg", {
+        yPercent: 24,
+        ease: "none",
         scrollTrigger: {
-          trigger: ".main-timeline-heading",
-          start: "top 85%",
-        }
+          trigger: ".about-banner",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        },
+      });
+
+      gsap.from([".about-banner .about-hero-badge", ".about-banner-title", ".banner-divider"], {
+        y: 32,
+        opacity: 0,
+        duration: 0.85,
+        stagger: 0.11,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".about-banner", start: "top 70%", toggleActions: "play none none reverse" },
       });
 
       gsap.from(".timeline-wrapper", {
@@ -165,28 +174,36 @@ const InitiativesTimeline = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="timeline-enhanced-wrapper">
+    <div ref={containerRef} className="timeline-enhanced-wrapper about-modern-section" style={{ padding: "0 0 160px 0" }}>
       <div className="timeline-bg-glow"></div>
 
-      <div className="container">
-        {/* Main Initiatives */}
-        <div className="section-heading main-timeline-heading">
-          <span>Our Initiatives</span>
-          <h2>STRONG PILLARS OF EXCEPTIONAL INDUSTIRES</h2>
+      {/* Main Initiatives Banner */}
+      <section className="about-banner main-timeline-heading" style={{ marginBottom: "80px" }}>
+        <div className="about-banner-bg-wrap">
+          <img className="about-banner-bg" src="/assets/img/ugi-banner4.jpg" alt="" />
+          <div className="about-banner-overlay" />
         </div>
+        <div className="about-banner-content container">
+          <span className="about-hero-badge">Our Initiatives</span>
+          <h2 className="about-banner-title">STRONG PILLARS OF EXCEPTIONAL INDUSTRIES</h2>
+          <div className="banner-divider" />
+        </div>
+      </section>
+
+      <div className="container">
 
         <div className="timeline-grid">
           {INITIATIVES.map((item, index) => (
             <div key={index} className="timeline-wrapper">
               <div className="info-card-modern">
-                <div >
-                  <img src={item.logo}  />
+                <div className="logo-container">
+                  <img src={item.logo} alt={item.title} />
                 </div>
                 <div className="timeline-content-modern">
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
-                 <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
                   Visit Website <span>→</span>
                 </a>
               </div>
@@ -195,24 +212,23 @@ const InitiativesTimeline = () => {
         </div>
 
         {/* Upcoming Projects */}
-        <div className="section-heading upcoming-heading mt-10">
-          <span>Upcoming Projects</span>
-          <h2>PLANNING BEGINNINGS FOR OUR BLOOMING INTITIATIVES</h2>
-
+        <div className="section-header upcoming-heading mt-10">
+          <span className="section-eyebrow">Upcoming Projects</span>
+          <h2 className="section-title">PLANNING BEGINNINGS FOR OUR BLOOMING INITIATIVES</h2>
         </div>
 
-       <div className="timeline-grid">
+        <div className="timeline-grid">
           {UPCOMING_PROJECTS.map((item, index) => (
             <div key={index} className="timeline-wrapper">
               <div className="info-card-modern">
-                <div >
-                  <img src={item.logo}  />
+                <div className="logo-container">
+                  <img src={item.logo} alt={item.title} />
                 </div>
                 <div className="timeline-content-modern">
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
-                 <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
                   Visit Website <span>→</span>
                 </a>
               </div>
@@ -221,24 +237,23 @@ const InitiativesTimeline = () => {
         </div>
 
         {/* Partners */}
-        <div className="section-heading partners-heading mt-10">
-          <span>Roof of UGI</span>
-                    <h2>OUR  PARTNERING  VENTURES</h2>
-
+        <div className="section-header partners-heading mt-10">
+          <span className="section-eyebrow">Roof of UGI</span>
+          <h2 className="section-title">OUR PARTNERING VENTURES</h2>
         </div>
 
-       <div className="timeline-grid">
+        <div className="timeline-grid">
           {PARTNERS.map((item, index) => (
             <div key={index} className="timeline-wrapper">
               <div className="info-card-modern">
-                <div >
-                  <img src={item.logo}  />
+                <div className="logo-container">
+                  <img src={item.logo} alt={item.title} />
                 </div>
                 <div className="timeline-content-modern">
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
-                 <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
                   Visit Website <span>→</span>
                 </a>
               </div>
