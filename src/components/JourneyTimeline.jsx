@@ -9,10 +9,25 @@ const milestones = [
   { year: "2017", text: "Founded UGI in Dubai", x: 120, y: 120 },
   { year: "2017", text: "Established Moto Factory in Kerala", x: 350, y: 80 },
   { year: "2018", text: "Established Focuz Academy in Kerala", x: 520, y: 200 },
-  { year: "2019", text: " Established Le Orenda, Wishtree Infosolutions in Dubai & Cyberwoodz Technologies in Kerala", x: 720, y: 110 },
-  { year: "2020", text: "Inception of Tecswam in Dubai & Kerala", x: 900, y: 80 },
+  {
+    year: "2019",
+    text: " Established Le Orenda, Wishtree Infosolutions in Dubai & Cyberwoodz Technologies in Kerala",
+    x: 720,
+    y: 110,
+  },
+  {
+    year: "2020",
+    text: "Inception of Tecswam in Dubai & Kerala",
+    x: 900,
+    y: 80,
+  },
   { year: "2022", text: "Established RiverWoodz in Kerala", x: 1080, y: 200 },
-  { year: "Upcoming Projects", text: "Dreamzone projects in pipeline Scholium in Dubai, Cafe 33 in Kerala", x: 1300, y: 120 },
+  {
+    year: "Upcoming Projects",
+    text: "Dreamzone projects in pipeline Scholium in Dubai, Cafe 33 in Kerala",
+    x: 1300,
+    y: 120,
+  },
 ];
 
 const JourneyTimeline = () => {
@@ -112,21 +127,11 @@ const JourneyTimeline = () => {
               strokeWidth="2"
             />
 
-            <text
-              x={m.x}
-              y={m.y - 22}
-              textAnchor="middle"
-              className="year"
-            >
+            <text x={m.x} y={m.y - 22} textAnchor="middle" className="year">
               {m.year}
             </text>
 
-            <foreignObject
-              x={m.x - 90}
-              y={m.y + 48}
-              width="180"
-              height="90"
-            >
+            <foreignObject x={m.x - 90} y={m.y + 48} width="180" height="90">
               <div className="label-card">
                 <p>{m.text}</p>
               </div>

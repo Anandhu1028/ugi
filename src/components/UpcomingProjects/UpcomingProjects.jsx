@@ -30,7 +30,7 @@ const UpcomingProjects = () => {
 
       const progress = Math.min(
         Math.max((triggerPoint - rect.top) / rect.height, 0),
-        1
+        1,
       );
 
       const index = Math.floor(progress * upcomingProjects.length);
@@ -44,15 +44,12 @@ const UpcomingProjects = () => {
   return (
     <section ref={sectionRef} className="upcoming-section">
       <div className="container">
-
         {/* Heading */}
         <div className="cs_section_heading cs_mb_60 text-center">
           <h4 className="cs_fs_20 fw-normal cs_mb_10">
             Planning Beginnings For Our Blooming Initiatives
           </h4>
-          <h2 className="cs_fs_48 m-0">
-            Upcoming Projects
-          </h2>
+          <h2 className="cs_fs_48 m-0">Upcoming Projects</h2>
         </div>
 
         {/* Cards */}
@@ -79,7 +76,6 @@ const UpcomingProjects = () => {
             );
           })}
         </div>
-
       </div>
     </section>
   );

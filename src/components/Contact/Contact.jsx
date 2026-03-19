@@ -5,13 +5,17 @@ import CinematicBanner from "../CinematicBanner";
 /* ─── FONT + CSS INJECTION ──────────────────────────── */
 function injectCSS(id, css) {
   if (typeof document === "undefined" || document.getElementById(id)) return;
-  const s = document.createElement("style"); s.id = id; s.textContent = css;
+  const s = document.createElement("style");
+  s.id = id;
+  s.textContent = css;
   document.head.appendChild(s);
 }
 function injectFont(id, href) {
   if (typeof document === "undefined" || document.getElementById(id)) return;
   const l = document.createElement("link");
-  l.id = id; l.rel = "stylesheet"; l.href = href;
+  l.id = id;
+  l.rel = "stylesheet";
+  l.href = href;
   document.head.appendChild(l);
 }
 
@@ -454,38 +458,108 @@ const CSS = `
 
 /* ─── SVG icons ──────────────────────────────────── */
 const IconPin = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+    <circle cx="12" cy="10" r="3" />
   </svg>
 );
 const IconPhone = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.18 2 2 0 012.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.11 1.18 2 2 0 012.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l.91-.91a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
   </svg>
 );
 const IconMail = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+    <polyline points="22,6 12,13 2,6" />
   </svg>
 );
 const IconSend = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="22" y1="2" x2="11" y2="13" />
+    <polygon points="22 2 15 22 11 13 2 9 22 2" />
   </svg>
 );
 const IconLinkedIn = () => (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+  <svg
+    width="17"
+    height="17"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
   </svg>
 );
 const IconInsta = () => (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  <svg
+    width="17"
+    height="17"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
   </svg>
 );
 const IconFb = () => (
-  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+  <svg
+    width="17"
+    height="17"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" />
   </svg>
 );
 
@@ -497,7 +571,13 @@ const OFFICES = {
       {
         icon: <IconPin />,
         label: "Address",
-        value: <>No:57, 5th Cross Road, Giri Nagar Housing Society,<br />Kadavanthra, Kochi, Kerala 682020, India</>,
+        value: (
+          <>
+            No:57, 5th Cross Road, Giri Nagar Housing Society,
+            <br />
+            Kadavanthra, Kochi, Kerala 682020, India
+          </>
+        ),
       },
       {
         icon: <IconPhone />,
@@ -509,8 +589,11 @@ const OFFICES = {
         label: "Email",
         value: (
           <>
-            <a href="mailto:info@uginitiative.com">info@uginitiative.com</a><br />
-            <a href="mailto:career.dxb@uginitiative.com">career.dxb@uginitiative.com</a>
+            <a href="mailto:info@uginitiative.com">info@uginitiative.com</a>
+            <br />
+            <a href="mailto:career.dxb@uginitiative.com">
+              career.dxb@uginitiative.com
+            </a>
           </>
         ),
       },
@@ -534,8 +617,11 @@ const OFFICES = {
         label: "Email",
         value: (
           <>
-            <a href="mailto:info@uginitiative.com">info@uginitiative.com</a><br />
-            <a href="mailto:career.dxb@uginitiative.com">career.dxb@uginitiative.com</a>
+            <a href="mailto:info@uginitiative.com">info@uginitiative.com</a>
+            <br />
+            <a href="mailto:career.dxb@uginitiative.com">
+              career.dxb@uginitiative.com
+            </a>
           </>
         ),
       },
@@ -545,15 +631,16 @@ const OFFICES = {
 
 /* ─── MAIN COMPONENT ─────────────────────────────── */
 const Contact = () => {
-  const [status,   setStatus]   = useState("");
-  const [loading,  setLoading]  = useState(false);
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("india");
   const pageRef = useRef(null);
 
   /* CSS injection */
   useEffect(() => {
-    injectFont("ct-fonts",
-      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Syne:wght@300;400;500;600;700;800&display=swap"
+    injectFont(
+      "ct-fonts",
+      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=Syne:wght@300;400;500;600;700;800&display=swap",
     );
     injectCSS("ct-css", CSS);
   }, []);
@@ -561,32 +648,44 @@ const Contact = () => {
   /* Scroll reveal */
   useEffect(() => {
     const obs = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("ct-on"); }),
-      { threshold: 0.07 }
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("ct-on");
+        }),
+      { threshold: 0.07 },
     );
-    document.querySelectorAll(".ct-rv").forEach(el => obs.observe(el));
+    document.querySelectorAll(".ct-rv").forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 
-  const sendEmail = e => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    setLoading(true); setStatus("");
+    setLoading(true);
+    setStatus("");
     const form = e.target;
     emailjs
       .send(
         "service_1ynplud",
         "template_h2dtnel",
         {
-          from_name:  form.name.value,
+          from_name: form.name.value,
           from_email: form.email.value,
-          phone:      form.phone.value,
-          company:    form.company.value,
-          message:    form.message.value,
+          phone: form.phone.value,
+          company: form.company.value,
+          message: form.message.value,
         },
-        "cR-PfpkkMVlN2udLc"
+        "cR-PfpkkMVlN2udLc",
       )
-      .then(() => { setStatus("success"); setLoading(false); form.reset(); })
-      .catch(err => { console.error(err); setStatus("error"); setLoading(false); });
+      .then(() => {
+        setStatus("success");
+        setLoading(false);
+        form.reset();
+      })
+      .catch((err) => {
+        console.error(err);
+        setStatus("error");
+        setLoading(false);
+      });
   };
 
   const office = OFFICES[activeTab];
@@ -599,7 +698,13 @@ const Contact = () => {
       <CinematicBanner
         image="/assets/img/ugi-banner-History-1.jpg"
         eyebrow="UGI — CONTACT US"
-        title={<>Get In Touch<br />With Us</>}
+        title={
+          <>
+            Get In Touch
+            <br />
+            With Us
+          </>
+        }
         sub="Moments that shaped us, memories that stay forever."
         height="88vh"
       />
@@ -614,46 +719,68 @@ const Contact = () => {
           </div>
           <span className="ct-eyebrow">Reach Out</span>
           <h2>
-            Let's Start<br />
+            Let's Start
+            <br />
             <em>A Conversation</em>
           </h2>
-          <p>Share your requirements and our team will respond within 24 hours.</p>
+          <p>
+            Share your requirements and our team will respond within 24 hours.
+          </p>
         </div>
 
         {/* ── MAIN GRID ── */}
         <div className="ct-main">
-
           {/* ══ FORM PANEL ══ */}
           <div className="ct-form-panel ct-rv">
             <div className="ct-form-panel-head">
               <h3>
-                <em>Send Us</em>
-                A Message
+                <em>Send Us</em>A Message
               </h3>
               <div className="ct-divline" />
-              <p>Fill in the form below and one of our specialists will be in touch shortly.</p>
+              <p>
+                Fill in the form below and one of our specialists will be in
+                touch shortly.
+              </p>
             </div>
 
             <form onSubmit={sendEmail} autoComplete="off">
               <div className="ct-field-row">
                 <div className="ct-field-group">
                   <label>Your Name</label>
-                  <input type="text" name="name" placeholder="John Doe" required />
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="John Doe"
+                    required
+                  />
                 </div>
                 <div className="ct-field-group">
                   <label>Email Address</label>
-                  <input type="email" name="email" placeholder="john@company.com" required />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="john@company.com"
+                    required
+                  />
                 </div>
               </div>
 
               <div className="ct-field-row">
                 <div className="ct-field-group">
                   <label>Mobile Number</label>
-                  <input type="text" name="phone" placeholder="+971 5X XXX XXXX" />
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="+971 5X XXX XXXX"
+                  />
                 </div>
                 <div className="ct-field-group">
                   <label>Company</label>
-                  <input type="text" name="company" placeholder="Your Company Ltd." />
+                  <input
+                    type="text"
+                    name="company"
+                    placeholder="Your Company Ltd."
+                  />
                 </div>
               </div>
 
@@ -671,9 +798,15 @@ const Contact = () => {
               <div className="ct-submit-row">
                 <button className="ct-submit" type="submit" disabled={loading}>
                   {loading ? (
-                    <><div className="ct-spinner" /><span>Sending…</span></>
+                    <>
+                      <div className="ct-spinner" />
+                      <span>Sending…</span>
+                    </>
                   ) : (
-                    <><span>Send Message</span><IconSend /></>
+                    <>
+                      <span>Send Message</span>
+                      <IconSend />
+                    </>
                   )}
                 </button>
               </div>
@@ -695,7 +828,6 @@ const Contact = () => {
 
           {/* ══ RIGHT COLUMN ══ */}
           <div className="ct-right">
-
             {/* ── ADDRESS PANEL ── */}
             <div className="ct-addr-panel ct-rv" data-d="1">
               <div className="ct-addr-head">
@@ -739,12 +871,17 @@ const Contact = () => {
                 <strong>Follow UGI Initiative</strong>
               </div>
               <div className="ct-socials">
-                <a href="#" className="ct-social-btn" aria-label="LinkedIn"><IconLinkedIn /></a>
-                <a href="#" className="ct-social-btn" aria-label="Instagram"><IconInsta /></a>
-                <a href="#" className="ct-social-btn" aria-label="Facebook"><IconFb /></a>
+                <a href="#" className="ct-social-btn" aria-label="LinkedIn">
+                  <IconLinkedIn />
+                </a>
+                <a href="#" className="ct-social-btn" aria-label="Instagram">
+                  <IconInsta />
+                </a>
+                <a href="#" className="ct-social-btn" aria-label="Facebook">
+                  <IconFb />
+                </a>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -752,7 +889,11 @@ const Contact = () => {
         <div className="ct-map-section">
           <div className="ct-map-header ct-rv">
             <div className="ct-map-header-left">
-              <h3>Find <span>Our</span><br />India Office</h3>
+              <h3>
+                Find <span>Our</span>
+                <br />
+                India Office
+              </h3>
               <p>No:57, 5th Cross Road, Kadavanthra, Kochi, Kerala</p>
             </div>
             <div className="ct-map-meta">

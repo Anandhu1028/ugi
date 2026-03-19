@@ -93,10 +93,11 @@
     font-size: 38px;
   }
 }
+
 img {
-    border: 0;
-    max-width: 100%;
-    height: auto;
+  border: 0;
+  max-width: 100%;
+  height: auto;
 }
 
 /* ================= APPLY FORM ================= */
@@ -186,20 +187,26 @@ img {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
 .apply-form {
   background: #ffffff;
   padding: 40px;
   border-radius: 18px;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
 
-  width: 500px;           /* ✅ fixed width */
-  margin-bottom: 201px;   /* ✅ exact bottom spacing */
+  width: 500px;
+  /* ✅ fixed width */
+  margin-bottom: 201px;
+  /* ✅ exact bottom spacing */
 }
+
 /* POLICY ROW – FIXED ALIGNMENT */
 .policy-row {
   display: flex;
-  align-items: center;     /* ✅ aligns checkbox + text vertically */
-  gap: 10px;               /* ✅ spacing between checkbox and text */
+  align-items: center;
+  /* ✅ aligns checkbox + text vertically */
+  gap: 10px;
+  /* ✅ spacing between checkbox and text */
   margin: 18px 0 26px;
   font-size: 14px;
   color: #333;
@@ -209,7 +216,8 @@ img {
 .policy-row input[type="checkbox"] {
   width: 16px;
   height: 16px;
-  margin: 0;               /* ❌ remove default browser margin */
+  margin: 0;
+  /* ❌ remove default browser margin */
   cursor: pointer;
 }
 

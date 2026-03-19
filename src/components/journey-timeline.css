@@ -7,7 +7,7 @@
 /* SVG */
 .journey-svg {
   width: 100%;
-    height: 800px;
+  height: 800px;
 }
 
 /* YEAR */
@@ -46,11 +46,9 @@
   padding: 1px;
   border-radius: 14px;
 
-  background: linear-gradient(
-    135deg,
-    #f5a400,
-    #ffcc66
-  );
+  background: linear-gradient(135deg,
+      #f5a400,
+      #ffcc66);
 
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,

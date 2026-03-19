@@ -2,34 +2,34 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 
 const GlobalSmoothScroll = ({ children }) => {
-    useEffect(() => {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: "vertical",
-            gestureDirection: "vertical",
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-        });
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      direction: "vertical",
+      gestureDirection: "vertical",
+      smooth: true,
+      mouseMultiplier: 1,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
 
-        lenis.on('scroll', (e) => {
-            // scroll listener
-        });
+    lenis.on("scroll", (e) => {
+      // scroll listener
+    });
 
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
 
-        return () => {
-            lenis.destroy();
-        };
-    }, []);
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
 
-    return <>{children}</>;
+  return <>{children}</>;
 };
 
 export default GlobalSmoothScroll;

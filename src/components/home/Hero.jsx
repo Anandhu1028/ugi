@@ -25,7 +25,7 @@ const slides = [
 ];
 
 const Hero = () => {
-  const compRef    = useRef(null);
+  const compRef = useRef(null);
   const intervalRef = useRef(null);
   const [current, setCurrent] = useState(0);
 
@@ -53,12 +53,48 @@ const Hero = () => {
         duration: 2.2,
         ease: "power3.inOut",
       })
-      .from(".hero-eyebrow", { y: 50, opacity: 0, duration: 1, ease: "power3.out" }, "-=1.3")
-      .from(".hero-title",   { y: 70, opacity: 0, duration: 1.2, ease: "power3.out" }, "-=0.9")
-      .from(".hero-divider", { scaleX: 0, opacity: 0, duration: 0.8, ease: "power2.out" }, "-=0.7")
-      .from(".hero-cta-row", { y: 30, opacity: 0, duration: 0.9, ease: "power2.out" }, "-=0.6")
-      .from(".hero-corner",  { scale: 0, opacity: 0, stagger: 0.1, duration: 0.6, ease: "back.out(1.6)" }, "-=0.8")
-      .from(".hero-social-item", { x: -20, opacity: 0, stagger: 0.1, duration: 0.7, ease: "power2.out" }, "-=0.6");
+        .from(
+          ".hero-eyebrow",
+          { y: 50, opacity: 0, duration: 1, ease: "power3.out" },
+          "-=1.3",
+        )
+        .from(
+          ".hero-title",
+          { y: 70, opacity: 0, duration: 1.2, ease: "power3.out" },
+          "-=0.9",
+        )
+        .from(
+          ".hero-divider",
+          { scaleX: 0, opacity: 0, duration: 0.8, ease: "power2.out" },
+          "-=0.7",
+        )
+        .from(
+          ".hero-cta-row",
+          { y: 30, opacity: 0, duration: 0.9, ease: "power2.out" },
+          "-=0.6",
+        )
+        .from(
+          ".hero-corner",
+          {
+            scale: 0,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.6,
+            ease: "back.out(1.6)",
+          },
+          "-=0.8",
+        )
+        .from(
+          ".hero-social-item",
+          {
+            x: -20,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.7,
+            ease: "power2.out",
+          },
+          "-=0.6",
+        );
 
       // Parallax scroll
       gsap.to(".hero-bg-img", {
@@ -93,7 +129,10 @@ const Hero = () => {
   return (
     <section ref={compRef} className="hero-section">
       {/* Background */}
-      <div className="hero-bg-img" style={{ backgroundImage: `url(${slide.img})` }} />
+      <div
+        className="hero-bg-img"
+        style={{ backgroundImage: `url(${slide.img})` }}
+      />
       <div className="hero-overlay" />
       <div className="hero-grain" aria-hidden="true" />
 
@@ -106,11 +145,22 @@ const Hero = () => {
         <div className="hero-social-line" />
         {[
           { href: "https://x.com/ugi__group", icon: "fa-x-twitter" },
-          { href: "https://www.facebook.com/ugigroupofinitiatives", icon: "fa-facebook-f" },
-          { href: "https://www.instagram.com/ugigroupofinitiatives/", icon: "fa-instagram" },
+          {
+            href: "https://www.facebook.com/ugigroupofinitiatives",
+            icon: "fa-facebook-f",
+          },
+          {
+            href: "https://www.instagram.com/ugigroupofinitiatives/",
+            icon: "fa-instagram",
+          },
         ].map((s) => (
-          <a key={s.icon} href={s.href} className="hero-social-item"
-            target="_blank" rel="noreferrer">
+          <a
+            key={s.icon}
+            href={s.href}
+            className="hero-social-item"
+            target="_blank"
+            rel="noreferrer"
+          >
             <i className={`fa-brands ${s.icon}`} />
           </a>
         ))}
@@ -121,9 +171,14 @@ const Hero = () => {
       <div className="hero-counter">
         <span className="hc-num">{String(current + 1).padStart(2, "0")}</span>
         <div className="hc-track">
-          <div className="hc-fill" style={{ width: `${((current + 1) / slides.length) * 100}%` }} />
+          <div
+            className="hc-fill"
+            style={{ width: `${((current + 1) / slides.length) * 100}%` }}
+          />
         </div>
-        <span className="hc-total">{String(slides.length).padStart(2, "0")}</span>
+        <span className="hc-total">
+          {String(slides.length).padStart(2, "0")}
+        </span>
       </div>
 
       {/* Content */}
@@ -134,11 +189,9 @@ const Hero = () => {
             {slide.subtitle}
           </span>
 
-          <h1 className="hero-title" key={`title-${current}`}>{slide.title}</h1>
-
-         
-
-          
+          <h1 className="hero-title" key={`title-${current}`}>
+            {slide.title}
+          </h1>
         </div>
       </div>
 
@@ -148,14 +201,16 @@ const Hero = () => {
           <button
             key={i}
             className={`hero-dot${i === current ? " active" : ""}`}
-            onClick={() => { goTo(i); startAuto(); }}
+            onClick={() => {
+              goTo(i);
+              startAuto();
+            }}
             aria-label={`Slide ${i + 1}`}
           />
         ))}
       </div>
 
       {/* Scroll hint */}
-     
     </section>
   );
 };

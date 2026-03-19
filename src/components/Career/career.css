@@ -59,15 +59,20 @@
 }
 
 @keyframes growLine {
-  from { width: 0; }
-  to { width: 44px; }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 44px;
+  }
 }
 
 /* ================= FILTER BAR ================= */
 /* ================= MODERN FILTER BAR ================= */
 
 .career-filters {
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 16px;
@@ -93,8 +98,9 @@
 .career-filters input:focus,
 .career-filters select:focus {
   border-color: #111;
-  box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
+
 /* ================= JOB CARD ================= */
 /* ================= MODERN JOB CARD ================= */
 
@@ -111,7 +117,7 @@
 
 .job-card:hover {
   border-color: #f5a400;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
   transform: translateY(-6px);
 }
 
@@ -199,7 +205,7 @@
   transform: translateY(40px) scale(0.97);
   transition:
     opacity 0.7s ease,
-    transform 0.7s cubic-bezier(.2,.8,.2,1);
+    transform 0.7s cubic-bezier(.2, .8, .2, 1);
 }
 
 .reveal.active {
@@ -209,7 +215,7 @@
 
 /* Stagger effect */
 .job-card.reveal.active {
-  animation: cardEnter 0.7s cubic-bezier(.2,.8,.2,1) both;
+  animation: cardEnter 0.7s cubic-bezier(.2, .8, .2, 1) both;
 }
 
 @keyframes cardEnter {
@@ -217,6 +223,7 @@
     opacity: 0;
     transform: translateY(50px) scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -236,6 +243,7 @@
     grid-template-columns: 1fr;
   }
 }
+
 /* OPEN POSITIONS SECTION */
 .career-jobs {
   width: 100%;
@@ -244,9 +252,12 @@
 
 /* THIS IS THE KEY FIX */
 .career-jobs-inner {
-  max-width: 1200px;      /* controls content width */
-  margin: 0 auto;        /* centers it */
-  padding: 60px 20px;    /* small side padding, no gap */
+  max-width: 1200px;
+  /* controls content width */
+  margin: 0 auto;
+  /* centers it */
+  padding: 60px 20px;
+  /* small side padding, no gap */
   box-sizing: border-box;
 }
 
@@ -289,6 +300,7 @@
     grid-template-columns: 1fr;
   }
 }
+
 /* ================= CAREER BANNER ================= */
 
 .career-banner {
@@ -322,11 +334,9 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: radial-gradient(
-    circle at 30% 40%,
-    rgba(0, 0, 0, 0.3),
-    rgba(0, 0, 0, 0.85)
-  );
+  background: radial-gradient(circle at 30% 40%,
+      rgba(0, 0, 0, 0.3),
+      rgba(0, 0, 0, 0.85));
 }
 
 /* CONTENT */
@@ -387,6 +397,7 @@
   from {
     transform: scale(1.15);
   }
+
   to {
     transform: scale(1);
   }
@@ -396,6 +407,7 @@
   from {
     width: 0;
   }
+
   to {
     width: 90px;
   }
@@ -415,6 +427,7 @@
 
 /* ACCESSIBILITY */
 @media (prefers-reduced-motion: reduce) {
+
   .career-banner-bg,
   .career-banner-line {
     animation: none;

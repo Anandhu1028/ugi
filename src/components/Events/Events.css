@@ -146,27 +146,166 @@
 }
 .event-date svg { color: var(--accent-primary); }
 
-/* ── Gallery Section ───────────────────────────────────────── */
+
+/* ================================================================
+   GALLERY SECTION — Animated
+   ================================================================ */
+
 .events-gallery-section {
   padding: 100px 0 120px;
   background: var(--bg-secondary);
   border-top: 1px solid var(--border-light);
   transition: background 0.4s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* ── Ambient Orbs (parallax background blobs) ── */
+.gallery-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  opacity: 0.12;
+  z-index: 0;
+}
+.gallery-orb-1 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, var(--accent-primary, #d4af37), transparent 70%);
+  top: -120px;
+  right: -160px;
+  animation: orb-drift-1 8s ease-in-out infinite alternate;
+}
+.gallery-orb-2 {
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, var(--accent-primary, #d4af37), transparent 70%);
+  bottom: 40px;
+  left: -100px;
+  animation: orb-drift-2 10s ease-in-out infinite alternate;
+}
+
+@keyframes orb-drift-1 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-30px, 20px) scale(1.08); }
+}
+@keyframes orb-drift-2 {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(20px, -25px) scale(1.06); }
+}
+
+/* ── Gallery Header ── */
+.gallery-section-header {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 64px;
+}
+
+.gallery-eyebrow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Photo count badge */
+.gallery-count-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 14px;
+  background: var(--accent-primary, #d4af37);
+  color: #000;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 30px;
+  white-space: nowrap;
+  box-shadow: 0 0 18px color-mix(in srgb, var(--accent-primary, #d4af37) 40%, transparent);
+  animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { box-shadow: 0 0 14px color-mix(in srgb, var(--accent-primary, #d4af37) 35%, transparent); }
+  50%       { box-shadow: 0 0 28px color-mix(in srgb, var(--accent-primary, #d4af37) 60%, transparent); }
+}
+
+/* Title words — each animates independently via GSAP */
+.gallery-title {
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.gallery-title-word {
+  display: inline-block;
+}
+.gallery-title-accent {
+  background: var(--accent-gradient, linear-gradient(135deg, #d4af37, #f5d06e));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+}
+
+/* Underline shimmer on accent word */
+.gallery-title-accent::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--accent-gradient, linear-gradient(90deg, #d4af37, #f5d06e));
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underline-grow 1s 1.2s ease forwards;
+}
+
+@keyframes underline-grow {
+  to { transform: scaleX(1); }
+}
+
+/* Decorative line — GSAP animates scaleX from 0 */
+.gallery-header-line {
+  transform-origin: left center;
+}
+
+
+/* ── Gallery Grid ── */
 .events-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 18px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Span some items for visual variety */
+.gallery-item:nth-child(1)  { grid-column: span 2; }
+.gallery-item:nth-child(6)  { grid-column: span 2; }
+.gallery-item:nth-child(9)  { grid-column: span 2; }
+
+
+/* ── Gallery Item ── */
 .gallery-item {
   position: relative;
-  height: 220px;
-  border-radius: var(--radius-lg);
+  height: 240px;
+  border-radius: var(--radius-lg, 16px);
   overflow: hidden;
   border: 1px solid var(--border-light);
-  transition: var(--transition-smooth);
+  cursor: pointer;
+  transform-style: preserve-3d;   /* enables 3-D tilt */
+  will-change: transform;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Taller for spanned items */
+.gallery-item:nth-child(1),
+.gallery-item:nth-child(6),
+.gallery-item:nth-child(9) {
+  height: 300px;
 }
 
 .gallery-item img {
@@ -174,42 +313,217 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.6s ease;
-  filter: grayscale(20%);
-}
-
-.gallery-item-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.4), transparent);
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: transform 0.7s ease, filter 0.5s ease;
+  filter: grayscale(25%) brightness(0.92);
 }
 
 .gallery-item:hover {
-  transform: scale(1.04);
-  border-color: var(--border-gold);
-  box-shadow: var(--shadow-md);
-  z-index: 1;
+  border-color: var(--border-gold, #d4af37);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.35), 0 0 0 1px var(--accent-primary, #d4af37);
+  z-index: 2;
 }
 .gallery-item:hover img {
-  transform: scale(1.08);
-  filter: grayscale(0%);
+  transform: scale(1.12);
+  filter: grayscale(0%) brightness(1);
+}
+
+
+/* ── Dark overlay (fades in on hover) ── */
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.1) 60%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.45s ease;
 }
 .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+
+
+/* ── Expand / Zoom icon ── */
+.gallery-item-zoom {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.7) rotate(-30deg);
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+  z-index: 3;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.gallery-item:hover .gallery-item-zoom {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+
+/* ── Diagonal shine sweep on hover ── */
+.gallery-item-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255,255,255,0.14) 50%,
+    transparent 80%
+  );
+  background-size: 200% 200%;
+  background-position: -100% 0;
+  pointer-events: none;
+  z-index: 4;
+  transition: background-position 0s;
+}
+.gallery-item:hover .gallery-item-shine {
+  animation: shine-sweep 0.6s ease forwards;
+}
+
+@keyframes shine-sweep {
+  from { background-position: -100% 0; }
+  to   { background-position: 200% 0; }
+}
+
+
+/* ================================================================
+   LIGHTBOX
+   ================================================================ */
+
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: lb-fade-in 0.3s ease;
+}
+
+@keyframes lb-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.lightbox-inner {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 86vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.7);
+  display: block;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: 24px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.22);
+  transform: rotate(90deg) scale(1.1);
+}
+
+.lightbox-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+}
+.lightbox-nav:hover {
+  background: var(--accent-primary, #d4af37);
+  color: #000;
+}
+.lightbox-prev { left: 24px; }
+.lightbox-next { right: 24px; }
+.lightbox-prev:hover { transform: translateY(-50%) translateX(-3px); }
+.lightbox-next:hover { transform: translateY(-50%) translateX(3px); }
+
+.lightbox-counter {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 1px;
+  font-weight: 600;
+  background: rgba(0,0,0,0.4);
+  padding: 6px 18px;
+  border-radius: 30px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
 
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .events-grid { grid-template-columns: repeat(2, 1fr); }
   .events-gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(6),
+  .gallery-item:nth-child(9) { grid-column: span 2; }
 }
 @media (max-width: 768px) {
   .events-list-section,
   .events-gallery-section { padding: 80px 0; }
   .events-grid { grid-template-columns: 1fr; }
   .events-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(6),
+  .gallery-item:nth-child(9) { grid-column: span 2; }
   .event-thumb { height: 200px; }
+  .lightbox-nav { display: none; }
 }
 @media (max-width: 480px) {
   .events-gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(6),
+  .gallery-item:nth-child(9) { grid-column: span 1; height: 240px; }
 }

@@ -136,7 +136,9 @@ const InitiativesBanner = () => {
           <span className="init-hero-badge">UGI — Initiatives</span>
 
           <h1 className="init-hero-title">
-            Our Roots That<br />Connect Us
+            Our Roots That
+            <br />
+            Connect Us
           </h1>
 
           <p className="init-hero-sub">
@@ -185,18 +187,18 @@ const InitiativesDetails = () => {
 
       <section className="initiatives-details-section">
         <div className="container">
-
           {/* Heading */}
           <div className="idd-heading">
             <span className="section-eyebrow">Diverse Industries</span>
             <h2 className="section-title">
-              Diverse Range of Fields<br />Under One Name
+              Diverse Range of Fields
+              <br />
+              Under One Name
             </h2>
             <div className="idd-heading-line" />
           </div>
 
           <div className="idd-layout">
-
             {/* Sidebar */}
             <aside className="idd-sidebar">
               <div className="idd-sidebar-header">
@@ -212,13 +214,28 @@ const InitiativesDetails = () => {
                       key={key}
                       className={`idd-nav-item${isActive ? " active" : ""}`}
                       onClick={() => handleChange(key)}
-                      style={{ "--item-gradient": item.gradient, "--item-color": item.color }}
+                      style={{
+                        "--item-gradient": item.gradient,
+                        "--item-color": item.color,
+                      }}
                       aria-selected={isActive}
                     >
                       <span className="idd-nav-icon">{item.icon}</span>
                       <span className="idd-nav-label">{item.label}</span>
-                      <svg className="idd-nav-arrow" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                        <path d="M6 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                      <svg
+                        className="idd-nav-arrow"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 4l5 5-5 5"
+                          stroke="currentColor"
+                          strokeWidth="1.8"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
                     </button>
                   );
@@ -229,7 +246,10 @@ const InitiativesDetails = () => {
             {/* Content Panel */}
             <div
               className={`idd-panel${animating ? " is-out" : " is-in"}`}
-              style={{ "--panel-gradient": data.gradient, "--panel-color": data.color }}
+              style={{
+                "--panel-gradient": data.gradient,
+                "--panel-color": data.color,
+              }}
             >
               <div className="idd-panel-bar" />
 
@@ -250,7 +270,6 @@ const InitiativesDetails = () => {
                 <div className="idd-image-overlay" />
               </div>
             </div>
-
           </div>
         </div>
       </section>

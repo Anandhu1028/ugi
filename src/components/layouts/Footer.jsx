@@ -30,9 +30,7 @@ const Footer = () => {
               Send Email
             </h3>
             <h2 className="text-white fw-medium m-0 cs_fs_22">
-              <a href="mailto:info@uginitiative.com">
-                info@uginitiative.com
-              </a>
+              <a href="mailto:info@uginitiative.com">info@uginitiative.com</a>
             </h2>
           </div>
         </div>
@@ -40,7 +38,6 @@ const Footer = () => {
         {/* Footer Main */}
         <div className="cs_footer_main cs_pt_30 cs_pb_30">
           <div className="row">
-
             {/* Column 1 */}
             <div className="col-lg-4">
               <div className="cs_footer_item cs_pt_20 cs_pb_20">
@@ -55,8 +52,6 @@ const Footer = () => {
                     regulated.
                   </p>
                 </div>
-
-
               </div>
             </div>
 
@@ -67,12 +62,24 @@ const Footer = () => {
                   Quick Links
                 </h2>
                 <ul className="cs_menu_widget text-uppercase">
-                  <li><a href="/about">Journey</a></li>
-                  <li><a href="/about">History</a></li>
-                  <li><a href="/csr">CSR</a></li>
-                  <li><a href="/events">Events</a></li>
-                  <li><a href="/career">Careers</a></li>
-                  <li><a href="/initiatives">Initiatives</a></li>
+                  <li>
+                    <a href="/about">Journey</a>
+                  </li>
+                  <li>
+                    <a href="/about">History</a>
+                  </li>
+                  <li>
+                    <a href="/csr">CSR</a>
+                  </li>
+                  <li>
+                    <a href="/events">Events</a>
+                  </li>
+                  <li>
+                    <a href="/career">Careers</a>
+                  </li>
+                  <li>
+                    <a href="/initiatives">Initiatives</a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -104,7 +111,6 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

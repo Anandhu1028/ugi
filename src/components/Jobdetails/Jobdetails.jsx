@@ -106,8 +106,6 @@ const Jobdetails = () => {
     formData.append("phone", form.phone);
     formData.append("cover_letter", form.cover_letter);
     formData.append("resume", form.resume);
-
-    
   };
 
   return (
@@ -123,9 +121,15 @@ const Jobdetails = () => {
           <h2>{job.title}</h2>
 
           <ul className="job-meta">
-            <li><strong>Category:</strong> {job.category}</li>
-            <li><strong>Type:</strong> {job.type}</li>
-            <li><strong>Location:</strong> {job.location}</li>
+            <li>
+              <strong>Category:</strong> {job.category}
+            </li>
+            <li>
+              <strong>Type:</strong> {job.type}
+            </li>
+            <li>
+              <strong>Location:</strong> {job.location}
+            </li>
           </ul>
 
           <div className="company-box">
@@ -155,61 +159,44 @@ const Jobdetails = () => {
 
         {/* RIGHT – APPLY FORM */}
         <form
-      className="apply-form"
-      action="https://formsubmit.co/anandhuugi25@gmail.com"
-      method="POST"
-    >
-      {/* REQUIRED CONFIG */}
-      <input type="hidden" name="_captcha" value="false" />
-      <input
-        type="hidden"
-        name="_subject"
-        value={`New Job Application – ${job.title}`}
-      />
-      <input type="hidden" name="_template" value="table" />
+          className="apply-form"
+          action="https://formsubmit.co/anandhuugi25@gmail.com"
+          method="POST"
+        >
+          {/* REQUIRED CONFIG */}
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_subject"
+            value={`New Job Application – ${job.title}`}
+          />
+          <input type="hidden" name="_template" value="table" />
 
-      {/* JOB INFO */}
-      <input type="hidden" name="job_title" value={job.title} />
+          {/* JOB INFO */}
+          <input type="hidden" name="job_title" value={job.title} />
 
-      <h3>Apply for this position</h3>
+          <h3>Apply for this position</h3>
 
-      <input
-        type="text"
-        name="full_name"
-        placeholder="Full Name"
-        required
-      />
+          <input
+            type="text"
+            name="full_name"
+            placeholder="Full Name"
+            required
+          />
 
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-      />
+          <input type="email" name="email" placeholder="Email" required />
 
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Phone"
-        required
-      />
+          <input type="tel" name="phone" placeholder="Phone" required />
 
-      <textarea
-        name="cover_letter"
-        placeholder="Cover Letter"
-        required
-      />
+          <textarea name="cover_letter" placeholder="Cover Letter" required />
 
-      <div className="policy-row">
-        <input type="checkbox" required />
-        <label>I agree to the policy</label>
-      </div>
+          <div className="policy-row">
+            <input type="checkbox" required />
+            <label>I agree to the policy</label>
+          </div>
 
-      <button type="submit">
-        Submit Application
-      </button>
-    </form>
-
+          <button type="submit">Submit Application</button>
+        </form>
       </section>
     </section>
   );

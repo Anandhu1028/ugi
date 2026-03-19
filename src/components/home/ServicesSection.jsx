@@ -8,48 +8,66 @@ gsap.registerPlugin(ScrollTrigger);
 const services = [
   {
     title: "Focuz Academy",
-    description: "An educational venture in Kochi, Kerala. Aiming to provide distance education from Secondary to Ph.D.",
+    description:
+      "An educational venture in Kochi, Kerala. Aiming to provide distance education from Secondary to Ph.D.",
     logo: "/assets/img/logos/focuz.png",
+    url: "#",
   },
   {
     title: "Wishtree Infosolution",
-    description: "A group of experts focused on Digital Marketing, Website Design & Development, E-commerce, Web & Mobile Applications.",
+    description:
+      "A group of experts focused on Digital Marketing, Website Design & Development, E-commerce, Web & Mobile Applications.",
     logo: "/assets/img/logos/wishtree-01.webp",
+    url: "#",
   },
   {
     title: "Cyberwoodz",
-    description: "Experts that take care of all your businesses to go digital with digital marketing, web & app design, and development.",
+    description:
+      "Experts that take care of all your businesses to go digital with digital marketing, web & app design, and development.",
     logo: "/assets/img/logos/cyberwoodz.png",
+    url: "#",
   },
   {
     title: "Riverwoodz Water Lines",
-    description: "Luxury houseboats delivering delightful experiences in the natural charm of Alappuzha.",
+    description:
+      "Luxury houseboats delivering delightful experiences in the natural charm of Alappuzha.",
     logo: "/assets/img/logos/river.png",
+    url: "#",
   },
   {
     title: "Le'Orenda",
-    description: "Redesigning and reinventing luxury gifting with innovative and premium product ranges.",
+    description:
+      "Redesigning and reinventing luxury gifting with innovative and premium product ranges.",
     logo: "/assets/img/logos/leornda.png",
+    url: "#",
   },
   {
     title: "Moto Factory",
-    description: "A car dealing business exploring automobile accessorizing and performance-enhancing possibilities.",
+    description:
+      "A car dealing business exploring automobile accessorizing and performance-enhancing possibilities.",
     logo: "/assets/img/logos/moto.png",
+    url: "#",
   },
   {
     title: "Gaia",
-    description: "Gaia Creative Productions is an event management company operating across the UAE and India.",
+    description:
+      "Gaia Creative Productions is an event management company operating across the UAE and India.",
     logo: "/assets/img/logos/GAIA LOGO FINAL-01.png",
+    url: "#",
   },
-   {
+  {
     title: "Brillianz",
-    description: "An eminent name in UAE’s prestigious education sector and an authorized representative of top Asian and European universities",
+    description:
+      "An eminent name in UAE’s prestigious education sector and an authorized representative of top Asian and European universities",
     logo: "/assets/img/logos/brillance.png",
+    url: "#",
   },
-   {
+  {
     title: "Inspire",
-    description: "An online educational institution delivering innovative academic procedures and world-class learning experiences",
+    description:
+      "An online educational institution delivering innovative academic procedures and world-class learning experiences",
     logo: "/assets/img/logos/inspire.webp",
+    url: "https://inspireuniversitycollege.com/",
   },
 ];
 
@@ -70,8 +88,8 @@ const ServicesSection = () => {
           scrub: 1,
           snap: 1 / (cards.length - 1),
           start: "top top",
-          end: () => "+=" + scrollRef.current.offsetWidth
-        }
+          end: () => "+=" + scrollRef.current.offsetWidth,
+        },
       });
     }, containerRef);
 
@@ -95,7 +113,14 @@ const ServicesSection = () => {
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <a href="#" className="premium-btn-small">Explore</a>
+                <a
+                  href={item.url}
+                  className="premium-btn-small"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Explore
+                </a>
               </div>
             </div>
           ))}

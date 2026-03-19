@@ -54,15 +54,21 @@ const initiatives = [
 ];
 
 const InitiativesSection = () => {
-  const sectionRef     = useRef(null);
-  const [visible, setVisible]   = useState([]);
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState([]);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
-      const p    = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+      const p = Math.max(
+        0,
+        Math.min(
+          1,
+          (window.innerHeight - rect.top) / (window.innerHeight + rect.height),
+        ),
+      );
       setProgress(p);
       const count = Math.floor(p * (initiatives.length + 3));
       setVisible(Array.from({ length: count }, (_, i) => i));
@@ -78,11 +84,15 @@ const InitiativesSection = () => {
       <div className="init-bg" aria-hidden="true">
         <div
           className="init-orb init-orb--1"
-          style={{ transform: `translateY(${progress * 130}px) scale(${1 + progress * 0.15})` }}
+          style={{
+            transform: `translateY(${progress * 130}px) scale(${1 + progress * 0.15})`,
+          }}
         />
         <div
           className="init-orb init-orb--2"
-          style={{ transform: `translateY(${-progress * 110}px) scale(${1 + progress * 0.1})` }}
+          style={{
+            transform: `translateY(${-progress * 110}px) scale(${1 + progress * 0.1})`,
+          }}
         />
         <div
           className="init-orb init-orb--3"
@@ -101,7 +111,8 @@ const InitiativesSection = () => {
             <span className="init-star">✦</span> Our Initiatives
           </h2>
           <p className="init-subtitle">
-            Empowering businesses and communities through innovation and excellence
+            Empowering businesses and communities through innovation and
+            excellence
           </p>
         </div>
 
@@ -112,8 +123,8 @@ const InitiativesSection = () => {
               key={i}
               className={`init-card${visible.includes(i) ? " is-visible" : ""}`}
               style={{
-                "--card-color":  item.color,
-                "--anim-delay":  `${i * 0.08}s`,
+                "--card-color": item.color,
+                "--anim-delay": `${i * 0.08}s`,
               }}
             >
               <div className="init-card-glow" />
@@ -144,7 +155,10 @@ const InitiativesSection = () => {
         </div>
 
         {/* Bottom decoration */}
-        <div className="init-deco-line" style={{ transform: `scaleX(${progress})` }} />
+        <div
+          className="init-deco-line"
+          style={{ transform: `scaleX(${progress})` }}
+        />
       </div>
     </section>
   );

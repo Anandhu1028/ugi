@@ -2,13 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import "./ScrollGallery.css";
 
 const images = [
-  "/assets/img/gallery/ugi-website-brillianz-onam-01.webp",
-  "/assets/img/gallery/ugi-website-events-10th-anniversary-09-scaled.webp",
-  "/assets/img/gallery/ugi-website-events-10th-anniversary-14-scaled.webp",
-  "/assets/img/gallery/ugi-website-events-10th-anniversary-15-scaled.webp",
-  "/assets/img/gallery/ugi-website-events-10th-anniversary-02.webp",
-  "/assets/img/gallery/ugi-website-staff-together-08.webp",
-  "/assets/img/gallery/ugi-website-onam-celebration-06.webp",
+  "/assets/img/gallery/IMG_2385.JPG.jpeg",
+  "/assets/img/gallery/Firefly 20241104105047.png",
+  "/assets/img/gallery/01_Group Photo Edited_1.jpg",
+  "/assets/img/gallery/WhatsApp Image 2024-11-21 at 1.40.54 PM.jpeg",
+  "/assets/img/gallery/WhatsApp Image 2024-11-21 at 3.05.40 PM (1).jpeg",
+  "/assets/img/gallery/WhatsApp Image 2024-11-21 at 3.05.42 PM.jpeg",
+  "/assets/img/gallery/WhatsApp Image 2024-11-21 at 3.05.48 PM (1).jpeg",
+  "/assets/img/gallery/WhatsApp Image 2024-11-21 at 3.05.48 PM.jpeg",
+  "/assets/img/gallery/WhatsApp Image 2024-11-21 at 3.05.50 PM.jpeg",
+  "/assets/img/gallery/WhatsApp Image 2024-11-21 at 3.05.51 PM (1).jpeg",
 ];
 
 const ScrollGallery = () => {
@@ -28,7 +31,7 @@ const ScrollGallery = () => {
           setLocked(true);
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
 
     observer.observe(section);
@@ -42,10 +45,11 @@ const ScrollGallery = () => {
       e.preventDefault();
       scrollAcc.current += e.deltaY;
 
-
-
       // Update progress for animations
-      const newProgress = Math.min(Math.max(active / (images.length - 1), 0), 1);
+      const newProgress = Math.min(
+        Math.max(active / (images.length - 1), 0),
+        1,
+      );
       setProgress(newProgress);
 
       if (scrollAcc.current > 120 && active < images.length - 1) {
@@ -74,15 +78,21 @@ const ScrollGallery = () => {
       <div className="gallery-bg-enhanced">
         <div
           className="bg-gradient gradient-1"
-          style={{ transform: `translate(${progress * 100}px, ${progress * 80}px) scale(${1 + progress * 0.3})` }}
+          style={{
+            transform: `translate(${progress * 100}px, ${progress * 80}px) scale(${1 + progress * 0.3})`,
+          }}
         />
         <div
           className="bg-gradient gradient-2"
-          style={{ transform: `translate(${-progress * 120}px, ${progress * 60}px) scale(${1 + progress * 0.2})` }}
+          style={{
+            transform: `translate(${-progress * 120}px, ${progress * 60}px) scale(${1 + progress * 0.2})`,
+          }}
         />
         <div
           className="bg-gradient gradient-3"
-          style={{ transform: `translate(${progress * 80}px, ${-progress * 100}px) scale(${1 + progress * 0.25})` }}
+          style={{
+            transform: `translate(${progress * 80}px, ${-progress * 100}px) scale(${1 + progress * 0.25})`,
+          }}
         />
 
         {/* Particle Effect */}
@@ -95,7 +105,7 @@ const ScrollGallery = () => {
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${5 + Math.random() * 10}s`
+                animationDuration: `${5 + Math.random() * 10}s`,
               }}
             />
           ))}
@@ -105,9 +115,13 @@ const ScrollGallery = () => {
       {/* Gallery Info */}
       <div className="gallery-info">
         <div className="info-counter">
-          <span className="counter-current">{String(active + 1).padStart(2, '0')}</span>
+          <span className="counter-current">
+            {String(active + 1).padStart(2, "0")}
+          </span>
           <span className="counter-divider">/</span>
-          <span className="counter-total">{String(images.length).padStart(2, '0')}</span>
+          <span className="counter-total">
+            {String(images.length).padStart(2, "0")}
+          </span>
         </div>
 
         <div className="info-progress">

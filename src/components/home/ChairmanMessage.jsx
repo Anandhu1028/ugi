@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ChairmanMessage = () => {
   const sectionRef = useRef(null);
-  const imgRef     = useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -25,7 +25,7 @@ const ChairmanMessage = () => {
             end: "center center",
             scrub: 1,
           },
-        }
+        },
       );
 
       // Text stagger
@@ -66,7 +66,6 @@ const ChairmanMessage = () => {
 
       <div className="container">
         <div className="chairman-grid">
-
           {/* ── Image Column ─────────────────────────────────── */}
           <div className="chairman-img-col">
             <div className="img-frame">
@@ -107,30 +106,34 @@ const ChairmanMessage = () => {
 
           {/* ── Text Column ──────────────────────────────────── */}
           <div className="chairman-text-col">
-            <span className="chairman-reveal section-eyebrow">Word from the Chairman</span>
+            <span className="chairman-reveal section-eyebrow">
+              Word from the Chairman
+            </span>
 
             <div className="chairman-reveal chairman-quote-block">
               <span className="chairman-quote-mark">&ldquo;</span>
               <h2 className="chairman-heading">
-               ONE FOR ALL —<br />WE UPHOLD
+                ONE FOR ALL —<br />
+                WE UPHOLD
               </h2>
             </div>
 
             <div className="chairman-reveal text-body">
               <p>
-                As the Chairman of UGI, I welcome you to our website and appreciate
-                you taking the time out and reading this. I believe that great things
-                in business are achieved through hard work as well as teamwork — there
-                are no shortcuts to success, and everything we do daily is what defines us.
+                As the Chairman of UGI, I welcome you to our website and
+                appreciate you taking the time out and reading this. I believe
+                that great things in business are achieved through hard work as
+                well as teamwork — there are no shortcuts to success, and
+                everything we do daily is what defines us.
               </p>
               <p>
-                We work together as a team having the sole aim to satisfy our customers
-                as well as employees' needs, to seek opportunities for the good of the
-                economy and society.
+                We work together as a team having the sole aim to satisfy our
+                customers as well as employees' needs, to seek opportunities for
+                the good of the economy and society.
               </p>
               <p>
-                The challenges we have faced have strengthened us as a team, and we look
-                forward to continuing the same.
+                The challenges we have faced have strengthened us as a team, and
+                we look forward to continuing the same.
               </p>
             </div>
 
@@ -138,18 +141,26 @@ const ChairmanMessage = () => {
               <div className="sign-line" />
               <div className="sign-text">
                 <span className="sign-name">Ajith NS</span>
-                <span className="sign-title">Chairman, United Group of Initiatives</span>
+                <span className="sign-title">
+                  Chairman, United Group of Initiatives
+                </span>
               </div>
             </div>
 
             {/* Feature pills */}
             <div className="chairman-reveal chairman-pills">
-              {["Serial Entrepreneur","Angel Investor","Technology Evangelist","Millennial Mentor"].map((t) => (
-                <span className="chairman-pill" key={t}>{t}</span>
+              {[
+                "Serial Entrepreneur",
+                "Angel Investor",
+                "Technology Evangelist",
+                "Millennial Mentor",
+              ].map((t) => (
+                <span className="chairman-pill" key={t}>
+                  {t}
+                </span>
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>

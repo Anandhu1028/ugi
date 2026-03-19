@@ -5,8 +5,10 @@ import CinematicBanner from "../CinematicBanner";
 /* ── Fonts ─────────────────────────────────────────────────── */
 if (!document.getElementById("cr-fonts-v3")) {
   const l = document.createElement("link");
-  l.id = "cr-fonts-v3"; l.rel = "stylesheet";
-  l.href = "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap";
+  l.id = "cr-fonts-v3";
+  l.rel = "stylesheet";
+  l.href =
+    "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap";
   document.head.appendChild(l);
 }
 
@@ -400,61 +402,129 @@ const CSS = `
 
 if (!document.getElementById("cr-css-v3")) {
   const s = document.createElement("style");
-  s.id = "cr-css-v3"; s.textContent = CSS;
+  s.id = "cr-css-v3";
+  s.textContent = CSS;
   document.head.appendChild(s);
 }
 
 /* ── Data ───────────────────────────────────────────────────── */
 const JOBS = [
-  { id: "python-faculty",            title: "Python Faculty",            category: "python faculty",            type: "Full Time", location: "Kochi" },
-  { id: "web-development-faculty",   title: "Web Development Faculty",   category: "web development faculty",   type: "Full Time", location: "Kochi" },
-  { id: "digital-marketing-faculty", title: "Digital Marketing Faculty", category: "digital marketing faculty", type: "Full Time", location: "Calicut" },
+  {
+    id: "python-faculty",
+    title: "Python Faculty",
+    category: "python faculty",
+    type: "Full Time",
+    location: "Kochi",
+  },
+  {
+    id: "web-development-faculty",
+    title: "Web Development Faculty",
+    category: "web development faculty",
+    type: "Full Time",
+    location: "Kochi",
+  },
+  {
+    id: "digital-marketing-faculty",
+    title: "Digital Marketing Faculty",
+    category: "digital marketing faculty",
+    type: "Full Time",
+    location: "Calicut",
+  },
 ];
 
 const PILLARS = [
-  { icon: "🌱", title: "Growth Culture",      text: "Clear career paths, mentorship, and an annual learning budget for every team member." },
-  { icon: "🤝", title: "Collaborative Team",  text: "Open structure where every voice is heard and good ideas come from anywhere." },
-  { icon: "🌍", title: "Global Opportunities", text: "Work across Dubai, Kerala, and Georgia with real cross-border exposure." },
+  {
+    icon: "🌱",
+    title: "Growth Culture",
+    text: "Clear career paths, mentorship, and an annual learning budget for every team member.",
+  },
+  {
+    icon: "🤝",
+    title: "Collaborative Team",
+    text: "Open structure where every voice is heard and good ideas come from anywhere.",
+  },
+  {
+    icon: "🌍",
+    title: "Global Opportunities",
+    text: "Work across Dubai, Kerala, and Georgia with real cross-border exposure.",
+  },
 ];
 
 const PERKS = [
-  { icon: "💰", title: "Competitive Salary",   text: "Market-aligned, reviewed annually." },
-  { icon: "🏥", title: "Health Insurance",     text: "Full medical coverage for you and family." },
-  { icon: "📚", title: "Learning Budget",      text: "Courses, certifications & conferences." },
-  { icon: "🕐", title: "Flexible Hours",       text: "Results-first, not clock-watching." },
-  { icon: "✈️", title: "Travel Perks",        text: "Cross-office trips across 3 countries." },
-  { icon: "🎯", title: "Real Impact",          text: "Own your work from day one." },
-  { icon: "🏆", title: "Recognition",          text: "Quarterly awards & team celebrations." },
-  { icon: "☕", title: "Great Workspace",      text: "Modern offices built for deep work." },
+  {
+    icon: "💰",
+    title: "Competitive Salary",
+    text: "Market-aligned, reviewed annually.",
+  },
+  {
+    icon: "🏥",
+    title: "Health Insurance",
+    text: "Full medical coverage for you and family.",
+  },
+  {
+    icon: "📚",
+    title: "Learning Budget",
+    text: "Courses, certifications & conferences.",
+  },
+  {
+    icon: "🕐",
+    title: "Flexible Hours",
+    text: "Results-first, not clock-watching.",
+  },
+  {
+    icon: "✈️",
+    title: "Travel Perks",
+    text: "Cross-office trips across 3 countries.",
+  },
+  { icon: "🎯", title: "Real Impact", text: "Own your work from day one." },
+  {
+    icon: "🏆",
+    title: "Recognition",
+    text: "Quarterly awards & team celebrations.",
+  },
+  {
+    icon: "☕",
+    title: "Great Workspace",
+    text: "Modern offices built for deep work.",
+  },
 ];
 
 /* ── Very subtle canvas — just soft gold dots ──────────────── */
 function BgCanvas() {
   const ref = useRef(null);
   useEffect(() => {
-    const cv = ref.current; if (!cv) return;
+    const cv = ref.current;
+    if (!cv) return;
     const ctx = cv.getContext("2d");
     let W, H, raf;
-    const resize = () => { W = cv.offsetWidth; H = cv.offsetHeight; cv.width = W; cv.height = H; };
-    resize(); window.addEventListener("resize", resize);
+    const resize = () => {
+      W = cv.offsetWidth;
+      H = cv.offsetHeight;
+      cv.width = W;
+      cv.height = H;
+    };
+    resize();
+    window.addEventListener("resize", resize);
 
     const pts = Array.from({ length: 30 }, () => ({
-      nx: Math.random(), ny: Math.random(),
-      vx: (Math.random()-.5)*.00012, vy: (Math.random()-.5)*.00009,
-      r: .6 + Math.random() * 1.4,
-      a: .04 + Math.random() * .1,
+      nx: Math.random(),
+      ny: Math.random(),
+      vx: (Math.random() - 0.5) * 0.00012,
+      vy: (Math.random() - 0.5) * 0.00009,
+      r: 0.6 + Math.random() * 1.4,
+      a: 0.04 + Math.random() * 0.1,
       ph: Math.random() * Math.PI * 2,
     }));
 
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
-      pts.forEach(p => {
+      pts.forEach((p) => {
         p.nx = (p.nx + p.vx + 1) % 1;
         p.ny = (p.ny + p.vy + 1) % 1;
-        p.ph += .01;
+        p.ph += 0.01;
         ctx.beginPath();
         ctx.arc(p.nx * W, p.ny * H, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(212,160,23,${p.a * (.5 + .5 * Math.sin(p.ph))})`;
+        ctx.fillStyle = `rgba(212,160,23,${p.a * (0.5 + 0.5 * Math.sin(p.ph))})`;
         ctx.fill();
       });
       // faint connection lines
@@ -467,8 +537,8 @@ function BgCanvas() {
             ctx.beginPath();
             ctx.moveTo(pts[i].nx * W, pts[i].ny * H);
             ctx.lineTo(pts[j].nx * W, pts[j].ny * H);
-            ctx.strokeStyle = `rgba(212,160,23,${.04 * (1 - d / 160)})`;
-            ctx.lineWidth = .5;
+            ctx.strokeStyle = `rgba(212,160,23,${0.04 * (1 - d / 160)})`;
+            ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
@@ -476,33 +546,44 @@ function BgCanvas() {
       raf = requestAnimationFrame(draw);
     };
     draw();
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+    };
   }, []);
   return <canvas ref={ref} className="crp-canvas" />;
 }
 
 /* ── Component ──────────────────────────────────────────────── */
 const Career = () => {
-  const [search,   setSearch]   = useState("");
+  const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
-  const [type,     setType]     = useState("all");
+  const [type, setType] = useState("all");
   const [location, setLocation] = useState("all");
 
   useEffect(() => {
     const obs = new IntersectionObserver(
-      entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("crp-on"); }),
-      { threshold: 0.1 }
+      (entries) =>
+        entries.forEach((e) => {
+          if (e.isIntersecting) e.target.classList.add("crp-on");
+        }),
+      { threshold: 0.1 },
     );
-    document.querySelectorAll(".crp-rv").forEach(el => obs.observe(el));
+    document.querySelectorAll(".crp-rv").forEach((el) => obs.observe(el));
     return () => obs.disconnect();
   }, []);
 
-  const filtered = useMemo(() => JOBS.filter(j =>
-    j.title.toLowerCase().includes(search.toLowerCase()) &&
-    (category === "all" || j.category === category) &&
-    (type     === "all" || j.type     === type) &&
-    (location === "all" || j.location === location)
-  ), [search, category, type, location]);
+  const filtered = useMemo(
+    () =>
+      JOBS.filter(
+        (j) =>
+          j.title.toLowerCase().includes(search.toLowerCase()) &&
+          (category === "all" || j.category === category) &&
+          (type === "all" || j.type === type) &&
+          (location === "all" || j.location === location),
+      ),
+    [search, category, type, location],
+  );
 
   return (
     <div className="crp">
@@ -512,7 +593,13 @@ const Career = () => {
       <CinematicBanner
         image="/assets/img/ugi-banner-career.jpg"
         eyebrow="UGI — CAREERS"
-        title={<>Build Your Career<br />With UGI</>}
+        title={
+          <>
+            Build Your Career
+            <br />
+            With UGI
+          </>
+        }
         sub="Moments that shaped us, memories that stay forever."
         height="88vh"
       />
@@ -525,31 +612,39 @@ const Career = () => {
             <div className="crp-intro-left">
               <span className="crp-tag crp-rv">Ethical Employer</span>
               <h2 className="crp-rv">
-                Being an <span>ethical</span><br />employer
+                Being an <span>ethical</span>
+                <br />
+                employer
               </h2>
               <p className="crp-rv">
-                UGI, a well-known Middle Eastern firm, has nine subsidiaries in Georgia, India,
-                and the GCC countries. We work with clients both locally and internationally,
-                providing prompt, cost-effective, and high-quality services worldwide.
+                UGI, a well-known Middle Eastern firm, has nine subsidiaries in
+                Georgia, India, and the GCC countries. We work with clients both
+                locally and internationally, providing prompt, cost-effective,
+                and high-quality services worldwide.
               </p>
               <p className="crp-rv">
-                UGI is constantly developing innovative ideas to open the door for significant
-                industry breakthroughs. As a trustworthy employer, we take a holistic approach
-                to our employees' well-being.
+                UGI is constantly developing innovative ideas to open the door
+                for significant industry breakthroughs. As a trustworthy
+                employer, we take a holistic approach to our employees'
+                well-being.
               </p>
             </div>
 
             {/* Right */}
             <div className="crp-intro-right">
               <p className="crp-rv">
-                We strive to provide our employees with opportunities for growth and development
-                while offering a supportive and comfortable work environment. Our goal is to be
-                more than just an employer — we aim to be a partner in your career journey.
+                We strive to provide our employees with opportunities for growth
+                and development while offering a supportive and comfortable work
+                environment. Our goal is to be more than just an employer — we
+                aim to be a partner in your career journey.
               </p>
               <blockquote className="crp-quote crp-rv">
-                "We believe that our employees are our most valuable assets, and we are committed
-                to treating them with dignity and respect.{" "}
-                <strong>We welcome you and wish you luck with your application!</strong>"
+                "We believe that our employees are our most valuable assets, and
+                we are committed to treating them with dignity and respect.{" "}
+                <strong>
+                  We welcome you and wish you luck with your application!
+                </strong>
+                "
               </blockquote>
             </div>
           </div>
@@ -557,7 +652,11 @@ const Career = () => {
           {/* Pillars */}
           <div className="crp-pillars">
             {PILLARS.map((p, i) => (
-              <div className="crp-pillar crp-rv" key={p.title} data-d={String(i + 1)}>
+              <div
+                className="crp-pillar crp-rv"
+                key={p.title}
+                data-d={String(i + 1)}
+              >
                 <span className="crp-pillar-icon">{p.icon}</span>
                 <div className="crp-pillar-title">{p.title}</div>
                 <p className="crp-pillar-text">{p.text}</p>
@@ -581,20 +680,22 @@ const Career = () => {
               type="text"
               placeholder="Search positions…"
               value={search}
-              onChange={e => setSearch(e.target.value)}
+              onChange={(e) => setSearch(e.target.value)}
             />
-            <select onChange={e => setCategory(e.target.value)}>
+            <select onChange={(e) => setCategory(e.target.value)}>
               <option value="all">All Categories</option>
               <option value="python faculty">Python Faculty</option>
               <option value="web development faculty">Web Dev Faculty</option>
-              <option value="digital marketing faculty">Digital Marketing</option>
+              <option value="digital marketing faculty">
+                Digital Marketing
+              </option>
             </select>
-            <select onChange={e => setType(e.target.value)}>
+            <select onChange={(e) => setType(e.target.value)}>
               <option value="all">All Types</option>
               <option value="Full Time">Full Time</option>
               <option value="Part Time">Part Time</option>
             </select>
-            <select onChange={e => setLocation(e.target.value)}>
+            <select onChange={(e) => setLocation(e.target.value)}>
               <option value="all">All Locations</option>
               <option value="Kochi">Kochi</option>
               <option value="Calicut">Calicut</option>
@@ -604,14 +705,24 @@ const Career = () => {
           {/* Cards */}
           <div className="crp-grid">
             {filtered.map((job, i) => (
-              <article className="crp-card crp-rv" key={job.id} data-d={String(i + 1)}>
+              <article
+                className="crp-card crp-rv"
+                key={job.id}
+                data-d={String(i + 1)}
+              >
                 <div className="crp-card-header">
                   <h4 className="crp-card-title">{job.title}</h4>
                 </div>
                 <div className="crp-card-tags">
-                  <span className="crp-card-tag crp-card-tag--role">{job.category}</span>
-                  <span className="crp-card-tag crp-card-tag--type">{job.type}</span>
-                  <span className="crp-card-tag crp-card-tag--loc">📍 {job.location}</span>
+                  <span className="crp-card-tag crp-card-tag--role">
+                    {job.category}
+                  </span>
+                  <span className="crp-card-tag crp-card-tag--type">
+                    {job.type}
+                  </span>
+                  <span className="crp-card-tag crp-card-tag--loc">
+                    📍 {job.location}
+                  </span>
                 </div>
                 <Link to="" className="crp-btn">
                   Apply Now <span className="crp-btn-arrow">→</span>
@@ -626,7 +737,6 @@ const Career = () => {
       </section>
 
       {/* ── PERKS ── */}
-      
     </div>
   );
 };

@@ -19,7 +19,7 @@ const SplitText = ({
   rootMargin = "-100px",
   textAlign = "center",
   tag = "p",
-  onLetterAnimationComplete
+  onLetterAnimationComplete,
 }) => {
   const ref = useRef(null);
   const animationCompletedRef = useRef(false);
@@ -62,8 +62,8 @@ const SplitText = ({
         marginValue === 0
           ? ""
           : marginValue < 0
-          ? `-=${Math.abs(marginValue)}${marginUnit}`
-          : `+=${marginValue}${marginUnit}`;
+            ? `-=${Math.abs(marginValue)}${marginUnit}`
+            : `+=${marginValue}${marginUnit}`;
 
       const start = `top ${startPct}%${sign}`;
 
@@ -72,7 +72,7 @@ const SplitText = ({
       const split = new GSAPSplitText(el, {
         type: splitType,
         smartWrap: true,
-        onSplit: self => {
+        onSplit: (self) => {
           targets =
             (splitType.includes("chars") && self.chars) ||
             (splitType.includes("words") && self.words) ||
@@ -89,22 +89,22 @@ const SplitText = ({
               scrollTrigger: {
                 trigger: el,
                 start,
-                once: true
+                once: true,
               },
               onComplete: () => {
                 animationCompletedRef.current = true;
                 onCompleteRef.current?.();
               },
-              force3D: true
-            }
+              force3D: true,
+            },
           );
-        }
+        },
       });
 
       el._splitInstance = split;
 
       return () => {
-        ScrollTrigger.getAll().forEach(st => {
+        ScrollTrigger.getAll().forEach((st) => {
           if (st.trigger === el) st.kill();
         });
         try {
@@ -113,7 +113,7 @@ const SplitText = ({
         el._splitInstance = null;
       };
     },
-    { dependencies: [text, fontsLoaded], scope: ref }
+    { dependencies: [text, fontsLoaded], scope: ref },
   );
 
   const Tag = tag;
@@ -126,7 +126,7 @@ const SplitText = ({
         textAlign,
         overflow: "hidden",
         display: "inline-block",
-        whiteSpace: "normal"
+        whiteSpace: "normal",
       }}
     >
       {text}

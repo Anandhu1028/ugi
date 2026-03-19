@@ -54,13 +54,13 @@ const INITIATIVES = [
 const UPCOMING_PROJECTS = [
   {
     title: "Scholium",
-    desc: "Guidance initiated by UGI to provide scholastic assistance to graduating and graduated students",
+    desc: "UGI provide scholastic assistance to graduating and graduated students",
     logo: "/assets/img/logos/scholium.webp",
     link: "#",
   },
   {
     title: "Cafe 33",
-    desc: "An upcoming cafe-restaurant initiative expanding UGI’s hospitality ventures",
+    desc: "An upcoming cafe-restaurant initiative expanding  UGI’s hospitality ventures",
     logo: "/assets/img/logos/cafe-33.webp",
     link: "#",
   },
@@ -69,7 +69,7 @@ const UPCOMING_PROJECTS = [
 const PARTNERS = [
   {
     title: "Brillanz Educational Group",
-    desc: "An eminent name in UAE’s prestigious education sector and an authorized representative of top Asian and European universities",
+    desc: "An eminent name in UAE’s prestigious education sector &  authorized representative of top Asian and European universities",
     logo: "/assets/img/logos/brillance.png",
     link: "#",
   },
@@ -86,7 +86,6 @@ const InitiativesTimeline = () => {
 
   useEffect(() => {
     let ctx = gsap.context(() => {
-
       // Banner Animations
       gsap.to(".about-banner-bg", {
         yPercent: 24,
@@ -99,14 +98,25 @@ const InitiativesTimeline = () => {
         },
       });
 
-      gsap.from([".about-banner .about-hero-badge", ".about-banner-title", ".banner-divider"], {
-        y: 32,
-        opacity: 0,
-        duration: 0.85,
-        stagger: 0.11,
-        ease: "power3.out",
-        scrollTrigger: { trigger: ".about-banner", start: "top 70%", toggleActions: "play none none reverse" },
-      });
+      gsap.from(
+        [
+          ".about-banner .about-hero-badge",
+          ".about-banner-title",
+          ".banner-divider",
+        ],
+        {
+          y: 32,
+          opacity: 0,
+          duration: 0.85,
+          stagger: 0.11,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".about-banner",
+            start: "top 70%",
+            toggleActions: "play none none reverse",
+          },
+        },
+      );
 
       gsap.from(".timeline-wrapper", {
         y: 80,
@@ -117,7 +127,7 @@ const InitiativesTimeline = () => {
         scrollTrigger: {
           trigger: ".timeline-grid",
           start: "top 85%",
-        }
+        },
       });
 
       // Upcoming Projects Reveal
@@ -129,7 +139,7 @@ const InitiativesTimeline = () => {
         scrollTrigger: {
           trigger: ".upcoming-heading",
           start: "top 85%",
-        }
+        },
       });
 
       gsap.from(".upcoming-grid .info-wrapper", {
@@ -141,7 +151,7 @@ const InitiativesTimeline = () => {
         scrollTrigger: {
           trigger: ".upcoming-grid",
           start: "top 85%",
-        }
+        },
       });
 
       // Partners Reveal
@@ -153,7 +163,7 @@ const InitiativesTimeline = () => {
         scrollTrigger: {
           trigger: ".partners-heading",
           start: "top 85%",
-        }
+        },
       });
 
       gsap.from(".partners-grid .info-wrapper", {
@@ -165,33 +175,44 @@ const InitiativesTimeline = () => {
         scrollTrigger: {
           trigger: ".partners-grid",
           start: "top 85%",
-        }
+        },
       });
-
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={containerRef} className="timeline-enhanced-wrapper about-modern-section" style={{ padding: "0 0 160px 0" }}>
+    <div
+      ref={containerRef}
+      className="timeline-enhanced-wrapper about-modern-section"
+      style={{ padding: "0 0 160px 0" }}
+    >
       <div className="timeline-bg-glow"></div>
 
       {/* Main Initiatives Banner */}
-      <section className="about-banner main-timeline-heading" style={{ marginBottom: "80px" }}>
+      <section
+        className="about-banner main-timeline-heading"
+        style={{ marginBottom: "80px" }}
+      >
         <div className="about-banner-bg-wrap">
-          <img className="about-banner-bg" src="/assets/img/ugi-banner4.jpg" alt="" />
+          <img
+            className="about-banner-bg"
+            src="/assets/img/ugi-banner4.jpg"
+            alt=""
+          />
           <div className="about-banner-overlay" />
         </div>
         <div className="about-banner-content container">
           <span className="about-hero-badge">Our Initiatives</span>
-          <h2 className="about-banner-title">STRONG PILLARS OF EXCEPTIONAL INDUSTRIES</h2>
+          <h2 className="about-banner-title">
+            STRONG PILLARS OF EXCEPTIONAL INDUSTRIES
+          </h2>
           <div className="banner-divider" />
         </div>
       </section>
 
       <div className="container">
-
         <div className="timeline-grid">
           {INITIATIVES.map((item, index) => (
             <div key={index} className="timeline-wrapper">
@@ -203,7 +224,12 @@ const InitiativesTimeline = () => {
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
-                <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={item.link}
+                  className="modern-link-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Visit Website <span>→</span>
                 </a>
               </div>
@@ -214,7 +240,9 @@ const InitiativesTimeline = () => {
         {/* Upcoming Projects */}
         <div className="section-header upcoming-heading mt-10">
           <span className="section-eyebrow">Upcoming Projects</span>
-          <h2 className="section-title">PLANNING BEGINNINGS FOR OUR BLOOMING INITIATIVES</h2>
+          <h2 className="section-title">
+            PLANNING BEGINNINGS FOR OUR BLOOMING INITIATIVES
+          </h2>
         </div>
 
         <div className="timeline-grid">
@@ -228,7 +256,12 @@ const InitiativesTimeline = () => {
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
-                <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={item.link}
+                  className="modern-link-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Visit Website <span>→</span>
                 </a>
               </div>
@@ -253,7 +286,12 @@ const InitiativesTimeline = () => {
                   <h3>{item.title}</h3>
                   <p>{item.desc}</p>
                 </div>
-                <a href={item.link} className="modern-link-btn" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={item.link}
+                  className="modern-link-btn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Visit Website <span>→</span>
                 </a>
               </div>

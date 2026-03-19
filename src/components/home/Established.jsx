@@ -7,42 +7,42 @@ const data = [
     title: "Wishtree · Cyberwoodz",
     desc: "A collective group of experts focused on Intelligent Business Augmentation.",
     icon: "💻",
-    bg: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80"
+    bg: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=80",
   },
   {
     label: "Education",
     title: "Tecswan · Focuz · Scholium · Brillianz · Inspire",
     desc: "Internationally recognized educational institutes.",
     icon: "📚",
-    bg: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=2000&q=80"
+    bg: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=2000&q=80",
   },
   {
     label: "Tourism",
     title: "Riverwoodz Waterlines",
     desc: "Serene backwater cruise experiences.",
     icon: "🚢",
-    bg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80"
+    bg: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80",
   },
   {
     label: "Luxury Gifting",
     title: "Le Orenda",
     desc: "Premium gift hampers designed for elegant experiences.",
     icon: "🎁",
-    bg: "https://images.unsplash.com/photo-1607083206173-1e9e5a6b1c7f?auto=format&fit=crop&w=2000&q=80"
+    bg: "https://images.unsplash.com/photo-1607083206173-1e9e5a6b1c7f?auto=format&fit=crop&w=2000&q=80",
   },
   {
     label: "Automotive",
     title: "Moto Factory",
     desc: "Freedom and economic growth through mobility.",
     icon: "🏎️",
-    bg: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80"
+    bg: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80",
   },
   {
     label: "Creative Productions",
     title: "Gaia Creative Productions",
     desc: "Crafting unforgettable experiences.",
     icon: "🎨",
-    bg: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=2000&q=80"
+    bg: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=2000&q=80",
   },
 ];
 
@@ -66,7 +66,6 @@ const Established = () => {
 
   return (
     <section className="established-section" ref={sectionRef}>
-
       {/* Cinematic Background Images */}
       <div className="est-bg-images">
         {data.map((item, i) => (
@@ -80,18 +79,18 @@ const Established = () => {
       </div>
 
       <div className="container">
-
         {/* Heading */}
         <div className="est-heading">
           <span className="section-eyebrow">We Are Established As</span>
           <h2 className="section-title">
-            Diverse Range of Fields<br />Under One Name
+            Diverse Range of Fields
+            <br />
+            Under One Name
           </h2>
           <div className="est-heading-line" />
         </div>
 
         <div className="est-layout">
-
           {/* LEFT LIST */}
           <nav className="est-list">
             {data.map((item, i) => (
@@ -112,28 +111,19 @@ const Established = () => {
             <div className="est-card">
               <div className="est-card-bar" />
               <div className="est-card-header">
-                <span className="est-card-icon">
-                  {data[activeIndex].icon}
-                </span>
+                <span className="est-card-icon">{data[activeIndex].icon}</span>
               </div>
 
-              <h3 className="est-card-title">
-                {data[activeIndex].title}
-              </h3>
+              <h3 className="est-card-title">{data[activeIndex].title}</h3>
 
-              <p className="est-card-desc">
-                {data[activeIndex].desc}
-              </p>
+              <p className="est-card-desc">{data[activeIndex].desc}</p>
 
               <div className="est-card-footer">
                 <div className="est-card-footer-line" />
-                <span className="est-card-tag">
-                  {data[activeIndex].label}
-                </span>
+                <span className="est-card-tag">{data[activeIndex].label}</span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

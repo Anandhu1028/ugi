@@ -5,7 +5,8 @@
 
 /* Allow the founder section scale-back to not clip */
 .about-modern-section {
-  overflow: visible;   /* override the original overflow: hidden */
+  overflow: visible;
+  /* override the original overflow: hidden */
 }
 
 /* Re-clip only the hero (which needs it for parallax bg) */

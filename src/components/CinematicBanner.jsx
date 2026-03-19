@@ -19,13 +19,7 @@ import "./CinematicBanner.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const CinematicBanner = ({
-  image,
-  eyebrow,
-  title,
-  sub,
-  height = "88vh",
-}) => {
+const CinematicBanner = ({ image, eyebrow, title, sub, height = "88vh" }) => {
   const bannerRef = useRef(null);
   const uid = useRef(`cb-${Math.random().toString(36).slice(2, 7)}`).current;
 
@@ -74,12 +68,7 @@ const CinematicBanner = ({
       style={{ "--cb-height": height }}
     >
       {/* Parallax bg image */}
-      <img
-        className="cb-bg"
-        src={image}
-        alt=""
-        aria-hidden="true"
-      />
+      <img className="cb-bg" src={image} alt="" aria-hidden="true" />
 
       {/* Overlay layers */}
       <div className="cb-overlay" />
