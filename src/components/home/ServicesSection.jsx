@@ -9,14 +9,14 @@ const services = [
   {
     title: "Focuz Academy",
     description:
-      "An educational venture in Kochi, Kerala. Aiming to provide distance education from Secondary to Ph.D.",
+      " Focuz Academy is an educational venture in Kochi, Kerala. Aiming to provide distance education from Secondary to Ph.D. ",
     logo: "/assets/img/logos/focuz.png",
     url: "#",
   },
   {
     title: "Wishtree Infosolution",
     description:
-      "A group of experts focused on Digital Marketing, Website Design & Development, E-commerce, Web & Mobile Applications.",
+      "A  group of experts focused on Digital Marketing, Website Design & Development, E-commerce, Web & Mobile Applications ",
     logo: "/assets/img/logos/wishtree-01.webp",
     url: "#",
   },

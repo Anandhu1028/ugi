@@ -161,7 +161,7 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }) => {
               className={`gl-lb-thumb ${i === activeIndex ? "active" : ""}`}
               onClick={() => {
                 onClose();
-                setTimeout(() => {}, 0); /* navigate handled by parent */
+                setTimeout(() => {}, 0);
               }}
               style={{ backgroundImage: `url(${img.src})` }}
               aria-label={`Go to image ${i + 1}`}
@@ -180,7 +180,6 @@ const Lightbox = ({ images, activeIndex, onClose, onPrev, onNext }) => {
 /* ── Gallery Component ───────────────────────────────────── */
 const Gallery = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
-  const bannerRef = useRef(null);
   const galleryRef = useRef(null);
   const gridRef = useRef(null);
   const cursorRef = useRef(null);
@@ -290,27 +289,6 @@ const Gallery = () => {
 
   /* ── GSAP scroll animations ── */
   useEffect(() => {
-    /* Banner fold-back on scroll */
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: bannerRef.current,
-        start: "top top",
-        end: "+=100%",
-        scrub: true,
-        pin: false,
-      },
-    });
-    tl.to(bannerRef.current, {
-      rotateX: -75,
-      transformOrigin: "top center",
-      ease: "power2.out",
-    }).fromTo(
-      galleryRef.current,
-      { opacity: 0, y: 100 },
-      { opacity: 1, y: 0 },
-      "<",
-    );
-
     /* Section header */
     gsap.from(".gl-eyebrow", {
       y: 28,
@@ -369,22 +347,20 @@ const Gallery = () => {
         <img ref={cursorImgRef} src="" alt="" className="gl-cursor-img" />
       </div>
 
-      {/* Banner */}
-      <div className="banner-wrapper" ref={bannerRef}>
-        <CinematicBanner
-          image="/assets/img/ugi-banner-events.jpg"
-          eyebrow="UGI — Gallery"
-          title={
-            <>
-              Our Journey
-              <br />
-              In Moments
-            </>
-          }
-          sub="Moments that shaped us, memories that stay forever."
-          height="100vh"
-        />
-      </div>
+      {/* Banner — no fold, renders normally */}
+      <CinematicBanner
+        image="/assets/img/ugi-banner-events.jpg"
+        eyebrow="UGI — Gallery"
+        title={
+          <>
+            Our Journey
+            
+            In<br /> Moments
+          </>
+        }
+        sub="Moments that shaped us, memories that stay forever."
+        height="100vh"
+      />
 
       {/* Gallery Section */}
       <section className="gallery-section" ref={galleryRef}>

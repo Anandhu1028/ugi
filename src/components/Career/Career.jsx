@@ -601,8 +601,9 @@ const Career = () => {
           </>
         }
         sub="Moments that shaped us, memories that stay forever."
-        height="88vh"
+        height="100vh"
       />
+
 
       {/* ── INTRO ── */}
       <section className="crp-intro">

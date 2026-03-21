@@ -1,0 +1,38 @@
+{
+    "sourceFile": "src/pages/AboutPage/JourneyPage.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1774094364797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1774094370319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n const ChairmanPage = () => {\r\n   return (\r\n     <>\r\n       <Header />\r\n-       <Chairman />\r\n+       <Jou />\r\n       <Footer />\r\n     </>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1774094377564,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,13 +4,14 @@\n import About from '../../components/About/About';\r\n import Chairman from '../../components/About/chairman';\r\n \r\n \r\n+\r\n const ChairmanPage = () => {\r\n   return (\r\n     <>\r\n       <Header />\r\n-       <Jou />\r\n+       <Journey />\r\n       <Footer />\r\n     </>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1774094382808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,11 @@\n import Header from '../../components/layouts/Header';\r\n \r\n import Footer from '../../components/layouts/Footer';\r\n import About from '../../components/About/About';\r\n-import Chairman from '../../components/About/chairman';\r\n+import Journey\r\n \r\n \r\n-\r\n const ChairmanPage = () => {\r\n   return (\r\n     <>\r\n       <Header />\r\n"
+                },
+                {
+                    "date": 1774094388770,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import Header from '../../components/layouts/Header';\r\n \r\n import Footer from '../../components/layouts/Footer';\r\n import About from '../../components/About/About';\r\n-import Journey\r\n+import Journey from '../../components/About/ourney';\r\n \r\n \r\n const ChairmanPage = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1774094394941,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,12 @@\n import Header from '../../components/layouts/Header';\r\n \r\n import Footer from '../../components/layouts/Footer';\r\n import About from '../../components/About/About';\r\n-import Journey from '../../components/About/ourney';\r\n+import Journey from '../../components/About/Journey';\r\n \r\n \r\n-const ChairmanPage = () => {\r\n+const JourneyPage = () => {\r\n   return (\r\n     <>\r\n       <Header />\r\n        <Journey />\r\n"
+                }
+            ],
+            "date": 1774094364797,
+            "name": "Commit-0",
+            "content": "import Header from '../../components/layouts/Header';\r\n\r\nimport Footer from '../../components/layouts/Footer';\r\nimport About from '../../components/About/About';\r\nimport Chairman from '../../components/About/chairman';\r\n\r\n\r\nconst ChairmanPage = () => {\r\n  return (\r\n    <>\r\n      <Header />\r\n       <Chairman />\r\n      <Footer />\r\n    </>\r\n  );\r\n};\r\n\r\nexport default ChairmanPage;\r\n"
+        }
+    ]
+}

@@ -22,6 +22,23 @@ const slides = [
     title: " QUALITY LEARNING FOR EVERY INDIVIDUAL",
     subtitle: "Empowering Futures",
   },
+
+
+  {
+    img: "/assets/img/ugi-banner6.jpg",
+    title: "  Explore Serenity With Luxury Cruising",
+    subtitle: "Where Journeys Become Memories",
+  },
+  {
+    img: "/assets/img/ugi-banner-5.jpg",
+    title: "Experience Mobility With Power & Comfort",
+    subtitle: "Elevating Every Drive Experience",
+  },
+  {
+    img: "/assets/img/ugi-banner-6.jpg",
+    title: "Sharing Gratitude With Magnificent Items",
+    subtitle: "Celebrate Moments That Matter",
+  },
 ];
 
 const Hero = () => {

@@ -111,55 +111,31 @@ const ChairmanMessage = () => {
             </span>
 
             <div className="chairman-reveal chairman-quote-block">
-              <span className="chairman-quote-mark">&ldquo;</span>
+              {/* <span className="chairman-quote-mark">&ldquo;</span> */}
               <h2 className="chairman-heading">
-                ONE FOR ALL —<br />
-                WE UPHOLD
+               As the Chairman of UGI, I welcome you to our website and 
+               appreciate you taking the time out and reading this
               </h2>
+              
             </div>
 
             <div className="chairman-reveal text-body">
               <p>
-                As the Chairman of UGI, I welcome you to our website and
-                appreciate you taking the time out and reading this. I believe
-                that great things in business are achieved through hard work as
-                well as teamwork — there are no shortcuts to success, and
-                everything we do daily is what defines us.
+               I believe that great things in business are achieved through hard work as well as teamwork,
+                there are no shortcuts to success, and everything we do on a daily basis is what defines 
+                us, isn’t it? We work together as a team having the sole aim to satisfy our customers as
+                 well as employees’ needs, to seek opportunities for the good of the economy and society.
+                  Our motto is “One for all” which means Multiple Businesses with one goal for every project we take.
+                   The challenges we have faced in the past have made us resourceful and strengthened us,
+                    as a team and we look forward to continuing the same.
               </p>
-              <p>
-                We work together as a team having the sole aim to satisfy our
-                customers as well as employees' needs, to seek opportunities for
-                the good of the economy and society.
-              </p>
-              <p>
-                The challenges we have faced have strengthened us as a team, and
-                we look forward to continuing the same.
-              </p>
+              
             </div>
 
-            <div className="chairman-reveal sign-off">
-              <div className="sign-line" />
-              <div className="sign-text">
-                <span className="sign-name">Ajith NS</span>
-                <span className="sign-title">
-                  Chairman, United Group of Initiatives
-                </span>
-              </div>
-            </div>
+          
 
             {/* Feature pills */}
-            <div className="chairman-reveal chairman-pills">
-              {[
-                "Serial Entrepreneur",
-                "Angel Investor",
-                "Technology Evangelist",
-                "Millennial Mentor",
-              ].map((t) => (
-                <span className="chairman-pill" key={t}>
-                  {t}
-                </span>
-              ))}
-            </div>
+           
           </div>
         </div>
       </div>

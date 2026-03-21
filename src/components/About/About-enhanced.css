@@ -128,7 +128,7 @@
 }
 
 .container {
-  max-width: 1240px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 5%;
 }
@@ -1290,3 +1290,4 @@
     font-size: 30px;
   }
 }
+

@@ -160,141 +160,8 @@ const About = () => {
         height="100vh"
       />
 
-      {/* ══════════════════════════
-          BANNER (split transition)
-      ══════════════════════════ */}
-      <section className="about-banner" ref={bannerRef}>
-        <div className="about-banner-split about-banner-left">
-          <img src="/assets/img/ugi-banner4.jpg" alt="" />
-        </div>
-        <div className="about-banner-split about-banner-right">
-          <img src="/assets/img/ugi-banner4.jpg" alt="" />
-        </div>
-        <div className="about-banner-content container">
-          <span className="about-hero-badge">We Are UGI</span>
-          <h2 className="about-banner-title">Defining the Future</h2>
-          <p className="about-banner-desc">
-            United Group of Initiatives — bringing IT, Luxury Gifting,
-            Education, Automotive, and Tourism into one connected ecosystem.
-          </p>
-          <div className="banner-divider" />
-        </div>
-      </section>
-
-      {/* ══════════════════════════
-          VISION & MISSION
-      ══════════════════════════ */}
-      <section className="history-modern" ref={visionRef}>
-        <div className="container">
-          <div className="section-header section-header-vm">
-            <span className="section-eyebrow">Who We Are</span>
-            <h2 className="section-title">Vision &amp; Mission</h2>
-          </div>
-          <div className="history-grid">
-            <div className="vm-modern-card">
-              <span className="vm-modern-badge">01</span>
-              <h3 className="vm-modern-title">Our Vision</h3>
-              <p className="vm-modern-text">
-                As a group of initiatives, we aim to develop, advance, and
-                redefine how business operates across our fields — creating
-                outcomes that benefit both society and the economy.
-              </p>
-            </div>
-            <div className="vm-modern-card">
-              <span className="vm-modern-badge">02</span>
-              <h3 className="vm-modern-title">Our Mission</h3>
-              <p className="vm-modern-text">
-                To grow together with a single purpose by integrating IT, Luxury
-                Gifting, Education, Automotive, and Tourism — building a strong,
-                connected business ecosystem worldwide.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════
-          GROW FASTER
-      ══════════════════════════ */}
-      <section className="grow-modern" ref={growRef}>
-        <div className="container">
-          <div className="grow-grid">
-            <div className="grow-images">
-              <img
-                className="grow-main-img"
-                src="/assets/img/about/ugi-website-banners-e1672753477412.webp"
-                alt="UGI Operations"
-              />
-              <div className="grow-stats">
-                <div className="stat-box">
-                  <h4 data-count="32" data-suffix="K+">32K+</h4>
-                  <p>Projects</p>
-                </div>
-                <div className="stat-box">
-                  <h4 data-count="1170" data-suffix="+">1170+</h4>
-                  <p>Employees</p>
-                </div>
-                <div className="stat-box">
-                  <h4 data-count="64" data-suffix="+">64+</h4>
-                  <p>Events</p>
-                </div>
-                <div className="stat-box">
-                  <h4 data-count="23" data-suffix="+">23+</h4>
-                  <p>Locations</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="grow-content">
-              <div className="grow-content-inner">
-                <h2>
-                  Grow Faster.
-                  <br />
-                  Think Bigger.
-                </h2>
-                <p className="grow-desc">
-                  United Group of Initiatives is headquartered in Dubai and was
-                  initiated as a way to bring different business sectors into
-                  one unified ecosystem.
-                </p>
-                <div className="grow-features">
-                  <div className="feat-row">
-                    <div className="feat-icon">⚖️</div>
-                    <div className="feat-text">
-                      <h4>Law Abiding</h4>
-                      <p>
-                        Committed to achieving our objectives while strictly
-                        adhering to international and local laws.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="feat-row">
-                    <div className="feat-icon">🎯</div>
-                    <div className="feat-text">
-                      <h4>Disciplined</h4>
-                      <p>
-                        We meet objectives with precision and punctuality thanks
-                        to our unshakeable ideals of teamwork.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="feat-row">
-                    <div className="feat-icon">💎</div>
-                    <div className="feat-text">
-                      <h4>Transparent</h4>
-                      <p>
-                        Operating as an open book, we follow the path of being
-                        honest and delivering pristine results.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    
+    
       {/* ══════════════════════════
           FOUNDER'S NOTE
       ══════════════════════════ */}
@@ -364,12 +231,7 @@ const About = () => {
         </section>
       </div>
 
-      {/* ══════════════════════════
-          TIMELINE
-      ══════════════════════════ */}
-      <div ref={timelineRef} className="timeline-parallax-wrapper">
-        <TimelineSection />
-      </div>
+      
 
     </div>
   );

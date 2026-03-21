@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CinematicBanner from "../CinematicBanner";
 import "./initiativesdetails.css";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -69,101 +70,6 @@ const INITIATIVES = {
 };
 
 /* ─────────────────────────────────────────────────────────────
-   Cinematic Banner — matches About hero style exactly
-───────────────────────────────────────────────────────────── */
-const InitiativesBanner = () => {
-  const bannerRef = useRef(null);
-
-  useEffect(() => {
-    let ctx = gsap.context(() => {
-      // Parallax scroll on bg image (same as About hero)
-      gsap.to(".init-hero-bg", {
-        yPercent: 30,
-        ease: "none",
-        scrollTrigger: {
-          trigger: bannerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-        },
-      });
-
-      // Content stagger entry
-      gsap.from(".init-hero-content > *", {
-        y: 60,
-        opacity: 0,
-        duration: 1.2,
-        stagger: 0.18,
-        ease: "power3.out",
-        delay: 0.3,
-      });
-
-      // Corner accents fade in
-      gsap.from(".init-hero-corner", {
-        scale: 0,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.15,
-        ease: "power2.out",
-        delay: 0.9,
-      });
-    }, bannerRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  return (
-    <section className="init-hero" ref={bannerRef}>
-      {/* Parallax bg */}
-      <img
-        className="init-hero-bg"
-        src="/assets/img/ugi-banner-initiatives-1.jpg"
-        alt=""
-        aria-hidden="true"
-      />
-
-      {/* Layered overlays — bottom vignette fades into page bg */}
-      <div className="init-hero-overlay" />
-      <div className="init-hero-vignette" />
-
-      {/* Decorative corner brackets */}
-      <div className="init-hero-corner init-hero-corner--tl" />
-      <div className="init-hero-corner init-hero-corner--br" />
-
-      {/* Centered content */}
-      <div className="container">
-        <div className="init-hero-content">
-          <span className="init-hero-badge">UGI — Initiatives</span>
-
-          <h1 className="init-hero-title">
-            Our Roots That
-            <br />
-            Connect Us
-          </h1>
-
-          <p className="init-hero-sub">
-            A diverse family of industries united under one vision.
-          </p>
-
-          {/* Gold ornamental divider */}
-          <div className="init-hero-ornament">
-            <span className="init-ornament-line" />
-            <span className="init-ornament-diamond">◆</span>
-            <span className="init-ornament-line" />
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll hint */}
-      <div className="init-hero-scroll-hint">
-        <span className="init-scroll-line" />
-        <span className="init-scroll-label">Scroll</span>
-      </div>
-    </section>
-  );
-};
-
-/* ─────────────────────────────────────────────────────────────
    Main Page
 ───────────────────────────────────────────────────────────── */
 const InitiativesDetails = () => {
@@ -183,7 +89,19 @@ const InitiativesDetails = () => {
 
   return (
     <>
-      <InitiativesBanner />
+      <CinematicBanner
+        image="/assets/img/ugi-banner-initiatives-1.jpg"
+        eyebrow="UGI — Initiatives"
+        title={
+          <>
+            Our Roots That
+            <br />
+            Connect Us
+          </>
+        }
+        sub="A diverse family of industries united under one vision."
+        height="100vh"
+      />
 
       <section className="initiatives-details-section">
         <div className="container">

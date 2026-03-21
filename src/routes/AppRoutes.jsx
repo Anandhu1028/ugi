@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "../pages/Home/HomePage";
 import AboutPage from "../pages/AboutPage/AboutPage";
+import ChairmanPage from "../pages/AboutPage/ChairmanPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
 import CsrPage from "../pages/CsrPage/CsrPage";
 import CareerPage from "../pages/CareerPage/CareerPage";
@@ -10,26 +11,24 @@ import EventsPage from "../pages/EventsPage/EventsPage";
 import GalleryPage from "../pages/GalleryPage/GalleryPage";
 import EventsDetailedPage from "../pages/EventsDetailedPage/EventsDetailedPage";
 
-
-
-
-
 const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/"               element={<HomePage />} />
+        <Route path="/about"          element={<AboutPage />} />
+        <Route path="/about/:section" element={<AboutPage />} />
+        <Route path="/contact"        element={<ContactPage />} />
+        <Route path="/csr"            element={<CsrPage />} />
+        <Route path="/career"         element={<CareerPage />} />
+        <Route path="/careers/:jobId" element={<JobdetailsPage />} />
+        <Route path="/initiatives"    element={<InitiativesDetails />} />
+        <Route path="/events"         element={<EventsPage />} />
+        <Route path="/events/:slug"   element={<EventsDetailedPage />} />
+        <Route path="/gallery"        element={<GalleryPage />} />
+        <Route path="/about/chairman" element={<ChairmanPage />} />
+        <Route path = "/about/history" element={<JourneyPage />} />
         
-       
-        <Route path="/" element={<HomePage />} />
-         <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-         <Route path="/csr" element={<CsrPage />} />
-         <Route path="/career" element={<CareerPage />} />
-         <Route path="/careers/:jobId" element={<JobdetailsPage />} />
-         <Route path="/initiatives" element={<InitiativesDetails />} />
-         <Route path="/events" element={<EventsPage />} />
-        <Route path="/events/:slug" element={<EventsDetailedPage />} />
-         <Route path="/gallery" element={<GalleryPage />} />
       </Routes>
     </BrowserRouter>
   );

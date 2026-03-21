@@ -70,7 +70,6 @@
   z-index: 1;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border-gold);
   box-shadow: var(--shadow-lg);
   max-height: 680px;
 }
